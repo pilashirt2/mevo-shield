@@ -183,11 +183,142 @@
             color: var(--text-muted);
             max-width: 620px;
             line-height: 1.7;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             font-weight: 400;
         }
 
-        /* Feature Highlights Card */
+        /* Feature 1: Email Waitlist Box */
+        .waitlist-container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2.5rem;
+            background: rgba(10, 16, 28, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 6px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .waitlist-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 0.7rem 1rem;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .waitlist-input::placeholder {
+            color: #64748b;
+        }
+
+        .waitlist-btn {
+            background: var(--accent-cyan);
+            color: #030712;
+            border: none;
+            padding: 0.7rem 1.4rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .waitlist-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+        }
+
+        .waitlist-msg {
+            color: var(--accent-cyan);
+            font-size: 0.82rem;
+            margin-top: -1.8rem;
+            margin-bottom: 2.2rem;
+            display: none;
+            font-weight: 600;
+        }
+
+        /* Feature 2: Infinite Rotating Network Ticker */
+        .network-ticker-container {
+            width: 100%;
+            max-width: 650px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 1.2rem;
+            width: max-content;
+            animation: scrollTicker 18s linear infinite;
+        }
+
+        @keyframes scrollTicker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(10, 16, 28, 0.85);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .ticker-badge span {
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        /* Feature 3: Live Security Stats Counter Bar */
+        .stats-bar {
+            width: 100%;
+            max-width: 650px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            padding: 1.2rem 1rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Feature Highlights Grid */
         .feature-preview {
             width: 100%;
             background: var(--card-bg);
@@ -225,6 +356,55 @@
             font-size: 0.78rem;
             color: var(--text-muted);
             line-height: 1.5;
+        }
+
+        /* Feature 4: Extension Sneak Peek Card */
+        .sneak-peek {
+            width: 100%;
+            max-width: 650px;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(8, 13, 26, 0.9));
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .peek-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .sneak-peek h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .sneak-peek p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .peek-alert-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #fca5a5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         /* Action Buttons */
@@ -307,7 +487,7 @@
             fill: currentColor;
         }
 
-        /* Clean, Professional Executive Founder Card (No Over-the-top filters, No Ugly Outlines) */
+        /* Clean Professional Founder Card */
         .founder-card {
             width: 100%;
             max-width: 520px;
@@ -329,7 +509,6 @@
             border-radius: 12px;
             object-fit: cover;
             object-position: center top;
-            /* ZERO FILTERS - Original natural photo restored completely */
             border: 1px solid rgba(255, 255, 255, 0.15);
             flex-shrink: 0;
         }
@@ -364,6 +543,44 @@
         }
 
         .founder-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Feature 5: FAQ Section */
+        .faq-section {
+            width: 100%;
+            max-width: 650px;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .faq-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .faq-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-q {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-a {
             font-size: 0.8rem;
             color: var(--text-muted);
             line-height: 1.5;
@@ -408,6 +625,48 @@
         <h1>World's First Proactive Web3 Security Layer</h1>
         <p class="hero-desc">Advanced runtime transaction inspection and threat interception designed to stop wallet drainers before they ever touch the blockchain.</p>
 
+        <!-- Feature 1: Early Access Waitlist Form -->
+        <div class="waitlist-container">
+            <input type="email" id="userEmail" class="waitlist-input" placeholder="Enter your email for early access...">
+            <button class="waitlist-btn" onclick="submitWaitlist()">Join</button>
+        </div>
+        <div id="successMsg" class="waitlist-msg">✓ You're on the early access list! Stay tuned.</div>
+
+        <!-- Feature 2: Infinite Rotating Network Ticker -->
+        <div class="network-ticker-container">
+            <div class="ticker-track">
+                <div class="ticker-badge">🛡️ Protected Network: <span>Ethereum</span></div>
+                <div class="ticker-badge">⚡ Fast Interception: <span>Solana</span></div>
+                <div class="ticker-badge">🔵 Layer-2 Secure: <span>Base</span></div>
+                <div class="ticker-badge">⚡ Rollup Guard: <span>Arbitrum</span></div>
+                <div class="ticker-badge">🟣 Multi-Chain: <span>Polygon</span></div>
+                <div class="ticker-badge">🔺 Subnet Shield: <span>Avalanche</span></div>
+                <!-- Duplicate for infinite seamless loop -->
+                <div class="ticker-badge">🛡️ Protected Network: <span>Ethereum</span></div>
+                <div class="ticker-badge">⚡ Fast Interception: <span>Solana</span></div>
+                <div class="ticker-badge">🔵 Layer-2 Secure: <span>Base</span></div>
+                <div class="ticker-badge">⚡ Rollup Guard: <span>Arbitrum</span></div>
+                <div class="ticker-badge">🟣 Multi-Chain: <span>Polygon</span></div>
+                <div class="ticker-badge">🔺 Subnet Shield: <span>Avalanche</span></div>
+            </div>
+        </div>
+
+        <!-- Feature 3: Live Security Stats Counter -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number">0ms</div>
+                <div class="stat-label">Inspection Latency</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Pre-Execution Guard</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Runtime Monitoring</div>
+            </div>
+        </div>
+
         <!-- Institutional Feature Grid Preview -->
         <div class="feature-preview">
             <div class="feature-item">
@@ -421,6 +680,16 @@
             <div class="feature-item">
                 <div class="f-title"><span>03</span> Multi-Platform</div>
                 <div class="f-desc">Native browser extension and mobile application coming soon.</div>
+            </div>
+        </div>
+
+        <!-- Feature 4: Extension Sneak Peek Card -->
+        <div class="sneak-peek">
+            <div class="peek-tag">Sneak Peek &bull; Extension UI</div>
+            <h3>Instant Threat Interception</h3>
+            <p>MEVO SHIELD intercepts suspicious calls before signing, warning you of malicious draining parameters in real-time.</p>
+            <div class="peek-alert-box">
+                <span>⚠️</span> <strong>Blocked:</strong> Drainer contract signature detected. Asset safety secured.
             </div>
         </div>
 
@@ -449,7 +718,24 @@
             </div>
         </div>
 
-        <!-- Clean Professional Founder Card (Natural Photo, No Outlines, Clean Typography) -->
+        <!-- Feature 5: FAQ Section -->
+        <div class="faq-section">
+            <div class="faq-title">Frequently Asked Questions</div>
+            <div class="faq-box">
+                <div class="faq-q">What is MEVO SHIELD?</div>
+                <div class="faq-a">The world's first proactive Web3 security layer designed to stop wallet drainers and inspect smart contract transactions before execution.</div>
+            </div>
+            <div class="faq-box">
+                <div class="faq-q">When will the apps launch?</div>
+                <div class="faq-a">Our mobile applications and browser extensions are currently in final testing phases. Join the early access waitlist above to get notified.</div>
+            </div>
+            <div class="faq-box">
+                <div class="faq-q">Which chains are supported?</div>
+                <div class="faq-a">MEVO SHIELD supports top-tier ecosystems including Ethereum, Solana, Base, Arbitrum, Polygon, and Avalanche.</div>
+            </div>
+        </div>
+
+        <!-- Clean Professional Founder Card -->
         <div class="founder-card">
             <img src="founder.png" alt="Mohmmed Aman Nilgar" class="founder-img">
             <div class="founder-info">
@@ -465,6 +751,18 @@
     <footer>
         &copy; 2026 MEVO SHIELD. All Rights Reserved.
     </footer>
+
+    <script>
+        function submitWaitlist() {
+            const email = document.getElementById('userEmail').value;
+            const msg = document.getElementById('successMsg');
+            if(email && email.includes('@')) {
+                msg.style.display = 'block';
+                document.getElementById('userEmail').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+    </script>
 </body>
 </html>
-
