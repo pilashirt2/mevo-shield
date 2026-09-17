@@ -7,321 +7,393 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-deep: #030712;
+            --card-bg: rgba(13, 20, 35, 0.75);
+            --border-glow: rgba(0, 240, 255, 0.18);
+            --accent-cyan: #00f0ff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
         body {
-            background-color: #020408;
-            color: #ffffff;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
             font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 2rem 1.5rem;
             position: relative;
             overflow-x: hidden;
-            perspective: 1200px;
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 10% 90%, rgba(30, 58, 138, 0.15) 0%, transparent 50%);
         }
 
-        /* Deep Immersive Cyberpunk Lighting Mesh */
+        /* Subtle Cyber Grid Overlay */
         body::before {
             content: '';
             position: absolute;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(2, 4, 8, 0) 70%);
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            inset: 0;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
             z-index: 0;
-            filter: blur(100px);
             pointer-events: none;
         }
 
-        /* Borderless Floating 3D Stage */
-        .stage {
+        /* Top Navigation Bar */
+        nav {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-brand img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--accent-cyan);
+            object-fit: cover;
+        }
+
+        .nav-brand span {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .network-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+            0% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.3); }
+            100% { opacity: 0.4; transform: scale(0.9); }
+        }
+
+        /* Main Hero Container */
+        .hero-wrapper {
             position: relative;
             z-index: 2;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            padding: 3rem 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 700px;
-            width: 100%;
             text-align: center;
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
         }
 
-        /* Native 3D Sci-Fi HUD Logo Core */
-        .logo-core {
+        /* Large Institutional Logo Frame */
+        .hero-logo-frame {
             position: relative;
-            width: 130px;
-            height: 130px;
+            width: 110px;
+            height: 110px;
             margin-bottom: 2rem;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
             display: flex;
             align-items: center;
             justify-content: center;
-            transform-style: preserve-3d;
-            animation: coreFloat 5s ease-in-out infinite;
+            animation: floatLogo 4s ease-in-out infinite;
         }
 
-        @keyframes coreFloat {
-            0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
-            50% { transform: translateY(-12px) rotateX(5deg) rotateY(-5deg); }
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
-        /* Outer Rotating Cyber Ring */
-        .logo-core::after {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            border-radius: 50%;
-            border: 2px dashed rgba(0, 240, 255, 0.4);
-            animation: spinRing 15s linear infinite;
-        }
-
-        @keyframes spinRing {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .logo-core img {
-            width: 120px;
-            height: 120px;
+        .hero-logo-frame img {
+            width: 95px;
+            height: 95px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(0, 240, 255, 0.8);
-            box-shadow: 0 0 40px rgba(0, 240, 255, 0.5),
-                        inset 0 0 15px rgba(0, 240, 255, 0.4);
+            border: 2px solid rgba(0, 240, 255, 0.5);
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(0, 240, 255, 0.2);
         }
 
-        /* True 3D Extruded Title */
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
+        /* Typography */
+        .badge-pill {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(0, 240, 255, 0.06);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
             text-transform: uppercase;
-            background: linear-gradient(180deg, #ffffff 10%, #00f0ff 100%);
+            letter-spacing: 2.5px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #ffffff 30%, #00f0ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 15px 30px rgba(0, 240, 255, 0.4));
-            transform: translateZ(40px);
-            animation: textEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        @keyframes textEntrance {
-            from { opacity: 0; transform: translateY(30px) translateZ(0px); }
-            to { opacity: 1; transform: translateY(0) translateZ(40px); }
-        }
-
-        /* Modern 3D Layered Tagline */
-        p.tagline {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            margin-bottom: 2.5rem;
+        p.hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 620px;
             line-height: 1.7;
+            margin-bottom: 2.5rem;
             font-weight: 400;
-            max-width: 600px;
-            transform: translateZ(20px);
-            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
         }
 
-        /* Cyberpunk 3D Badge */
-        .coming-soon-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 0.7rem 2.2rem;
-            background: rgba(0, 240, 255, 0.04);
-            border: 1px solid rgba(0, 240, 255, 0.4);
-            border-radius: 100px;
-            font-size: 0.9rem;
+        /* Feature Highlights Card (Institutional Grid Style) */
+        .feature-preview {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 1.8rem;
+            margin-bottom: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .feature-item {
+            text-align: left;
+            padding: 0.5rem;
+        }
+
+        .feature-item .f-title {
+            font-size: 0.85rem;
             font-weight: 700;
-            color: #00f0ff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2), inset 0 0 15px rgba(0, 240, 255, 0.1);
-            margin-bottom: 2.8rem;
-            backdrop-filter: blur(10px);
-            transform: translateZ(25px);
+            color: #fff;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .coming-soon-badge::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: #00f0ff;
-            border-radius: 50%;
-            box-shadow: 0 0 12px #00f0ff;
-            animation: pulseGlow 1.5s infinite;
+        .feature-item .f-title span {
+            color: var(--accent-cyan);
         }
 
-        @keyframes pulseGlow {
-            0% { transform: scale(0.9); opacity: 0.6; }
-            50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 20px #00f0ff; }
-            100% { transform: scale(0.9); opacity: 0.6; }
+        .feature-item .f-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        /* Action Buttons Container */
-        .stores {
+        /* Action Buttons */
+        .cta-container {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
+            gap: 1rem;
             flex-wrap: wrap;
             margin-bottom: 2.5rem;
-            transform: translateZ(30px);
+            width: 100%;
         }
 
         .store-btn {
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(8, 14, 26, 0.9);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            padding: 0.9rem 1.6rem;
-            border-radius: 16px;
-            color: #e2e8f0;
-            font-size: 0.9rem;
+            background: rgba(10, 16, 28, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.85rem 1.6rem;
+            border-radius: 12px;
+            color: #cbd5e1;
+            font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
-            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         .store-btn:hover {
-            border-color: rgba(0, 240, 255, 0.8);
-            background: rgba(0, 240, 255, 0.08);
-            color: #ffffff;
-            transform: translateY(-5px) translateZ(10px);
-            box-shadow: 0 15px 40px rgba(0, 240, 255, 0.3);
+            border-color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.06);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
         }
 
         .store-btn svg {
-            width: 22px;
-            height: 22px;
-            fill: #ffffff;
+            width: 20px;
+            height: 20px;
+            fill: #fff;
         }
 
-        /* Floating Social Matrix */
-        .social-section {
+        /* Social & Footer */
+        .social-row {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-            transform: translateZ(20px);
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .social-icon {
+        .social-chip {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: rgba(8, 14, 26, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            background: rgba(10, 16, 28, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
             color: #cbd5e1;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
 
-        .social-icon.active:hover {
-            border-color: #00f0ff;
-            color: #00f0ff;
-            background: rgba(0, 240, 255, 0.1);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
-            transform: translateY(-5px) scale(1.1);
+        .social-chip.active:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
         }
 
-        .social-icon.inactive {
-            opacity: 0.25;
+        .social-chip.inactive {
+            opacity: 0.3;
             cursor: not-allowed;
         }
 
-        .social-icon svg {
-            width: 20px;
-            height: 20px;
+        .social-chip svg {
+            width: 18px;
+            height: 18px;
             fill: currentColor;
         }
 
-        /* Elite Founder Signature */
-        .founder-footer {
-            font-size: 0.85rem;
-            color: #64748b;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding-top: 1.8rem;
+        footer {
+            margin-top: auto;
             width: 100%;
-            max-width: 400px;
-            transform: translateZ(15px);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: #64748b;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .founder-footer span {
-            color: #00f0ff;
-            font-weight: 800;
-            text-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+        footer span {
+            color: var(--accent-cyan);
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
 
-    <div class="stage" id="stageCard">
-        <!-- Native 3D Embedded Cyber Core Logo -->
-        <div class="logo-core">
-            <img src="logo.png" alt="MEVO SHIELD Logo">
+    <!-- Top Navigation -->
+    <nav>
+        <a href="#" class="nav-brand">
+            <img src="logo.png" alt="MEVO">
+            <span>MEVO SHIELD</span>
+        </a>
+        <div class="network-status">
+            <div class="status-dot"></div>
+            Mainnet Deploying
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-wrapper">
+        <div class="hero-logo-frame">
+            <img src="logo.png" alt="MEVO SHIELD">
         </div>
 
-        <h1>MEVO SHIELD</h1>
-        <p class="tagline">The world's first proactive Web3 transaction security layer. Stopping wallet drainers before they hit the blockchain.</p>
-        
-        <div class="coming-soon-badge">Coming Soon</div>
+        <div class="badge-pill">Coming Soon</div>
 
-        <div class="stores">
+        <h1>World's First Proactive Web3 Security Layer</h1>
+        <p class="hero-desc">Advanced runtime transaction inspection and threat interception designed to stop wallet drainers before they ever touch the blockchain.</p>
+
+        <!-- Institutional Feature Grid Preview -->
+        <div class="feature-preview">
+            <div class="feature-item">
+                <div class="f-title"><span>01</span> Pre-Execution Check</div>
+                <div class="f-desc">Analyzes smart contract signatures and malicious payloads instantly.</div>
+            </div>
+            <div class="feature-item">
+                <div class="f-title"><span>02</span> Zero-Drain Protection</div>
+                <div class="f-desc">Blocks unauthorized token approvals and malicious permit requests.</div>
+            </div>
+            <div class="feature-item">
+                <div class="f-title"><span>03</span> Multi-Platform</div>
+                <div class="f-desc">Native browser extension and mobile application coming soon.</div>
+            </div>
+        </div>
+
+        <!-- Download CTAs -->
+        <div class="cta-container">
             <a href="#" class="store-btn">
                 <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-13.6 69.5-34.3z"/></svg>
                 <span>App Store Soon</span>
             </a>
-
             <a href="#" class="store-btn">
                 <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25 25.3 25 44.8v422.4c0 19.5 9 38 22 44.8l258.4-258.4L47 0zm425.2 225.6l-58.9-34.1-67.7 67.7 67.7 67.7 58.9-34.1c19.8-11.5 19.8-32.6 0-43.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                 <span>Google Play Soon</span>
             </a>
         </div>
 
-        <div class="social-section">
-            <a href="https://x.com/MEVOSHIELD" target="_blank" class="social-icon active" title="Official X (Twitter)">
+        <!-- Social Icons -->
+        <div class="social-row">
+            <a href="https://x.com/MEVOSHIELD" target="_blank" class="social-chip active" title="Official X">
                 <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-
-            <div class="social-icon inactive" title="Telegram (Coming Soon)">
+            <div class="social-chip inactive" title="Telegram (Coming Soon)">
                 <svg viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.4l-34.5 162.5c-2.6 11.9-9.6 14.8-19.4 9.2l-53.8-39.6-25.9 25c-2.9 2.9-5.3 5.3-10.9 5.3l3.9-54.6 99.5-89.8c4.3-3.8-1-5.9-6.7-2.1l-123 77.5-53-16.5c-11.5-3.6-11.7-11.5 2.4-17l207.3-79.9c9.6-3.5 18 2.1 14.9 17.4z"/></svg>
             </div>
-
-            <div class="social-icon inactive" title="Discord (Coming Soon)">
+            <div class="social-chip inactive" title="Discord (Coming Soon)">
                 <svg viewBox="0 0 640 512"><path d="M524.5 69.8c-1.1-.3-2.2-.5-3.4-.8-36.9-16.9-76.2-29.5-117.4-37.3-1.6-.3-3.2.7-3.6 2.3-4.2 13.8-8.9 29.3-12.3 43.5-44.5-6.7-89.5-6.7-133.5 0-3.4-14.2-8.2-29.7-12.4-43.5-.4-1.6-2-2.6-3.6-2.3-41.2 7.8-80.5 20.4-117.4 37.3-1.2.3-2.3.6-3.4.8-91.8 136.2-117 269.8-104.1 402.2 0 .4.2.9.5 1.2 49 36 96.5 57.9 143.1 72.4 1.5.5 3.2 0 4.1-1.3 11-15 20.8-31 29.4-47.5.7-1.3 0-3-.1-4.2-15.1-5.7-29.6-12.6-43.4-20.5-1.5-.9-1.6-3-.2-4.1 3.1-2.3 6.1-4.7 9-7.2 1.1-.9 2.6-1 3.8-.3 86.4 39.5 180 39.5 265.8 0 1.2-.7 2.7-.6 3.8.3 2.9 2.5 5.9 4.9 9 7.2 1.4 1.1 1.3 3.2-.2 4.1-13.8 7.9-28.3 14.8-43.4 20.5-.1 1.2-.8 2.9-.1 4.2 8.6 16.5 18.4 32.5 29.4 47.5.9 1.3 2.6 1.8 4.1 1.3 46.6-14.5 94.1-36.4 143.1-72.4.3-.4.5-.8.5-1.2 14.8-153.1-23.7-287.4-105.7-402.2zM212.8 333.6c-27.1 0-49.5-25-49.5-55.6 0-30.7 22.1-55.6 49.5-55.6 27.6 0 50.1 25.1 49.5 55.6 0 30.6-22.1 55.6-49.5 55.6zm214.4 0c-27.1 0-49.5-25-49.5-55.6 0-30.7 22.1-55.6 49.5-55.6 27.6 0 50.1 25.1 49.5 55.6 0 30.6-22 55.6-49.5 55.6z"/></svg>
             </div>
         </div>
-
-        <div class="founder-footer">
-            Founder &bull; <span>Mohammadaman Nilgar</span>
-        </div>
     </div>
 
-    <!-- 3D Parallax Motion Script -->
-    <script>
-        const stage = document.getElementById('stageCard');
-        document.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth / 2 - e.pageX) / 30;
-            const y = (window.innerHeight / 2 - e.pageY) / 30;
-            stage.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-        });
-        document.addEventListener('mouseleave', () => {
-            stage.style.transform = `rotateY(0deg) rotateX(0deg)`;
-        });
-    </script>
-</body>
+    <!-- Footer -->
+    <footer>
+        Founder &bull; <span>Mohammadaman Nilgar</span> &copy; 2026 MEVO SHIELD. All Rights Reserved.
+    </body>
 </html>
