@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEVO SHIELD — Coming Soon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>MEVO SHIELD — World's First Proactive Web3 Security</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #05070b;
+            background-color: #030508;
             color: #ffffff;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -19,210 +19,288 @@
             padding: 2rem 1rem;
             position: relative;
             overflow-x: hidden;
+            perspective: 1000px;
         }
-        /* Ambient electric blue background glow */
+
+        /* Dynamic 3D Background Lighting Grids */
         body::before {
             content: '';
             position: absolute;
-            width: 450px;
-            height: 450px;
-            background: rgba(0, 240, 255, 0.07);
-            border-radius: 50%;
-            filter: blur(120px);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(5, 7, 11, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 0;
+            filter: blur(80px);
         }
-        .container {
+
+        /* 3D Immersive Wrapper Card */
+        .hero-card {
             position: relative;
-            z-index: 1;
-            text-align: center;
+            z-index: 2;
+            background: rgba(10, 15, 26, 0.7);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: 3rem 2rem;
             max-width: 650px;
             width: 100%;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                        0 0 40px rgba(0, 240, 255, 0.05);
+            transform-style: preserve-3d;
+            transition: transform 0.2s ease-out;
+            animation: cardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Smooth Entrance Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(40px) rotateX(10deg); }
+            to { opacity: 1; transform: translateY(0) rotateX(0deg); }
         }
 
-        .shield-icon {
-            font-size: 3.8rem;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.6));
-            animation: fadeInUp 0.8s ease forwards;
+        /* Inbuilt 3D Embedded Logo Frame */
+        .logo-frame {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.8rem auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0d1626, #040810);
+            border: 2px solid rgba(0, 240, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
+                        0 0 25px rgba(0, 240, 255, 0.25),
+                        inset 0 2px 5px rgba(0, 240, 255, 0.3);
+            animation: floatLogo 4s ease-in-out infinite;
         }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+
+        .logo-frame img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Typography with Kinetic Gradients */
         h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
             margin-bottom: 0.8rem;
-            background: linear-gradient(135deg, #ffffff 40%, #00f0ff 100%);
+            background: linear-gradient(135deg, #ffffff 30%, #00f0ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
+            text-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
         }
+
         p.tagline {
-            font-size: 1rem;
+            font-size: 1.02rem;
             color: #94a3b8;
             margin-bottom: 2rem;
             line-height: 1.6;
-            padding: 0 1rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.4s forwards;
+            font-weight: 400;
         }
+
+        /* Elite 3D Glass Badge */
         .coming-soon-badge {
-            display: inline-block;
-            padding: 0.6rem 1.8rem;
-            background: rgba(0, 240, 255, 0.08);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 2rem;
+            background: rgba(0, 240, 255, 0.06);
             border: 1px solid rgba(0, 240, 255, 0.3);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
             color: #00f0ff;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
-            margin-bottom: 2.2rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.6s forwards;
+            letter-spacing: 2.5px;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15), inset 0 0 10px rgba(0, 240, 255, 0.1);
+            margin-bottom: 2.5rem;
         }
+
+        .coming-soon-badge::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: #00f0ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00f0ff;
+            animation: pulseDot 1.5s infinite;
+        }
+
+        @keyframes pulseDot {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 15px #00f0ff; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+
+        /* Store Buttons Container */
         .stores {
             display: flex;
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.8s forwards;
+            margin-bottom: 2.2rem;
         }
+
         .store-btn {
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: #0d131f;
-            border: 1px solid #1e293b;
-            padding: 0.7rem 1.2rem;
-            border-radius: 10px;
+            gap: 12px;
+            background: rgba(13, 21, 35, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.8rem 1.4rem;
+            border-radius: 14px;
             color: #cbd5e1;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
+
         .store-btn:hover {
-            border-color: rgba(0, 240, 255, 0.5);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            border-color: rgba(0, 240, 255, 0.6);
+            background: rgba(0, 240, 255, 0.05);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 240, 255, 0.2);
         }
+
         .store-btn svg {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             fill: #ffffff;
         }
 
-        /* Social Icons Section */
+        /* Social Hub */
         .social-section {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 1s forwards;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
         }
+
         .social-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 42px;
-            height: 42px;
-            background: #0d131f;
-            border: 1px solid #1e293b;
+            width: 45px;
+            height: 45px;
+            background: rgba(13, 21, 35, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 50%;
             color: #cbd5e1;
             text-decoration: none;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
+
         .social-icon.active:hover {
             border-color: #00f0ff;
             color: #00f0ff;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-            transform: translateY(-2px);
+            background: rgba(0, 240, 255, 0.08);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            transform: translateY(-4px) scale(1.05);
         }
+
         .social-icon.inactive {
-            opacity: 0.4;
+            opacity: 0.3;
             cursor: not-allowed;
         }
+
         .social-icon svg {
-            width: 18px;
-            height: 18px;
+            width: 19px;
+            height: 19px;
             fill: currentColor;
         }
 
-        /* Founder Footer */
+        /* Founder Footer Signature */
         .founder-footer {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #64748b;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 1.2s forwards;
+            font-weight: 500;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.5rem;
         }
+
         .founder-footer span {
-            color: #94a3b8;
-            font-weight: 600;
+            color: #00f0ff;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="shield-icon">🛡️</div>
+
+    <div class="hero-card" id="heroCard">
+        <!-- Inbuilt 3D Embedded Logo -->
+        <div class="logo-frame">
+            <img src="logo.png" alt="MEVO SHIELD Logo">
+        </div>
+
         <h1>MEVO SHIELD</h1>
         <p class="tagline">The world's first proactive Web3 transaction security layer. Stopping wallet drainers before they hit the blockchain.</p>
         
         <div class="coming-soon-badge">Coming Soon</div>
 
         <div class="stores">
-            <!-- App Store Button -->
             <a href="#" class="store-btn">
                 <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-13.6 69.5-34.3z"/></svg>
                 <span>App Store Soon</span>
             </a>
 
-            <!-- Google Play Button -->
             <a href="#" class="store-btn">
                 <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25 25.3 25 44.8v422.4c0 19.5 9 38 22 44.8l258.4-258.4L47 0zm425.2 225.6l-58.9-34.1-67.7 67.7 67.7 67.7 58.9-34.1c19.8-11.5 19.8-32.6 0-43.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                 <span>Google Play Soon</span>
             </a>
         </div>
 
-        <!-- Social Media Row (X Active, Telegram/Discord Inactive) -->
         <div class="social-section">
-            <!-- Active X (Twitter) Link -->
             <a href="https://x.com/MEVOSHIELD" target="_blank" class="social-icon active" title="Official X (Twitter)">
                 <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
 
-            <!-- Inactive Telegram Icon -->
             <div class="social-icon inactive" title="Telegram (Coming Soon)">
                 <svg viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.4l-34.5 162.5c-2.6 11.9-9.6 14.8-19.4 9.2l-53.8-39.6-25.9 25c-2.9 2.9-5.3 5.3-10.9 5.3l3.9-54.6 99.5-89.8c4.3-3.8-1-5.9-6.7-2.1l-123 77.5-53-16.5c-11.5-3.6-11.7-11.5 2.4-17l207.3-79.9c9.6-3.5 18 2.1 14.9 17.4z"/></svg>
             </div>
 
-            <!-- Inactive Discord Icon -->
-            <div class="social-social-icon inactive social-icon inactive" title="Discord (Coming Soon)">
+            <div class="social-icon inactive" title="Discord (Coming Soon)">
                 <svg viewBox="0 0 640 512"><path d="M524.5 69.8c-1.1-.3-2.2-.5-3.4-.8-36.9-16.9-76.2-29.5-117.4-37.3-1.6-.3-3.2.7-3.6 2.3-4.2 13.8-8.9 29.3-12.3 43.5-44.5-6.7-89.5-6.7-133.5 0-3.4-14.2-8.2-29.7-12.4-43.5-.4-1.6-2-2.6-3.6-2.3-41.2 7.8-80.5 20.4-117.4 37.3-1.2.3-2.3.6-3.4.8-91.8 136.2-117 269.8-104.1 402.2 0 .4.2.9.5 1.2 49 36 96.5 57.9 143.1 72.4 1.5.5 3.2 0 4.1-1.3 11-15 20.8-31 29.4-47.5.7-1.3 0-3-.1-4.2-15.1-5.7-29.6-12.6-43.4-20.5-1.5-.9-1.6-3-.2-4.1 3.1-2.3 6.1-4.7 9-7.2 1.1-.9 2.6-1 3.8-.3 86.4 39.5 180 39.5 265.8 0 1.2-.7 2.7-.6 3.8.3 2.9 2.5 5.9 4.9 9 7.2 1.4 1.1 1.3 3.2-.2 4.1-13.8 7.9-28.3 14.8-43.4 20.5-.1 1.2-.8 2.9-.1 4.2 8.6 16.5 18.4 32.5 29.4 47.5.9 1.3 2.6 1.8 4.1 1.3 46.6-14.5 94.1-36.4 143.1-72.4.3-.4.5-.8.5-1.2 14.8-153.1-23.7-287.4-105.7-402.2zM212.8 333.6c-27.1 0-49.5-25-49.5-55.6 0-30.7 22.1-55.6 49.5-55.6 27.6 0 50.1 25.1 49.5 55.6 0 30.6-22.1 55.6-49.5 55.6zm214.4 0c-27.1 0-49.5-25-49.5-55.6 0-30.7 22.1-55.6 49.5-55.6 27.6 0 50.1 25.1 49.5 55.6 0 30.6-22 55.6-49.5 55.6z"/></svg>
             </div>
         </div>
 
-        <!-- Founder Footer -->
         <div class="founder-footer">
-            Founder &bull; <span>Mohammadaman Nilgar</span>
+            Founder &bull; <span>Mohammad Aman Nilgar</span>
         </div>
     </div>
+
+    <!-- 3D Interactive Motion Script -->
+    <script>
+        const card = document.getElementById('heroCard');
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+        document.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+    </script>
 </body>
 </html>
+
