@@ -9,8 +9,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg-deep: #030712;
-            --card-bg: #080d1a;
-            --border-subtle: rgba(255, 255, 255, 0.08);
+            --card-bg: rgba(8, 13, 26, 0.75);
+            --border-subtle: rgba(0, 240, 255, 0.15);
             --accent-cyan: #00f0ff;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
@@ -27,8 +27,8 @@
             position: relative;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 50% 10%, rgba(0, 240, 255, 0.06) 0%, transparent 40%),
-                radial-gradient(circle at 10% 90%, rgba(30, 58, 138, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 50% 10%, rgba(0, 240, 255, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 10% 90%, rgba(30, 58, 138, 0.12) 0%, transparent 55%);
         }
 
         /* Subtle Cyber Grid Overlay */
@@ -65,15 +65,16 @@
         }
 
         .nav-brand img {
-            width: 36px;
-            height: 36px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             border: 1px solid var(--accent-cyan);
             object-fit: cover;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
         }
 
         .nav-brand span {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
             letter-spacing: 1px;
             color: #fff;
@@ -84,7 +85,7 @@
             align-items: center;
             gap: 8px;
             background: rgba(0, 240, 255, 0.05);
-            border: 1px solid rgba(0, 240, 255, 0.2);
+            border: 1px solid rgba(0, 240, 255, 0.25);
             padding: 0.4rem 1rem;
             border-radius: 30px;
             font-size: 0.75rem;
@@ -114,7 +115,7 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 800px;
+            max-width: 850px;
             margin: auto;
             padding: 3rem 1.5rem;
             display: flex;
@@ -123,17 +124,19 @@
             text-align: center;
         }
 
-        /* Large Institutional Logo Frame */
+        /* Large Institutional Logo Frame (Bigger & Rounded 3x Style) */
         .hero-logo-frame {
             position: relative;
-            width: 110px;
-            height: 110px;
+            width: 150px;
+            height: 150px;
             margin-bottom: 2rem;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.25) 0%, rgba(3, 7, 18, 0.8) 75%);
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 2px solid rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.25), inset 0 0 20px rgba(0, 240, 255, 0.2);
             animation: floatLogo 4s ease-in-out infinite;
         }
 
@@ -143,20 +146,20 @@
         }
 
         .hero-logo-frame img {
-            width: 95px;
-            height: 95px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(0, 240, 255, 0.5);
-            box-shadow: 0 0 35px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(0, 240, 255, 0.2);
+            border: 2px solid rgba(0, 240, 255, 0.6);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
         }
 
         /* Typography */
         .badge-pill {
             display: inline-block;
-            padding: 0.5rem 1.5rem;
+            padding: 0.5rem 1.6rem;
             background: rgba(0, 240, 255, 0.06);
-            border: 1px solid rgba(0, 240, 255, 0.25);
+            border: 1px solid rgba(0, 240, 255, 0.3);
             border-radius: 100px;
             font-size: 0.8rem;
             font-weight: 700;
@@ -164,11 +167,11 @@
             text-transform: uppercase;
             letter-spacing: 2.5px;
             margin-bottom: 1.5rem;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.12);
         }
 
         h1 {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
             font-weight: 800;
             letter-spacing: -0.5px;
             line-height: 1.15;
@@ -179,11 +182,11 @@
         }
 
         p.hero-desc {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             color: var(--text-muted);
-            max-width: 620px;
+            max-width: 650px;
             line-height: 1.7;
-            margin-bottom: 2rem;
+            margin-bottom: 2.2rem;
             font-weight: 400;
         }
 
@@ -194,7 +197,7 @@
             display: flex;
             gap: 10px;
             margin-bottom: 2.5rem;
-            background: rgba(10, 16, 28, 0.8);
+            background: rgba(10, 16, 28, 0.85);
             border: 1px solid rgba(0, 240, 255, 0.3);
             padding: 6px;
             border-radius: 16px;
@@ -242,21 +245,21 @@
             font-weight: 600;
         }
 
-        /* Floating Ecosystem Grid Ticker */
+        /* Floating Ecosystem Grid Ticker (Bigger ~3x and Background Mixed) */
         .ecosystem-section-title {
             font-size: 0.85rem;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .ecosystem-ticker-container {
             width: 100%;
-            max-width: 750px;
+            max-width: 820px;
             overflow: hidden;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.8rem;
             position: relative;
             mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
@@ -264,9 +267,9 @@
 
         .ecosystem-track {
             display: flex;
-            gap: 1.2rem;
+            gap: 1.5rem;
             width: max-content;
-            animation: floatEcosystem 22s linear infinite;
+            animation: floatEcosystem 24s linear infinite;
         }
 
         @keyframes floatEcosystem {
@@ -277,40 +280,41 @@
         .eco-card {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(10, 18, 32, 0.85);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            padding: 0.7rem 1.4rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
+            gap: 16px;
+            background: linear-gradient(135deg, rgba(8, 16, 32, 0.9) 0%, rgba(3, 7, 18, 0.95) 100%);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            padding: 1rem 1.6rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 15px rgba(0, 240, 255, 0.04);
+            backdrop-filter: blur(12px);
             transition: 0.3s;
         }
 
         .eco-card:hover {
             border-color: var(--accent-cyan);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
+            transform: translateY(-4px);
         }
 
+        /* 3x Bigger Dotted Frame with Background Blend */
         .dotted-frame {
             position: relative;
-            width: 36px;
-            height: 36px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, transparent 75%);
+            width: 54px;
+            height: 54px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.25) 0%, rgba(3, 7, 18, 0.8) 75%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px dashed rgba(0, 240, 255, 0.4);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+            border: 1px dashed rgba(0, 240, 255, 0.5);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
         }
 
         .matrix-logo {
-            width: 22px;
-            height: 22px;
+            width: 34px;
+            height: 34px;
             object-fit: contain;
-            filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.7));
+            filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.7));
         }
 
         .eco-info {
@@ -318,13 +322,14 @@
         }
 
         .eco-name {
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #fff;
+            letter-spacing: 0.3px;
         }
 
         .eco-sub {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--accent-cyan);
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -333,30 +338,31 @@
         /* Live Security Stats Counter */
         .stats-bar {
             width: 100%;
-            max-width: 650px;
+            max-width: 680px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 2.5rem;
+            gap: 1.2rem;
+            margin-bottom: 2.8rem;
         }
 
         .stat-card {
             background: var(--card-bg);
             border: 1px solid var(--border-subtle);
-            padding: 1.2rem 1rem;
-            border-radius: 16px;
+            padding: 1.4rem 1rem;
+            border-radius: 18px;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
 
         .stat-number {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 800;
             color: var(--accent-cyan);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
         }
 
         .stat-label {
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -368,12 +374,12 @@
             width: 100%;
             background: var(--card-bg);
             border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-            padding: 1.8rem;
-            margin-bottom: 2.5rem;
+            border-radius: 22px;
+            padding: 2rem;
+            margin-bottom: 2.8rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.5rem;
             backdrop-filter: blur(20px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
@@ -384,13 +390,13 @@
         }
 
         .feature-item .f-title {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .feature-item .f-title span {
@@ -398,9 +404,9 @@
         }
 
         .feature-item .f-desc {
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         /* Action Buttons */
@@ -409,7 +415,7 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.8rem;
             width: 100%;
         }
 
@@ -418,11 +424,11 @@
             align-items: center;
             gap: 12px;
             background: rgba(10, 16, 28, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.85rem 1.6rem;
-            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0.9rem 1.8rem;
+            border-radius: 14px;
             color: #cbd5e1;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -431,10 +437,10 @@
 
         .store-btn:hover {
             border-color: var(--accent-cyan);
-            background: rgba(0, 240, 255, 0.06);
+            background: rgba(0, 240, 255, 0.08);
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.25);
         }
 
         .store-btn svg {
@@ -446,7 +452,7 @@
         /* Social Icons */
         .social-row {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             margin-bottom: 3rem;
         }
 
@@ -454,11 +460,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: rgba(10, 16, 28, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            background: rgba(10, 16, 28, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
             color: #cbd5e1;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -467,9 +473,9 @@
         .social-chip.active:hover {
             border-color: var(--accent-cyan);
             color: var(--accent-cyan);
-            background: rgba(0, 240, 255, 0.08);
+            background: rgba(0, 240, 255, 0.1);
             transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.35);
         }
 
         .social-chip.inactive {
@@ -478,59 +484,61 @@
         }
 
         .social-chip svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
         }
 
-        /* Clean Professional Founder Card */
+        /* Clean Professional Founder Card (Blended & Smooth) */
         .founder-card {
             width: 100%;
-            max-width: 520px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-            padding: 2rem;
+            max-width: 560px;
+            background: linear-gradient(135deg, rgba(8, 16, 32, 0.85) 0%, rgba(3, 7, 18, 0.95) 100%);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 22px;
+            padding: 2.2rem;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            gap: 1.8rem;
+            margin-bottom: 3.2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(0, 240, 255, 0.03);
             text-align: left;
+            backdrop-filter: blur(15px);
         }
 
         .founder-img {
-            width: 85px;
-            height: 95px;
-            border-radius: 12px;
+            width: 95px;
+            height: 105px;
+            border-radius: 16px;
             object-fit: cover;
             object-position: center top;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
             flex-shrink: 0;
         }
 
         .founder-info .f-badge {
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 700;
             color: var(--accent-cyan);
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
         }
 
         .founder-info h3 {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
             letter-spacing: 0.3px;
         }
 
         .founder-info .crypto-tag {
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
             font-weight: 500;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
 
         .founder-info .crypto-tag span {
@@ -539,24 +547,24 @@
         }
 
         .founder-info p {
-            font-size: 0.8rem;
+            font-size: 0.84rem;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         /* FAQ Section */
         .faq-section {
             width: 100%;
-            max-width: 650px;
-            margin-bottom: 3rem;
+            max-width: 680px;
+            margin-bottom: 3.2rem;
             text-align: left;
         }
 
         .faq-title {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
             text-align: center;
             letter-spacing: 0.5px;
         }
@@ -564,32 +572,33 @@
         .faq-box {
             background: var(--card-bg);
             border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            padding: 1.2rem;
-            margin-bottom: 0.8rem;
+            border-radius: 16px;
+            padding: 1.4rem;
+            margin-bottom: 0.9rem;
+            backdrop-filter: blur(10px);
         }
 
         .faq-q {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
         }
 
         .faq-a {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         /* Clean Footer */
         footer {
             margin-top: auto;
             width: 100%;
-            padding: 2rem;
+            padding: 2.2rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             color: #64748b;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -598,7 +607,6 @@
 </head>
 <body>
 
-    <!-- Top Navigation -->
     <nav>
         <a href="#" class="nav-brand">
             <img src="logo.png" alt="MEVO">
@@ -610,7 +618,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <div class="hero-wrapper">
         <div class="hero-logo-frame">
             <img src="logo.png" alt="MEVO SHIELD">
@@ -621,18 +628,15 @@
         <h1>World's First Proactive Web3 Security Layer</h1>
         <p class="hero-desc">Advanced runtime transaction inspection and threat interception designed to stop wallet drainers before they ever touch the blockchain.</p>
 
-        <!-- Early Access Waitlist Form -->
         <div class="waitlist-container">
             <input type="email" id="userEmail" class="waitlist-input" placeholder="Enter your email for early access...">
             <button class="waitlist-btn" onclick="submitWaitlist()">Join</button>
         </div>
         <div id="successMsg" class="waitlist-msg">✓ You're on the early access list! Stay tuned.</div>
 
-        <!-- Floating Ecosystem Grid Ticker -->
         <div class="ecosystem-section-title">Integrated Ecosystem Protection</div>
         <div class="ecosystem-ticker-container">
             <div class="ecosystem-track">
-                <!-- Ethereum -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="eth.jpg" alt="Ethereum" class="matrix-logo">
@@ -642,7 +646,6 @@
                         <div class="eco-sub">Mainnet Shield</div>
                     </div>
                 </div>
-                <!-- Solana -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="sol.jpg" alt="Solana" class="matrix-logo">
@@ -652,7 +655,6 @@
                         <div class="eco-sub">Fast Interception</div>
                     </div>
                 </div>
-                <!-- Base -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="base.jpg" alt="Base" class="matrix-logo">
@@ -662,7 +664,6 @@
                         <div class="eco-sub">Layer-2 Guard</div>
                     </div>
                 </div>
-                <!-- Arbitrum -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="arb.jpg" alt="Arbitrum" class="matrix-logo">
@@ -672,7 +673,6 @@
                         <div class="eco-sub">Rollup Secure</div>
                     </div>
                 </div>
-                <!-- Polygon -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="poly.jpg" alt="Polygon" class="matrix-logo">
@@ -682,7 +682,6 @@
                         <div class="eco-sub">Multi-Chain</div>
                     </div>
                 </div>
-                <!-- Avalanche -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="avax.jpg" alt="Avalanche" class="matrix-logo">
@@ -693,7 +692,6 @@
                     </div>
                 </div>
 
-                <!-- Duplicate set for seamless infinite loop -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="eth.jpg" alt="Ethereum" class="matrix-logo">
@@ -751,7 +749,6 @@
             </div>
         </div>
 
-        <!-- Live Security Stats Counter -->
         <div class="stats-bar">
             <div class="stat-card">
                 <div class="stat-number">0ms</div>
@@ -767,7 +764,6 @@
             </div>
         </div>
 
-        <!-- Institutional Feature Grid Preview -->
         <div class="feature-preview">
             <div class="feature-item">
                 <div class="f-title"><span>01</span> Pre-Execution Check</div>
@@ -783,7 +779,6 @@
             </div>
         </div>
 
-        <!-- Download CTAs -->
         <div class="cta-container">
             <a href="#" class="store-btn">
                 <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-13.6 69.5-34.3z"/></svg>
@@ -795,7 +790,6 @@
             </a>
         </div>
 
-        <!-- Social Icons -->
         <div class="social-row">
             <a href="https://x.com/MEVOSHIELD" target="_blank" class="social-chip active" title="Official X">
                 <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -808,7 +802,6 @@
             </div>
         </div>
 
-        <!-- FAQ Section -->
         <div class="faq-section">
             <div class="faq-title">Frequently Asked Questions</div>
             <div class="faq-box">
@@ -825,7 +818,6 @@
             </div>
         </div>
 
-        <!-- Clean Professional Founder Card -->
         <div class="founder-card">
             <img src="founder.png" alt="Mohmmed Aman Nilgar" class="founder-img">
             <div class="founder-info">
@@ -837,7 +829,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         &copy; 2026 MEVO SHIELD. All Rights Reserved.
     </footer>
