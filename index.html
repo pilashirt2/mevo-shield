@@ -187,7 +187,7 @@
             font-weight: 400;
         }
 
-        /* Feature Highlights Card (Institutional Grid Style) */
+        /* Feature Highlights Card */
         .feature-preview {
             width: 100%;
             background: var(--card-bg);
@@ -267,11 +267,11 @@
             fill: #fff;
         }
 
-        /* Social & Footer */
+        /* Social Icons */
         .social-row {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .social-chip {
@@ -307,21 +307,73 @@
             fill: currentColor;
         }
 
+        /* Founder Introduction Section Card */
+        .founder-card {
+            width: 100%;
+            max-width: 520px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            text-align: left;
+        }
+
+        .founder-img {
+            width: 85px;
+            height: 90px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+            flex-shrink: 0;
+        }
+
+        .founder-info .f-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .founder-info h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .founder-info .crypto-tag {
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .founder-info p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Clean Footer */
         footer {
             margin-top: auto;
             width: 100%;
             padding: 2rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #64748b;
             letter-spacing: 1px;
             text-transform: uppercase;
-        }
-
-        footer span {
-            color: var(--accent-cyan);
-            font-weight: 700;
         }
     </style>
 </head>
@@ -335,7 +387,7 @@
         </a>
         <div class="network-status">
             <div class="status-dot"></div>
-            Mainnet Deploying
+            Security Live Soon
         </div>
     </nav>
 
@@ -390,10 +442,22 @@
                 <svg viewBox="0 0 640 512"><path d="M524.5 69.8c-1.1-.3-2.2-.5-3.4-.8-36.9-16.9-76.2-29.5-117.4-37.3-1.6-.3-3.2.7-3.6 2.3-4.2 13.8-8.9 29.3-12.3 43.5-44.5-6.7-89.5-6.7-133.5 0-3.4-14.2-8.2-29.7-12.4-43.5-.4-1.6-2-2.6-3.6-2.3-41.2 7.8-80.5 20.4-117.4 37.3-1.2.3-2.3.6-3.4.8-91.8 136.2-117 269.8-104.1 402.2 0 .4.2.9.5 1.2 49 36 96.5 57.9 143.1 72.4 1.5.5 3.2 0 4.1-1.3 11-15 20.8-31 29.4-47.5.7-1.3 0-3-.1-4.2-15.1-5.7-29.6-12.6-43.4-20.5-1.5-.9-1.6-3-.2-4.1 3.1-2.3 6.1-4.7 9-7.2 1.1-.9 2.6-1 3.8-.3 86.4 39.5 180 39.5 265.8 0 1.2-.7 2.7-.6 3.8.3 2.9 2.5 5.9 4.9 9 7.2 1.4 1.1 1.3 3.2-.2 4.1-13.8 7.9-28.3 14.8-43.4 20.5-.1 1.2-.8 2.9-.1 4.2 8.6 16.5 18.4 32.5 29.4 47.5.9 1.3 2.6 1.8 4.1 1.3 46.6-14.5 94.1-36.4 143.1-72.4.3-.4.5-.8.5-1.2 14.8-153.1-23.7-287.4-105.7-402.2zM212.8 333.6c-27.1 0-49.5-25-49.5-55.6 0-30.7 22.1-55.6 49.5-55.6 27.6 0 50.1 25.1 49.5 55.6 0 30.6-22.1 55.6-49.5 55.6zm214.4 0c-27.1 0-49.5-25-49.5-55.6 0-30.7 22.1-55.6 49.5-55.6 27.6 0 50.1 25.1 49.5 55.6 0 30.6-22 55.6-49.5 55.6z"/></svg>
             </div>
         </div>
+
+        <!-- Founder Introduction Section Card -->
+        <div class="founder-card">
+            <img src="founder.png" alt="Mohmmed Aman Nilgar" class="founder-img">
+            <div class="founder-info">
+                <div class="f-badge">Lead Architect & Founder</div>
+                <h3>Mohmmed Aman Nilgar</h3>
+                <div class="crypto-tag">Crypto Native Since 2019</div>
+                <p>Pioneering proactive Web3 security infrastructure to safeguard decentralized assets and shield users from malicious exploits.</p>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        Founder &bull; <span>Mohammadaman Nilgar</span> &copy; 2026 MEVO SHIELD. All Rights Reserved.
-    </body>
+        &copy; 2026 MEVO SHIELD. All Rights Reserved.
+    </footer>
+</body>
 </html>
