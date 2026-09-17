@@ -124,7 +124,7 @@
             text-align: center;
         }
 
-        /* Large Institutional Logo Frame (Bigger & Rounded 3x Style) */
+        /* Large Institutional Logo Frame */
         .hero-logo-frame {
             position: relative;
             width: 150px;
@@ -245,7 +245,7 @@
             font-weight: 600;
         }
 
-        /* Floating Ecosystem Grid Ticker (Bigger ~3x and Background Mixed) */
+        /* Floating Ecosystem Grid Ticker (Vertical Round-Badge Style with Proper Spacing) */
         .ecosystem-section-title {
             font-size: 0.85rem;
             font-weight: 700;
@@ -267,7 +267,7 @@
 
         .ecosystem-track {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.8rem; /* Proper gap so items never look stuck together */
             width: max-content;
             animation: floatEcosystem 24s linear infinite;
         }
@@ -279,14 +279,16 @@
 
         .eco-card {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 16px;
-            background: linear-gradient(135deg, rgba(8, 16, 32, 0.9) 0%, rgba(3, 7, 18, 0.95) 100%);
+            text-align: center;
+            background: linear-gradient(135deg, rgba(8, 16, 32, 0.85) 0%, rgba(3, 7, 18, 0.95) 100%);
             border: 1px solid rgba(0, 240, 255, 0.25);
-            padding: 1rem 1.6rem;
-            border-radius: 20px;
+            padding: 1.4rem 1.8rem;
+            border-radius: 24px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 15px rgba(0, 240, 255, 0.04);
             backdrop-filter: blur(12px);
+            min-width: 150px;
             transition: 0.3s;
         }
 
@@ -296,40 +298,42 @@
             transform: translateY(-4px);
         }
 
-        /* 3x Bigger Dotted Frame with Background Blend */
+        /* Round Logo Container on Top */
         .dotted-frame {
             position: relative;
-            width: 54px;
-            height: 54px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.25) 0%, rgba(3, 7, 18, 0.8) 75%);
+            width: 58px;
+            height: 58px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.25) 0%, rgba(3, 7, 18, 0.9) 75%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px dashed rgba(0, 240, 255, 0.5);
+            border: 2px dashed rgba(0, 240, 255, 0.5);
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+            margin-bottom: 0.8rem;
         }
 
         .matrix-logo {
-            width: 34px;
-            height: 34px;
+            width: 32px;
+            height: 32px;
             object-fit: contain;
             filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.7));
         }
 
         .eco-info {
-            text-align: left;
+            text-align: center;
         }
 
         .eco-name {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: #fff;
             letter-spacing: 0.3px;
+            margin-bottom: 0.1rem;
         }
 
         .eco-sub {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--accent-cyan);
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -489,7 +493,7 @@
             fill: currentColor;
         }
 
-        /* Clean Professional Founder Card (Blended & Smooth) */
+        /* Clean Professional Founder Card */
         .founder-card {
             width: 100%;
             max-width: 560px;
@@ -607,6 +611,7 @@
 </head>
 <body>
 
+    <!-- Top Navigation -->
     <nav>
         <a href="#" class="nav-brand">
             <img src="logo.png" alt="MEVO">
@@ -618,6 +623,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <div class="hero-wrapper">
         <div class="hero-logo-frame">
             <img src="logo.png" alt="MEVO SHIELD">
@@ -628,15 +634,18 @@
         <h1>World's First Proactive Web3 Security Layer</h1>
         <p class="hero-desc">Advanced runtime transaction inspection and threat interception designed to stop wallet drainers before they ever touch the blockchain.</p>
 
+        <!-- Early Access Waitlist Form -->
         <div class="waitlist-container">
             <input type="email" id="userEmail" class="waitlist-input" placeholder="Enter your email for early access...">
             <button class="waitlist-btn" onclick="submitWaitlist()">Join</button>
         </div>
         <div id="successMsg" class="waitlist-msg">✓ You're on the early access list! Stay tuned.</div>
 
+        <!-- Floating Ecosystem Grid Ticker (Logo On Top, Name Below, Round Shape) -->
         <div class="ecosystem-section-title">Integrated Ecosystem Protection</div>
         <div class="ecosystem-ticker-container">
             <div class="ecosystem-track">
+                <!-- Ethereum -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="eth.jpg" alt="Ethereum" class="matrix-logo">
@@ -646,6 +655,7 @@
                         <div class="eco-sub">Mainnet Shield</div>
                     </div>
                 </div>
+                <!-- Solana -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="sol.jpg" alt="Solana" class="matrix-logo">
@@ -655,6 +665,7 @@
                         <div class="eco-sub">Fast Interception</div>
                     </div>
                 </div>
+                <!-- Base -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="base.jpg" alt="Base" class="matrix-logo">
@@ -664,6 +675,7 @@
                         <div class="eco-sub">Layer-2 Guard</div>
                     </div>
                 </div>
+                <!-- Arbitrum -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="arb.jpg" alt="Arbitrum" class="matrix-logo">
@@ -673,6 +685,7 @@
                         <div class="eco-sub">Rollup Secure</div>
                     </div>
                 </div>
+                <!-- Polygon -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="poly.jpg" alt="Polygon" class="matrix-logo">
@@ -682,6 +695,7 @@
                         <div class="eco-sub">Multi-Chain</div>
                     </div>
                 </div>
+                <!-- Avalanche -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="avax.jpg" alt="Avalanche" class="matrix-logo">
@@ -692,6 +706,7 @@
                     </div>
                 </div>
 
+                <!-- Duplicate set for seamless infinite loop -->
                 <div class="eco-card">
                     <div class="eco-icon dotted-frame">
                         <img src="eth.jpg" alt="Ethereum" class="matrix-logo">
@@ -749,6 +764,7 @@
             </div>
         </div>
 
+        <!-- Live Security Stats Counter -->
         <div class="stats-bar">
             <div class="stat-card">
                 <div class="stat-number">0ms</div>
@@ -764,6 +780,7 @@
             </div>
         </div>
 
+        <!-- Institutional Feature Grid Preview -->
         <div class="feature-preview">
             <div class="feature-item">
                 <div class="f-title"><span>01</span> Pre-Execution Check</div>
@@ -779,6 +796,7 @@
             </div>
         </div>
 
+        <!-- Download CTAs -->
         <div class="cta-container">
             <a href="#" class="store-btn">
                 <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-13.6 69.5-34.3z"/></svg>
@@ -790,6 +808,7 @@
             </a>
         </div>
 
+        <!-- Social Icons -->
         <div class="social-row">
             <a href="https://x.com/MEVOSHIELD" target="_blank" class="social-chip active" title="Official X">
                 <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -802,6 +821,7 @@
             </div>
         </div>
 
+        <!-- FAQ Section -->
         <div class="faq-section">
             <div class="faq-title">Frequently Asked Questions</div>
             <div class="faq-box">
@@ -818,6 +838,7 @@
             </div>
         </div>
 
+        <!-- Clean Professional Founder Card -->
         <div class="founder-card">
             <img src="founder.png" alt="Mohmmed Aman Nilgar" class="founder-img">
             <div class="founder-info">
@@ -829,6 +850,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         &copy; 2026 MEVO SHIELD. All Rights Reserved.
     </footer>
