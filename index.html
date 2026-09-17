@@ -9,8 +9,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg-deep: #030712;
-            --card-bg: rgba(13, 20, 35, 0.75);
-            --border-glow: rgba(0, 240, 255, 0.18);
+            --card-bg: rgba(8, 13, 24, 0.85);
+            --border-glow: rgba(0, 240, 255, 0.25);
             --accent-cyan: #00f0ff;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
@@ -307,31 +307,58 @@
             fill: currentColor;
         }
 
-        /* Founder Introduction Section Card */
+        /* True Elite Founder Card (Fixed Aspect Ratio & Theme Match) */
         .founder-card {
             width: 100%;
-            max-width: 520px;
+            max-width: 540px;
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 24px;
+            padding: 2.2rem;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.8rem;
             margin-bottom: 3rem;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            backdrop-filter: blur(25px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
             text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle Corner Glow Accent inside Card */
+        .founder-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(0, 240, 255, 0.08);
+            border-radius: 50%;
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .founder-img-wrapper {
+            position: relative;
+            flex-shrink: 0;
+            width: 95px;
+            height: 110px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
+            background: #000;
         }
 
         .founder-img {
-            width: 85px;
-            height: 90px;
-            border-radius: 14px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 2px solid var(--accent-cyan);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
-            flex-shrink: 0;
+            object-position: center 20%; /* Prevents head cutting by focusing on top-center */
+            /* Cyber-Blue & Black Theme Filter Integration */
+            filter: contrast(110%) brightness(95%) saturate(90%);
         }
 
         .founder-info .f-badge {
@@ -339,28 +366,34 @@
             font-weight: 700;
             color: var(--accent-cyan);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 0.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.3rem;
         }
 
         .founder-info h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 800;
             color: #fff;
             margin-bottom: 0.2rem;
+            letter-spacing: 0.5px;
         }
 
         .founder-info .crypto-tag {
             font-size: 0.75rem;
             color: var(--accent-cyan);
-            font-weight: 600;
-            margin-bottom: 0.4rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            display: inline-block;
+            background: rgba(0, 240, 255, 0.08);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
         }
 
         .founder-info p {
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Clean Footer */
@@ -443,14 +476,16 @@
             </div>
         </div>
 
-        <!-- Founder Introduction Section Card -->
+        <!-- Founder Card (Clean, Fixed Headshot & Elite Text) -->
         <div class="founder-card">
-            <img src="founder.png" alt="Mohmmed Aman Nilgar" class="founder-img">
+            <div class="founder-img-wrapper">
+                <img src="founder.png" alt="Mohmmed Aman Nilgar" class="founder-img">
+            </div>
             <div class="founder-info">
                 <div class="f-badge">Lead Architect & Founder</div>
                 <h3>Mohmmed Aman Nilgar</h3>
                 <div class="crypto-tag">Crypto Native Since 2019</div>
-                <p>Pioneering proactive Web3 security infrastructure to safeguard decentralized assets and shield users from malicious exploits.</p>
+                <p>Architecting proactive security infrastructure to eliminate smart contract exploits and protect Web3 assets worldwide.</p>
             </div>
         </div>
     </div>
