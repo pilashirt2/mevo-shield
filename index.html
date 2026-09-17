@@ -242,7 +242,7 @@
             font-weight: 600;
         }
 
-        /* Floating Ecosystem Grid Ticker (Video Style) */
+        /* Floating Ecosystem Grid Ticker with Dotted Cyber Effect */
         .ecosystem-section-title {
             font-size: 0.85rem;
             font-weight: 700;
@@ -293,17 +293,25 @@
             transform: translateY(-3px);
         }
 
-        .eco-icon {
-            width: 32px;
-            height: 32px;
+        /* Dotted Cyber Matrix & Transparent Logo Styling */
+        .dotted-frame {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, transparent 75%);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 1px dashed rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
         }
 
-        .eco-icon svg {
-            width: 30px;
-            height: 30px;
+        .matrix-logo {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.7));
         }
 
         .eco-info {
@@ -621,14 +629,14 @@
         </div>
         <div id="successMsg" class="waitlist-msg">✓ You're on the early access list! Stay tuned.</div>
 
-        <!-- Floating Ecosystem Grid Ticker with 100% Original Official Logos -->
+        <!-- Floating Ecosystem Grid Ticker with Direct Image Injection -->
         <div class="ecosystem-section-title">Integrated Ecosystem Protection</div>
         <div class="ecosystem-ticker-container">
             <div class="ecosystem-track">
                 <!-- Ethereum -->
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 784 1277" xmlns="http://www.w3.org/2000/svg"><path d="M392.07 0L383.5 28.1V871.4L392.07 880L784 650.5L392.07 0Z" fill="#8A92B2"/><path d="M392.07 0L0 650.5L392.07 880V472.5V0Z" fill="#627EEA"/><path d="M392.07 956.5L387.24 962.4V1270L392.07 1277L784 727.8L392.07 956.5Z" fill="#8A92B2"/><path d="M392.07 1277V956.5L0 727.8L392.07 1277Z" fill="#627EEA"/><path d="M392.07 880L784 650.5L392.07 472.5V880Z" fill="#454A75"/><path d="M0 650.5L392.07 880V472.5L0 650.5Z" fill="#26294B"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="eth.png" alt="Ethereum" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Ethereum</div>
@@ -637,8 +645,8 @@
                 </div>
                 <!-- Solana -->
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 398 312" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64.6 235.5h308.8c4.2 0 6.4 5.1 3.4 8.1l-50.5 50.5c-2.3 2.3-6.1 2.3-8.4 0L242.4 269c-2.3-2.3-6.1-2.3-8.4 0l-75.7 75.7c-2.3 2.3-6.1 2.3-8.4 0l-50.5-50.5c-3-3-0.8-8.1 3.4-8.1h30.8z" fill="url(#sol1)"/><path d="M373.4 117.8H64.6c-4.2 0-6.4-5.1-3.4-8.1l50.5-50.5c2.3-2.3 6.1-2.3 8.4 0l75.7 75.7c2.3 2.3 6.1 2.3 8.4 0l75.7-75.7c2.3-2.3 6.1-2.3 8.4 0l50.5 50.5c3 3 0.8 8.1-3.4 8.1z" fill="url(#sol2)"/><path d="M373.4 176.6H64.6c-4.2 0-6.4-5.1-3.4-8.1l50.5-50.5c2.3-2.3 6.1-2.3 8.4 0l75.7 75.7c2.3 2.3 6.1 2.3 8.4 0l75.7-75.7c2.3-2.3 6.1-2.3 8.4 0l50.5 50.5c3 3 0.8 8.1-3.4 8.1z" fill="url(#sol3)"/><defs><linearGradient id="sol1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient><linearGradient id="sol2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient><linearGradient id="sol3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient></defs></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="sol.png" alt="Solana" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Solana</div>
@@ -647,8 +655,8 @@
                 </div>
                 <!-- Base -->
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="#0052FF"/><path d="M50 20C33.4 20 20 33.4 20 50s13.4 30 30 30c11.2 0 21-6.1 26.2-15.2H50V43h30.8C80.2 36.5 76 30 70 25.4 64.6 21.3 57.6 20 50 20z" fill="#fff"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="base.png" alt="Base" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Base</div>
@@ -657,8 +665,8 @@
                 </div>
                 <!-- Arbitrum -->
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="250" cy="250" r="250" fill="#12AAFF"/><path d="M250 110L350 330H290L250 240L210 330H150L250 110Z" fill="#fff"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="arb.png" alt="Arbitrum" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Arbitrum</div>
@@ -667,8 +675,8 @@
                 </div>
                 <!-- Polygon -->
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 38 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.4 10.3l-5.9-3.4L20 5.4c-.7-.4-1.6-.4-2.3 0l-2.5 1.5-5.9 3.4c-.7.4-1.1 1.1-1.1 1.9v6.8c0 .7.4 1.5 1.1 1.9l5.9 3.4 2.5 1.5c.7.4 1.6.4 2.3 0l2.5-1.5 5.9-3.4c.7-.4 1.1-1.1 1.1-1.9v-6.8c0-.8-.4-1.5-1.1-1.9zm-9.4 8.2l-3.9-2.2 3.9-2.2 3.9 2.2-3.9 2.2z" fill="#8247E5"/><path d="M34.8 6.5l-3.9-2.2c-.7-.4-1.6-.4-2.3 0l-2.5 1.5v4.2l5.4 3.1v6.2l-5.4 3.1v4.2l2.5 1.5c.7.4 1.6.4 2.3 0l3.9-2.2c.7-.4 1.1-1.1 1.1-1.9V8.4c0-.8-.4-1.5-1.1-1.9z" fill="#7B3FE4" opacity="0.6"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="poly.png" alt="Polygon" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Polygon</div>
@@ -677,8 +685,8 @@
                 </div>
                 <!-- Avalanche -->
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="57.5" cy="57.5" r="57.5" fill="#E84142"/><path d="M57.5 25L85 72H68L57.5 52L47 72H30L57.5 25z" fill="#fff"/><path d="M38 80h39v7H38z" fill="#fff"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="avax.png" alt="Avalanche" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Avalanche</div>
@@ -686,10 +694,10 @@
                     </div>
                 </div>
 
-                <!-- Duplicate set for infinite smooth loop -->
+                <!-- Duplicate set for seamless infinite loop -->
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 784 1277" xmlns="http://www.w3.org/2000/svg"><path d="M392.07 0L383.5 28.1V871.4L392.07 880L784 650.5L392.07 0Z" fill="#8A92B2"/><path d="M392.07 0L0 650.5L392.07 880V472.5V0Z" fill="#627EEA"/><path d="M392.07 956.5L387.24 962.4V1270L392.07 1277L784 727.8L392.07 956.5Z" fill="#8A92B2"/><path d="M392.07 1277V956.5L0 727.8L392.07 1277Z" fill="#627EEA"/><path d="M392.07 880L784 650.5L392.07 472.5V880Z" fill="#454A75"/><path d="M0 650.5L392.07 880V472.5L0 650.5Z" fill="#26294B"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="eth.png" alt="Ethereum" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Ethereum</div>
@@ -697,8 +705,8 @@
                     </div>
                 </div>
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 398 312" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64.6 235.5h308.8c4.2 0 6.4 5.1 3.4 8.1l-50.5 50.5c-2.3 2.3-6.1 2.3-8.4 0L242.4 269c-2.3-2.3-6.1-2.3-8.4 0l-75.7 75.7c-2.3 2.3-6.1 2.3-8.4 0l-50.5-50.5c-3-3-0.8-8.1 3.4-8.1h30.8z" fill="url(#sol1b)"/><path d="M373.4 117.8H64.6c-4.2 0-6.4-5.1-3.4-8.1l50.5-50.5c2.3-2.3 6.1-2.3 8.4 0l75.7 75.7c2.3 2.3 6.1 2.3 8.4 0l75.7-75.7c2.3-2.3 6.1-2.3 8.4 0l50.5 50.5c3 3 0.8 8.1-3.4 8.1z" fill="url(#sol2b)"/><path d="M373.4 176.6H64.6c-4.2 0-6.4-5.1-3.4-8.1l50.5-50.5c2.3-2.3 6.1-2.3 8.4 0l75.7 75.7c2.3 2.3 6.1 2.3 8.4 0l75.7-75.7c2.3-2.3 6.1-2.3 8.4 0l50.5 50.5c3 3 0.8 8.1-3.4 8.1z" fill="url(#sol3b)"/><defs><linearGradient id="sol1b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient><linearGradient id="sol2b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient><linearGradient id="sol3b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient></defs></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="sol.png" alt="Solana" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Solana</div>
@@ -706,8 +714,8 @@
                     </div>
                 </div>
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="#0052FF"/><path d="M50 20C33.4 20 20 33.4 20 50s13.4 30 30 30c11.2 0 21-6.1 26.2-15.2H50V43h30.8C80.2 36.5 76 30 70 25.4 64.6 21.3 57.6 20 50 20z" fill="#fff"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="base.png" alt="Base" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Base</div>
@@ -715,8 +723,8 @@
                     </div>
                 </div>
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="250" cy="250" r="250" fill="#12AAFF"/><path d="M250 110L350 330H290L250 240L210 330H150L250 110Z" fill="#fff"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="arb.png" alt="Arbitrum" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Arbitrum</div>
@@ -724,8 +732,8 @@
                     </div>
                 </div>
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 38 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.4 10.3l-5.9-3.4L20 5.4c-.7-.4-1.6-.4-2.3 0l-2.5 1.5-5.9 3.4c-.7.4-1.1 1.1-1.1 1.9v6.8c0 .7.4 1.5 1.1 1.9l5.9 3.4 2.5 1.5c.7.4 1.6.4 2.3 0l2.5-1.5 5.9-3.4c.7-.4 1.1-1.1 1.1-1.9v-6.8c0-.8-.4-1.5-1.1-1.9zm-9.4 8.2l-3.9-2.2 3.9-2.2 3.9 2.2-3.9 2.2z" fill="#8247E5"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="poly.png" alt="Polygon" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Polygon</div>
@@ -733,8 +741,8 @@
                     </div>
                 </div>
                 <div class="eco-card">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="57.5" cy="57.5" r="57.5" fill="#E84142"/><path d="M57.5 25L85 72H68L57.5 52L47 72H30L57.5 25z" fill="#fff"/><path d="M38 80h39v7H38z" fill="#fff"/></svg>
+                    <div class="eco-icon dotted-frame">
+                        <img src="avax.png" alt="Avalanche" class="matrix-logo">
                     </div>
                     <div class="eco-info">
                         <div class="eco-name">Avalanche</div>
