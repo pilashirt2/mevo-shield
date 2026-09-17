@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEVO SHIELD — Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #05070b;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Ambient electric blue background glow */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(0, 240, 255, 0.06);
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 650px;
+        }
+        .shield-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+            filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.5));
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #ffffff 40%, #00f0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.tagline {
+            font-size: 1.05rem;
+            color: #94a3b8;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        .coming-soon-badge {
+            display: inline-block;
+            padding: 0.7rem 2rem;
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #00f0ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+            margin-bottom: 3rem;
+        }
+        .stores {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            opacity: 0.6;
+        }
+        .store-btn {
+            background: #0d131f;
+            border: 1px solid #1e293b;
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="shield-icon">🛡️</div>
+        <h1>MEVO SHIELD</h1>
+        <p class="tagline">The world's first proactive Web3 transaction security layer. Stopping wallet drainers before they hit the blockchain.</p>
+        <div class="coming-soon-badge">Coming Soon</div>
+        <div class="stores">
+            <div class="store-btn">App Store Soon</div>
+            <div class="store-btn">Google Play Soon</div>
+        </div>
+    </div>
+</body>
+</html>
+
