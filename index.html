@@ -9,8 +9,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg-deep: #030712;
-            --card-bg: linear-gradient(145deg, #0a1120, #040812);
-            --border-glow: rgba(0, 240, 255, 0.45);
+            --card-bg: #080d1a;
+            --border-subtle: rgba(255, 255, 255, 0.08);
             --accent-cyan: #00f0ff;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
@@ -27,8 +27,8 @@
             position: relative;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 50% 10%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 10% 90%, rgba(30, 58, 138, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 50% 10%, rgba(0, 240, 255, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 10% 90%, rgba(30, 58, 138, 0.1) 0%, transparent 50%);
         }
 
         /* Subtle Cyber Grid Overlay */
@@ -36,8 +36,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-image: linear-gradient(to right, rgba(255,255,255,0.012) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.012) 1px, transparent 1px);
             background-size: 40px 40px;
             z-index: 0;
             pointer-events: none;
@@ -191,7 +191,7 @@
         .feature-preview {
             width: 100%;
             background: var(--card-bg);
-            border: 1px solid var(--border-glow);
+            border: 1px solid var(--border-subtle);
             border-radius: 20px;
             padding: 1.8rem;
             margin-bottom: 2.5rem;
@@ -307,42 +307,31 @@
             fill: currentColor;
         }
 
-        /* True Distinct Elevated Card (Cyber-Tech Style) */
+        /* Clean, Professional Executive Founder Card (No Over-the-top filters, No Ugly Outlines) */
         .founder-card {
             width: 100%;
-            max-width: 540px;
+            max-width: 520px;
             background: var(--card-bg);
-            border: 2px solid var(--border-glow);
-            border-radius: 24px;
-            padding: 2.2rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2rem;
             display: flex;
             align-items: center;
-            gap: 1.8rem;
+            gap: 1.5rem;
             margin-bottom: 3rem;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0, 240, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             text-align: left;
-            position: relative;
-        }
-
-        .founder-img-wrapper {
-            position: relative;
-            flex-shrink: 0;
-            width: 95px;
-            height: 110px;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 2px solid var(--accent-cyan);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
-            background: #030712;
         }
 
         .founder-img {
-            width: 100%;
-            height: 100%;
+            width: 85px;
+            height: 95px;
+            border-radius: 12px;
             object-fit: cover;
-            object-position: center 20%;
-            /* Strict Cyber-Blue & Black Theme Match Filter (Turns normal photo into elite tech duotone) */
-            filter: grayscale(100%) brightness(90%) contrast(130%) sepia(100%) hue-rotate(175deg) saturate(400%);
+            object-position: center top;
+            /* ZERO FILTERS - Original natural photo restored completely */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            flex-shrink: 0;
         }
 
         .founder-info .f-badge {
@@ -350,34 +339,34 @@
             font-weight: 700;
             color: var(--accent-cyan);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.3rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.2rem;
         }
 
         .founder-info h3 {
-            font-size: 1.25rem;
-            font-weight: 800;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: #fff;
             margin-bottom: 0.2rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         .founder-info .crypto-tag {
             font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-info .crypto-tag span {
             color: var(--accent-cyan);
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-            display: inline-block;
-            background: rgba(0, 240, 255, 0.08);
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            border: 1px solid rgba(0, 240, 255, 0.2);
+            font-weight: 600;
         }
 
         .founder-info p {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Clean Footer */
@@ -460,15 +449,13 @@
             </div>
         </div>
 
-        <!-- Founder Card (Elevated Panel & Cyber-Blue Theme Filtered Photo) -->
+        <!-- Clean Professional Founder Card (Natural Photo, No Outlines, Clean Typography) -->
         <div class="founder-card">
-            <div class="founder-img-wrapper">
-                <img src="founder.png" alt="Mohmmed Aman Nilgar" class="founder-img">
-            </div>
+            <img src="founder.png" alt="Mohmmed Aman Nilgar" class="founder-img">
             <div class="founder-info">
                 <div class="f-badge">Lead Architect & Founder</div>
                 <h3>Mohmmed Aman Nilgar</h3>
-                <div class="crypto-tag">Crypto Native Since 2019</div>
+                <div class="crypto-tag">Crypto Native Since <span>2019</span></div>
                 <p>Architecting proactive security infrastructure to eliminate smart contract exploits and protect Web3 assets worldwide.</p>
             </div>
         </div>
@@ -480,3 +467,4 @@
     </footer>
 </body>
 </html>
+
