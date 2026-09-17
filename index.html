@@ -344,7 +344,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Featured Protocol Spotlight Section (Arbitrum Style) */
+        /* Professional Interactive Protocol Spotlight Section */
         .spotlight-section {
             width: 100%;
             max-width: 680px;
@@ -381,16 +381,24 @@
             margin-bottom: 1.2rem;
         }
 
-        .spotlight-badge-icon {
-            width: 44px;
-            height: 44px;
-            background: rgba(0, 240, 255, 0.1);
-            border: 1px solid rgba(0, 240, 255, 0.3);
-            border-radius: 12px;
+        .spotlight-logo-badge {
+            width: 52px;
+            height: 52px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.25) 0%, rgba(3, 7, 18, 0.9) 80%);
+            border: 2px solid rgba(0, 240, 255, 0.5);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+
+        .spotlight-logo-badge img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .spotlight-link {
@@ -440,11 +448,13 @@
             height: 8px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 2px;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
         .dot.active {
             background: var(--accent-cyan);
-            width: 18px;
+            width: 22px;
         }
 
         .view-all-btn {
@@ -463,6 +473,86 @@
             background: rgba(0, 240, 255, 0.1);
             color: #fff;
             border-color: var(--accent-cyan);
+        }
+
+        /* Modal Overlay for View All Protocols */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .modal-content {
+            background: #080d1a;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 500px;
+            padding: 2.2rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+            text-align: left;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+        }
+
+        .modal-item img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .modal-item-info div:first-child {
+            font-weight: 700;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .modal-item-info div:last-child {
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
 
         /* Live Security Stats Counter */
@@ -737,7 +827,6 @@
 </head>
 <body>
 
-    <!-- Top Navigation -->
     <nav>
         <a href="#" class="nav-brand">
             <img src="logo.png" alt="MEVO">
@@ -749,7 +838,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <div class="hero-wrapper">
         <div class="hero-logo-frame">
             <img src="logo.png" alt="MEVO SHIELD">
@@ -760,18 +848,15 @@
         <h1>World's First Proactive Web3 Security Layer</h1>
         <p class="hero-desc">Advanced runtime transaction inspection and threat interception designed to stop wallet drainers before they ever touch the blockchain.</p>
 
-        <!-- Early Access Waitlist Form -->
         <div class="waitlist-container">
             <input type="email" id="userEmail" class="waitlist-input" placeholder="Enter your email for early access...">
             <button class="waitlist-btn" onclick="submitWaitlist()">Join</button>
         </div>
         <div id="successMsg" class="waitlist-msg">✓ You're on the early access list! Stay tuned.</div>
 
-        <!-- Supported Networks Section -->
         <div class="networks-heading">Supported Networks</div>
         <div class="ecosystem-ticker-container">
             <div class="ecosystem-track">
-                <!-- Ethereum -->
                 <div class="eco-card">
                     <div class="eco-logo-circle">
                         <img src="eth.jpg" alt="Ethereum" class="eco-logo-img">
@@ -781,7 +866,6 @@
                         <div class="eco-sub">Mainnet Shield</div>
                     </div>
                 </div>
-                <!-- Solana -->
                 <div class="eco-card">
                     <div class="eco-logo-circle">
                         <img src="sol.jpg" alt="Solana" class="eco-logo-img">
@@ -791,7 +875,6 @@
                         <div class="eco-sub">Fast Interception</div>
                     </div>
                 </div>
-                <!-- Base -->
                 <div class="eco-card">
                     <div class="eco-logo-circle">
                         <img src="base.jpg" alt="Base" class="eco-logo-img">
@@ -801,7 +884,6 @@
                         <div class="eco-sub">Layer-2 Guard</div>
                     </div>
                 </div>
-                <!-- Arbitrum -->
                 <div class="eco-card">
                     <div class="eco-logo-circle">
                         <img src="arb.jpg" alt="Arbitrum" class="eco-logo-img">
@@ -811,7 +893,6 @@
                         <div class="eco-sub">Rollup Secure</div>
                     </div>
                 </div>
-                <!-- Polygon -->
                 <div class="eco-card">
                     <div class="eco-logo-circle">
                         <img src="poly.jpg" alt="Polygon" class="eco-logo-img">
@@ -821,7 +902,6 @@
                         <div class="eco-sub">Multi-Chain</div>
                     </div>
                 </div>
-                <!-- Avalanche -->
                 <div class="eco-card">
                     <div class="eco-logo-circle">
                         <img src="avax.jpg" alt="Avalanche" class="eco-logo-img">
@@ -832,7 +912,6 @@
                     </div>
                 </div>
 
-                <!-- Duplicate set for seamless infinite loop -->
                 <div class="eco-card">
                     <div class="eco-logo-circle">
                         <img src="eth.jpg" alt="Ethereum" class="eco-logo-img">
@@ -890,29 +969,68 @@
             </div>
         </div>
 
-        <!-- Featured Protocol Spotlight Section (Arbitrum Style) -->
         <div class="spotlight-section">
             <div class="spotlight-heading">Featured Protocol Spotlight</div>
             <div class="spotlight-card">
                 <div class="spotlight-top">
-                    <div class="spotlight-badge-icon">🛡️</div>
-                    <a href="#" class="spotlight-link">Learn More &rarr;</a>
-                </div>
-                <h3>Aave Liquidity Protocol</h3>
-                <p>Secured by MEVO SHIELD runtime inspection to prevent malicious flash-loan exploits and unauthorized token approvals in real-time.</p>
-                <div class="spotlight-footer">
-                    <div class="pagination-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                    <div class="spotlight-logo-badge">
+                        <img id="spotlightImg" src="aave.jpg" alt="Protocol">
                     </div>
-                    <button class="view-all-btn">View All Protocols &rarr;</button>
+                    <a href="#" class="spotlight-link" id="spotlightLink">Learn More &rarr;</a>
+                </div>
+                <h3 id="spotlightTitle">Aave Liquidity Protocol</h3>
+                <p id="spotlightDesc">Secured by MEVO SHIELD runtime inspection to prevent malicious flash-loan exploits and unauthorized token approvals in real-time.</p>
+                <div class="spotlight-footer">
+                    <div class="pagination-dots" id="paginationDots">
+                        <span class="dot active" onclick="switchProtocol(0)"></span>
+                        <span class="dot" onclick="switchProtocol(1)"></span>
+                        <span class="dot" onclick="switchProtocol(2)"></span>
+                        <span class="dot" onclick="switchProtocol(3)"></span>
+                    </div>
+                    <button class="view-all-btn" onclick="openModal()">View All Protocols &rarr;</button>
                 </div>
             </div>
         </div>
 
-        <!-- Live Security Stats Counter -->
+        <div class="modal-overlay" id="protocolsModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Protected Protocols</h3>
+                    <button class="close-modal" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-list">
+                    <div class="modal-item">
+                        <img src="aave.jpg" alt="Aave">
+                        <div class="modal-item-info">
+                            <div>Aave Liquidity Protocol</div>
+                            <div>DeFi &bull; Real-time Flash Loan Shield</div>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <img src="uni.jpg" alt="Uniswap">
+                        <div class="modal-item-info">
+                            <div>Uniswap DEX</div>
+                            <div>DEX &bull; Pre-Execution Signature Guard</div>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <img src="gmx.jpg" alt="GMX">
+                        <div class="modal-item-info">
+                            <div>GMX Derivatives</div>
+                            <div>Perps &bull; Zero-Drain Protection</div>
+                        </div>
+                    </div>
+                    <div class="modal-item">
+                        <img src="curve.jpg" alt="Curve">
+                        <div class="modal-item-info">
+                            <div>Curve Finance</div>
+                            <div>AMM &bull; Runtime Threat Interception</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="stats-bar">
             <div class="stat-card">
                 <div class="stat-number">0ms</div>
@@ -928,7 +1046,6 @@
             </div>
         </div>
 
-        <!-- Institutional Feature Grid Preview -->
         <div class="feature-preview">
             <div class="feature-item">
                 <div class="f-title"><span>01</span> Pre-Execution Check</div>
@@ -944,7 +1061,6 @@
             </div>
         </div>
 
-        <!-- Download CTAs -->
         <div class="cta-container">
             <a href="#" class="store-btn">
                 <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-13.6 69.5-34.3z"/></svg>
@@ -956,7 +1072,6 @@
             </a>
         </div>
 
-        <!-- Social Icons -->
         <div class="social-row">
             <a href="https://x.com/MEVOSHIELD" target="_blank" class="social-chip active" title="Official X">
                 <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -969,7 +1084,6 @@
             </div>
         </div>
 
-        <!-- FAQ Section -->
         <div class="faq-section">
             <div class="faq-title">Frequently Asked Questions</div>
             <div class="faq-box">
@@ -986,7 +1100,6 @@
             </div>
         </div>
 
-        <!-- Clean Professional Founder Card -->
         <div class="founder-card">
             <img src="founder.png" alt="Mohmmed Aman Nilgar" class="founder-img">
             <div class="founder-info">
@@ -998,12 +1111,69 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         &copy; 2026 MEVO SHIELD. All Rights Reserved.
     </footer>
 
     <script>
+        // Protocols Data for Spotlight
+        const protocols = [
+            {
+                name: "Aave Liquidity Protocol",
+                desc: "Secured by MEVO SHIELD runtime inspection to prevent malicious flash-loan exploits and unauthorized token approvals in real-time.",
+                img: "aave.jpg"
+            },
+            {
+                name: "Uniswap DEX",
+                desc: "Guarding liquidity pools and swap signatures with advanced pre-execution payload validation.",
+                img: "uni.jpg"
+            },
+            {
+                name: "GMX Derivatives",
+                desc: "Real-time threat interception protecting perpetual trading positions and collateral vaults.",
+                img: "gmx.jpg"
+            },
+            {
+                name: "Curve Finance",
+                desc: "Ensuring deep-liquidity stability and safeguarding high-value stablecoin pools from drainer attacks.",
+                img: "curve.jpg"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function switchProtocol(index) {
+            currentIndex = index;
+            const p = protocols[currentIndex];
+            document.getElementById('spotlightImg').src = p.img;
+            document.getElementById('spotlightTitle').innerText = p.name;
+            document.getElementById('spotlightDesc').innerText = p.desc;
+
+            // Update dots
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto slide every 4 seconds
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % protocols.length;
+            switchProtocol(currentIndex);
+        }, 4000);
+
+        function openModal() {
+            document.getElementById('protocolsModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('protocolsModal').style.display = 'none';
+        }
+
         function submitWaitlist() {
             const email = document.getElementById('userEmail').value;
             const msg = document.getElementById('successMsg');
