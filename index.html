@@ -989,11 +989,12 @@
     }
 
     /* =========================
-       EVM LOGO MARQUEE
+       UPGRADED EVM LOGO MARQUEE
     ========================== */
 
     .evm-section {
       overflow: hidden;
+      padding: 120px 0;
     }
 
     .marquee {
@@ -1002,17 +1003,18 @@
       mask-image: linear-gradient(
         90deg,
         transparent,
-        black 9%,
-        black 91%,
+        black 8%,
+        black 92%,
         transparent
       );
+      padding: 15px 0;
     }
 
     .marquee-track {
       display: flex;
       width: max-content;
-      animation: marquee 24s linear infinite;
-      gap: 18px;
+      animation: marquee 28s linear infinite;
+      gap: 24px;
     }
 
     .marquee:hover .marquee-track {
@@ -1030,30 +1032,37 @@
     }
 
     .chain-card {
-      width: 195px;
-      height: 115px;
-      flex: 0 0 195px;
+      width: 230px;
+      height: 130px;
+      flex: 0 0 230px;
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.9);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-soft);
+      gap: 16px;
+      padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(235, 248, 255, 0.88));
+      border: 1px solid rgba(21, 158, 232, 0.25);
+      box-shadow: 0 15px 35px rgba(21, 158, 232, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .chain-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(21, 158, 232, 0.5);
+      box-shadow: 0 20px 45px rgba(21, 158, 232, 0.18);
     }
 
     .chain-logo {
-      width: 62px;
-      height: 62px;
-      flex: 0 0 62px;
+      width: 68px;
+      height: 68px;
+      flex: 0 0 68px;
       border-radius: 50%;
       overflow: hidden;
       background: #f3fbff;
       border: 4px solid #edf9fe;
       box-shadow:
-        0 8px 20px rgba(21,158,232,0.12),
-        inset 0 0 0 1px rgba(21,158,232,0.12);
+        0 10px 22px rgba(21,158,232,0.15),
+        inset 0 0 0 1px rgba(21,158,232,0.15);
     }
 
     .chain-logo img {
@@ -1061,27 +1070,29 @@
       height: 100%;
       display: block;
       object-fit: contain;
-      padding: 4px;
+      padding: 6px;
       border-radius: 50%;
     }
 
     .chain-name {
       font-weight: 900;
-      font-size: 14px;
+      font-size: 16px;
+      color: var(--text);
     }
 
     .chain-type {
       color: var(--muted);
-      font-size: 10px;
-      margin-top: 2px;
+      font-size: 11px;
+      margin-top: 3px;
+      font-weight: 700;
     }
 
     .evm-note {
       text-align: center;
       max-width: 680px;
-      margin: 27px auto 0;
+      margin: 32px auto 0;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
     }
 
     /* =========================
@@ -1209,7 +1220,7 @@
     }
 
     /* =========================
-       FOUNDER / TEAM CARDS
+       FOUNDER & TEAM CARDS
     ========================== */
 
     .founder-card {
@@ -1547,8 +1558,8 @@
       }
 
       .chain-card {
-        width: 180px;
-        flex-basis: 180px;
+        width: 200px;
+        flex-basis: 200px;
       }
     }
   </style>
@@ -2302,7 +2313,7 @@
 
 
     <!-- =========================================
-         EVM FIRST
+         EVM FIRST (UPGRADED LARGE LOOP)
     ========================================== -->
 
     <section
@@ -2976,7 +2987,7 @@
 
 
     <!-- =========================================
-         FOUNDER & TEAM
+         FOUNDER & TEAM CARDS
     ========================================== -->
 
     <section id="founder">
