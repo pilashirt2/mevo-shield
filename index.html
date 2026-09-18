@@ -351,51 +351,67 @@
     }
 
     /* =========================
-       PROTECTION CARDS
+       UPGRADED PROTECTION CARDS
     ========================== */
 
     .protection-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
+      gap: 20px;
     }
 
     .protection-card {
-      background: rgba(255,255,255,0.82);
-      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(235, 248, 255, 0.85));
+      border: 1px solid rgba(21, 158, 232, 0.22);
       border-radius: var(--radius);
-      padding: 27px;
-      box-shadow: var(--shadow-soft);
-      transition: 0.3s ease;
+      padding: 32px 24px;
+      box-shadow: 0 20px 45px rgba(21, 158, 232, 0.08);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .protection-card:hover {
-      transform: translateY(-7px);
-      box-shadow: var(--shadow);
+      transform: translateY(-8px);
+      border-color: rgba(21, 158, 232, 0.5);
+      box-shadow: 0 30px 65px rgba(21, 158, 232, 0.16);
+    }
+
+    .protection-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #159ee8, #62caff);
     }
 
     .card-number {
-      width: 39px;
-      height: 39px;
-      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
       color: #fff;
-      background: linear-gradient(145deg, #159ee8, #0877bd);
-      font-size: 13px;
+      background: linear-gradient(135deg, #159ee8, #0877bd);
+      font-size: 14px;
       font-weight: 900;
-      margin-bottom: 23px;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 22px rgba(21, 158, 232, 0.3);
     }
 
     .protection-card h3 {
       font-size: 20px;
       margin-bottom: 10px;
       letter-spacing: -0.5px;
+      color: var(--text);
     }
 
     .protection-card p {
       color: var(--muted);
       font-size: 14px;
+      line-height: 1.65;
     }
 
     /* =========================
@@ -413,7 +429,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 640px;
+      min-height: 660px;
       user-select: none;
     }
 
@@ -459,34 +475,33 @@
     }
 
     /* =========================
-       PHONE
+       REALISTIC PHONE MOCKUP
     ========================== */
 
     .phone {
-      width: 295px;
-      height: 595px;
-      border-radius: 44px;
-      padding: 8px;
+      width: 310px;
+      height: 630px;
+      border-radius: 50px;
+      padding: 10px;
       position: relative;
       transform-style: preserve-3d;
-      background:
-        linear-gradient(145deg, #ffffff 0%, #d7edf8 45%, #a9c8d9 100%);
-      border: 1px solid rgba(17, 86, 120, 0.22);
+      background: linear-gradient(145deg, #1e293b, #0f172a, #334155);
+      border: 3px solid rgba(255, 255, 255, 0.25);
       box-shadow:
-        0 55px 80px rgba(28, 94, 123, 0.25),
-        inset 0 0 0 2px rgba(255,255,255,0.75),
-        inset -7px -10px 18px rgba(52, 112, 143, 0.16);
+        0 45px 95px rgba(15, 23, 42, 0.32),
+        0 0 0 1px rgba(0, 0, 0, 0.5),
+        inset 0 0 18px rgba(255, 255, 255, 0.15);
     }
 
     .phone::before {
       content: "";
       position: absolute;
       width: 7px;
-      height: 92px;
-      left: -5px;
-      top: 150px;
+      height: 95px;
+      left: -6px;
+      top: 155px;
       border-radius: 7px 0 0 7px;
-      background: linear-gradient(#c7dbe5, #8eaeba);
+      background: linear-gradient(#475569, #1e293b);
       transform: translateZ(-5px);
     }
 
@@ -494,11 +509,11 @@
       content: "";
       position: absolute;
       width: 7px;
-      height: 58px;
-      right: -5px;
+      height: 65px;
+      right: -6px;
       top: 185px;
       border-radius: 0 7px 7px 0;
-      background: linear-gradient(#c7dbe5, #8eaeba);
+      background: linear-gradient(#475569, #1e293b);
       transform: translateZ(-5px);
     }
 
@@ -506,7 +521,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      border-radius: 37px;
+      border-radius: 41px;
       background:
         radial-gradient(circle at 90% 0%, rgba(21,158,232,0.18), transparent 30%),
         #f9fdff;
@@ -516,18 +531,19 @@
 
     .phone-notch {
       position: absolute;
-      top: 9px;
+      top: 12px;
       left: 50%;
       transform: translateX(-50%);
-      width: 94px;
-      height: 27px;
+      width: 110px;
+      height: 28px;
       border-radius: 20px;
-      background: #10212d;
+      background: #090d16;
       z-index: 4;
+      box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.2);
     }
 
     .phone-ui {
-      padding: 55px 19px 20px;
+      padding: 58px 19px 20px;
     }
 
     .phone-top {
@@ -736,31 +752,31 @@
     }
 
     /* =========================
-       LAPTOP
+       REALISTIC LAPTOP MOCKUP
     ========================== */
 
     .laptop-stage {
-      min-height: 680px;
+      min-height: 700px;
     }
 
     .laptop {
-      width: min(850px, 88vw);
+      width: min(880px, 90vw);
       transform-style: preserve-3d;
     }
 
     .laptop-screen-shell {
       width: 100%;
-      padding: 12px;
-      border-radius: 23px 23px 11px 11px;
-      background: linear-gradient(145deg, #ffffff, #c4dbe7 55%, #8baebb);
+      padding: 14px;
+      border-radius: 26px 26px 12px 12px;
+      background: linear-gradient(145deg, #334155, #1e293b, #0f172a);
       box-shadow:
-        0 50px 75px rgba(22, 91, 120, 0.24),
-        inset 0 0 0 1px rgba(255,255,255,0.9);
+        0 55px 95px rgba(15, 23, 42, 0.35),
+        inset 0 1px 2px rgba(255, 255, 255, 0.25);
       transform-style: preserve-3d;
     }
 
     .laptop-screen {
-      min-height: 455px;
+      min-height: 465px;
       border-radius: 14px;
       background:
         radial-gradient(circle at 90% 0%, rgba(21,158,232,0.15), transparent 30%),
@@ -775,8 +791,8 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #213743;
-      top: 5px;
+      background: #020617;
+      top: 6px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 5;
@@ -931,9 +947,9 @@
       margin-top: -2px;
       border-radius: 4px 4px 25px 25px;
       background:
-        linear-gradient(145deg, #e9f4f8, #a7c2ce);
+        linear-gradient(145deg, #cbd5e1, #64748b);
       box-shadow:
-        0 25px 40px rgba(28,94,123,0.2),
+        0 30px 50px rgba(15, 23, 42, 0.3),
         inset 0 1px 0 rgba(255,255,255,0.9);
       transform: rotateX(55deg) translateZ(-12px);
       transform-origin: top center;
@@ -950,12 +966,12 @@
       background:
         repeating-linear-gradient(
           90deg,
-          rgba(70,110,125,0.16) 0 17px,
+          rgba(15, 23, 42, 0.2) 0 17px,
           transparent 17px 20px
         ),
         repeating-linear-gradient(
           0deg,
-          rgba(70,110,125,0.13) 0 7px,
+          rgba(15, 23, 42, 0.15) 0 7px,
           transparent 7px 10px
         );
       opacity: 0.85;
@@ -969,7 +985,7 @@
       bottom: 7px;
       transform: translateX(-50%);
       border-radius: 6px;
-      border: 1px solid rgba(79,119,133,0.2);
+      border: 1px solid rgba(15, 23, 42, 0.25);
     }
 
     /* =========================
@@ -1435,7 +1451,7 @@
       }
 
       .laptop-screen {
-        min-height: 455px;
+        min-height: 465px;
       }
     }
 
@@ -1472,17 +1488,17 @@
       }
 
       .product-stage {
-        min-height: 570px;
+        min-height: 590px;
         transform: scale(0.88);
       }
 
       .phone {
-        width: 270px;
-        height: 545px;
+        width: 290px;
+        height: 590px;
       }
 
       .laptop-stage {
-        min-height: 480px;
+        min-height: 500px;
       }
 
       .laptop {
@@ -1626,7 +1642,7 @@
 
 
     <!-- =========================================
-         HOW MEVO PROTECTS YOU
+         HOW MEVO PROTECTS YOU (UPGRADED CARDS)
     ========================================== -->
 
     <section id="protection">
@@ -1729,7 +1745,7 @@
 
 
     <!-- =========================================
-         PRODUCTS
+         PRODUCTS (REALISTIC PHONE & LAPTOP)
     ========================================== -->
 
     <section id="products" class="product-section">
@@ -1755,7 +1771,7 @@
 
 
         <!-- =====================================
-             MOBILE WALLET
+             MOBILE WALLET (REALISTIC PHONE)
         ====================================== -->
 
         <div class="reveal">
@@ -2004,7 +2020,7 @@
 
 
         <!-- =====================================
-             BROWSER EXTENSION
+             BROWSER EXTENSION (REALISTIC LAPTOP)
         ====================================== -->
 
         <div
