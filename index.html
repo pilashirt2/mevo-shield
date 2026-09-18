@@ -162,7 +162,7 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 3px;
+      padding: 4px;
       display: block;
     }
 
@@ -849,7 +849,7 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 2px;
+      padding: 4px;
     }
 
     .extension-logo strong {
@@ -1429,6 +1429,10 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .extension-ui {
+        grid-template-columns: 1fr;
+      }
+
       .laptop-screen {
         min-height: 455px;
       }
@@ -1477,12 +1481,13 @@
       }
 
       .laptop-stage {
-        min-height: 560px;
+        min-height: 480px;
       }
 
       .laptop {
-        width: 850px;
-        transform: scale(0.47);
+        width: 100%;
+        max-width: 100%;
+        transform: none;
       }
 
       .store-row {
@@ -3311,22 +3316,6 @@
       =====================================================
       MEVO ASSETS
       =====================================================
-
-      These are the exact filenames visible in your GitHub
-      repository screenshot.
-
-      Project logo:
-      logo.png
-
-      Founder:
-      founder.png
-
-      EVM logos:
-      eth.jpg
-      base.jpg
-      arb.jpg
-      poly.jpg
-      avax.jpg
     */
 
     const MEVO_ASSETS = {
@@ -3345,12 +3334,6 @@
 
     };
 
-
-    /*
-      =====================================================
-      MEVO X
-      =====================================================
-    */
 
     const MEVO_X_URL =
       "https://x.com/MEVO_SHIELD";
@@ -3543,17 +3526,6 @@
       =====================================================
       DEVICE SHAKE ONLY
       =====================================================
-
-      IMPORTANT:
-      360-degree rotation has been completely removed.
-
-      No drag rotation.
-      No touch rotation.
-      No continuous transform calculations.
-
-      Tap / click:
-      - small physical shake
-      - vibration when supported
     */
 
     function setupShakeDevice(element) {
@@ -3567,21 +3539,11 @@
           "shake"
         );
 
-        /*
-          Force reflow so the animation
-          can restart every time.
-        */
-
         void element.offsetWidth;
 
         element.classList.add(
           "shake"
         );
-
-
-        /*
-          Mobile vibration where supported.
-        */
 
         if (
           "vibrate" in navigator &&
@@ -3720,11 +3682,6 @@
 
 
   <style>
-
-    /*
-      Microsoft Store logo
-      Four-square Microsoft mark.
-    */
 
     .microsoft-icon {
       display: grid;
