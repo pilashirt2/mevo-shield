@@ -155,8 +155,14 @@
       background: linear-gradient(145deg, #ffffff, #dff4ff);
       border: 1px solid var(--border);
       box-shadow: 0 8px 25px rgba(21, 158, 232, 0.15);
-      color: var(--blue);
-      font-weight: 950;
+      overflow: hidden;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .nav-links {
@@ -408,19 +414,14 @@
       justify-content: center;
       align-items: center;
       min-height: 640px;
-      touch-action: none;
       user-select: none;
     }
 
     .device-wrap {
       position: relative;
       transform-style: preserve-3d;
-      cursor: grab;
-      transition: transform 0.08s linear;
-    }
-
-    .device-wrap.dragging {
-      cursor: grabbing;
+      cursor: pointer;
+      transition: transform 0.2s ease;
     }
 
     .device-wrap.shake {
@@ -429,23 +430,31 @@
 
     @keyframes deviceShake {
       0%, 100% {
-        transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+        transform: translateX(0) rotateZ(0deg);
       }
 
-      20% {
-        transform: rotateX(var(--rx, 0deg)) rotateY(calc(var(--ry, 0deg) - 4deg)) translateX(-5px);
+      15% {
+        transform: translateX(-6px) rotateZ(-1deg);
       }
 
-      40% {
-        transform: rotateX(var(--rx, 0deg)) rotateY(calc(var(--ry, 0deg) + 4deg)) translateX(5px);
+      30% {
+        transform: translateX(6px) rotateZ(1deg);
+      }
+
+      45% {
+        transform: translateX(-5px) rotateZ(-0.8deg);
       }
 
       60% {
-        transform: rotateX(var(--rx, 0deg)) rotateY(calc(var(--ry, 0deg) - 3deg)) translateX(-3px);
+        transform: translateX(5px) rotateZ(0.8deg);
       }
 
-      80% {
-        transform: rotateX(var(--rx, 0deg)) rotateY(calc(var(--ry, 0deg) + 3deg)) translateX(3px);
+      75% {
+        transform: translateX(-3px) rotateZ(-0.4deg);
+      }
+
+      90% {
+        transform: translateX(3px) rotateZ(0.4deg);
       }
     }
 
@@ -827,11 +836,18 @@
       width: 38px;
       height: 38px;
       border-radius: 12px;
+      overflow: hidden;
       display: grid;
       place-items: center;
       background: #e3f6ff;
       color: #0877bd;
       font-weight: 950;
+    }
+
+    .extension-logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .extension-logo strong {
@@ -1203,10 +1219,15 @@
       background:
         linear-gradient(145deg, #ffffff, #d7f2ff);
       border: 1px solid rgba(21,158,232,0.16);
-      color: #0877bd;
-      font-size: 34px;
-      font-weight: 950;
+      overflow: hidden;
       box-shadow: 0 20px 40px rgba(21,158,232,0.13);
+    }
+
+    .founder-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .founder-role {
@@ -1526,8 +1547,16 @@
     <div class="container nav">
 
       <a href="#top" class="brand">
-        <div class="brand-mark">M</div>
+
+        <div class="brand-mark">
+          <img
+            src="logo.png"
+            alt="MEVO SHIELD"
+          />
+        </div>
+
         <span>MEVO SHIELD</span>
+
       </a>
 
       <nav class="nav-links">
@@ -1576,6 +1605,7 @@
         </p>
 
         <div class="hero-actions">
+
           <a href="#products" class="btn btn-primary">
             Explore MEVO
           </a>
@@ -1583,6 +1613,7 @@
           <a href="#waitlist" class="btn btn-secondary">
             Join Waitlist
           </a>
+
         </div>
 
       </div>
@@ -1594,10 +1625,14 @@
     ========================================== -->
 
     <section id="protection">
+
       <div class="container">
 
         <div class="section-heading reveal">
-          <div class="eyebrow">HOW MEVO PROTECTS YOU</div>
+
+          <div class="eyebrow">
+            HOW MEVO PROTECTS YOU
+          </div>
 
           <h2>
             Protection while you use Web3.
@@ -1607,6 +1642,7 @@
             MEVO is being designed around multiple security layers instead
             of relying only on post-incident warnings.
           </p>
+
         </div>
 
 
@@ -1614,46 +1650,76 @@
 
           <article class="protection-card reveal">
             <div class="card-number">01</div>
-            <h3>Before You Sign</h3>
+
+            <h3>
+              Before You Sign
+            </h3>
+
             <p>
               Inspect transaction payloads, smart-contract calls,
               approvals and signature requests before authorization.
             </p>
+
           </article>
 
 
           <article class="protection-card reveal">
-            <div class="card-number">02</div>
-            <h3>Protected Transfers</h3>
+
+            <div class="card-number">
+              02
+            </div>
+
+            <h3>
+              Protected Transfers
+            </h3>
+
             <p>
               Future MEVO transfer flows can use recipient confirmation
               as part of the settlement process.
             </p>
+
           </article>
 
 
           <article class="protection-card reveal">
-            <div class="card-number">03</div>
-            <h3>After You Receive</h3>
+
+            <div class="card-number">
+              03
+            </div>
+
+            <h3>
+              After You Receive
+            </h3>
+
             <p>
               A future protection policy is designed to reduce immediate
               exposure after funds arrive while keeping owner-controlled actions.
             </p>
+
           </article>
 
 
           <article class="protection-card reveal">
-            <div class="card-number">04</div>
-            <h3>Protected Key Operations</h3>
+
+            <div class="card-number">
+              04
+            </div>
+
+            <h3>
+              Protected Key Operations
+            </h3>
+
             <p>
               Stronger local authorization and policy-controlled security
               are being explored for sensitive wallet operations.
             </p>
+
           </article>
 
         </div>
 
       </div>
+
     </section>
 
 
@@ -1666,7 +1732,10 @@
       <div class="container">
 
         <div class="section-heading reveal">
-          <div class="eyebrow">MEVO PRODUCTS</div>
+
+          <div class="eyebrow">
+            MEVO PRODUCTS
+          </div>
 
           <h2>
             Built around the wallet.
@@ -1676,19 +1745,28 @@
             MEVO starts with its own wallet experience and is designed
             to expand into browser-based protection later.
           </p>
+
         </div>
 
 
-        <!-- MOBILE WALLET -->
+        <!-- =====================================
+             MOBILE WALLET
+        ====================================== -->
 
         <div class="reveal">
 
-          <div class="product-stage" id="phoneStage">
+          <div
+            class="product-stage"
+            id="phoneStage"
+          >
 
             <div
               class="device-wrap"
               id="phoneDevice"
               data-device="phone"
+              role="button"
+              tabindex="0"
+              aria-label="MEVO Wallet preview"
             >
 
               <div class="phone">
@@ -1728,8 +1806,11 @@
                     <div class="protection-active">
 
                       <div class="active-row">
+
                         <span class="active-light"></span>
+
                         PROTECTION ACTIVE
+
                       </div>
 
                       <div class="active-sub">
@@ -1806,7 +1887,9 @@
 
                     <div class="coming-box">
 
-                      <small>PRODUCT STATUS</small>
+                      <small>
+                        PRODUCT STATUS
+                      </small>
 
                       <strong>
                         MEVO WALLET • COMING SOON
@@ -1833,10 +1916,11 @@
 
               <div class="store-icon">
 
-                <!-- APP STORE STYLE ICON -->
-
-                <svg viewBox="0 0 24 24" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
 
                   <path
                     d="M16.7 12.8c0-2.2 1.8-3.3 1.9-3.4-1-.1-2.1-1.1-3.5-1.1-1.3 0-2.5.8-3.2.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.9-3.5 2.2-1.5 2.5-.4 6.2 1.1 8.2.7 1 1.6 2.1 2.7 2 .9 0 1.4-.6 2.7-.6s1.7.6 2.7.6c1.1 0 1.9-1 2.6-2 .8-1.1 1.2-2.2 1.2-2.3-.1 0-2-.8-2-3.6ZM14.5 6.9c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.2Z"
@@ -1848,8 +1932,15 @@
               </div>
 
               <div>
-                <small>AVAILABLE SOON ON</small>
-                <strong>App Store • Coming Soon</strong>
+
+                <small>
+                  AVAILABLE SOON ON
+                </small>
+
+                <strong>
+                  App Store • Coming Soon
+                </strong>
+
               </div>
 
             </div>
@@ -1859,10 +1950,10 @@
 
               <div class="store-icon">
 
-                <!-- GOOGLE PLAY STYLE ICON -->
-
-                <svg viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
 
                   <path
                     d="M3.3 2.5c-.3.3-.5.8-.5 1.5v16c0 .7.2 1.2.5 1.5L12.1 12 3.3 2.5Z"
@@ -1889,8 +1980,15 @@
               </div>
 
               <div>
-                <small>AVAILABLE SOON ON</small>
-                <strong>Google Play • Coming Soon</strong>
+
+                <small>
+                  AVAILABLE SOON ON
+                </small>
+
+                <strong>
+                  Google Play • Coming Soon
+                </strong>
+
               </div>
 
             </div>
@@ -1900,16 +1998,27 @@
         </div>
 
 
-        <!-- BROWSER EXTENSION -->
+        <!-- =====================================
+             BROWSER EXTENSION
+        ====================================== -->
 
-        <div class="reveal" style="margin-top:120px;">
+        <div
+          class="reveal"
+          style="margin-top:120px;"
+        >
 
-          <div class="product-stage laptop-stage" id="laptopStage">
+          <div
+            class="product-stage laptop-stage"
+            id="laptopStage"
+          >
 
             <div
               class="device-wrap laptop"
               id="laptopDevice"
               data-device="laptop"
+              role="button"
+              tabindex="0"
+              aria-label="MEVO Browser Extension preview"
             >
 
               <div class="laptop-screen-shell">
@@ -1939,12 +2048,24 @@
                       <div class="extension-logo">
 
                         <div class="extension-logo-icon">
-                          M
+
+                          <img
+                            src="logo.png"
+                            alt="MEVO"
+                          />
+
                         </div>
 
                         <div>
-                          <strong>MEVO SHIELD</strong>
-                          <span>Browser Security Layer</span>
+
+                          <strong>
+                            MEVO SHIELD
+                          </strong>
+
+                          <span>
+                            Browser Security Layer
+                          </span>
+
                         </div>
 
                       </div>
@@ -1989,7 +2110,10 @@
                       </div>
 
 
-                      <button class="extension-action">
+                      <button
+                        class="extension-action"
+                        type="button"
+                      >
                         INSPECT BEFORE SIGN
                       </button>
 
@@ -2079,13 +2203,13 @@
 
                 <!-- CHROME -->
 
-                <svg viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
 
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="9"
+                  <path
+                    d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
@@ -2094,7 +2218,7 @@
                   <circle
                     cx="12"
                     cy="12"
-                    r="3.4"
+                    r="3.5"
                     fill="currentColor"
                   />
 
@@ -2103,8 +2227,15 @@
               </div>
 
               <div>
-                <small>AVAILABLE SOON ON</small>
-                <strong>Chrome Web Store • Coming Soon</strong>
+
+                <small>
+                  AVAILABLE SOON ON
+                </small>
+
+                <strong>
+                  Chrome Web Store • Coming Soon
+                </strong>
+
               </div>
 
             </div>
@@ -2112,25 +2243,30 @@
 
             <div class="store-badge">
 
-              <div class="store-icon">
+              <div
+                class="store-icon microsoft-icon"
+                aria-label="Microsoft"
+              >
 
-                <!-- MICROSOFT -->
+                <!-- MICROSOFT FOUR-SQUARE LOGO -->
 
-                <svg viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-
-                  <path
-                    d="M3 3h8.5v8.5H3V3Zm9.5 0H21v8.5h-8.5V3ZM3 12.5h8.5V21H3v-8.5Zm9.5 0H21V21h-8.5v-8.5Z"
-                    fill="currentColor"
-                  />
-
-                </svg>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
 
               </div>
 
               <div>
-                <small>AVAILABLE SOON ON</small>
-                <strong>Microsoft Store • Coming Soon</strong>
+
+                <small>
+                  AVAILABLE SOON ON
+                </small>
+
+                <strong>
+                  Microsoft Store • Coming Soon
+                </strong>
+
               </div>
 
             </div>
@@ -2140,6 +2276,7 @@
         </div>
 
       </div>
+
     </section>
 
 
@@ -2147,7 +2284,10 @@
          EVM FIRST
     ========================================== -->
 
-    <section id="evm" class="evm-section">
+    <section
+      id="evm"
+      class="evm-section"
+    >
 
       <div class="container">
 
@@ -2173,168 +2313,282 @@
 
       <div class="marquee reveal">
 
-        <div class="marquee-track" id="evmTrack">
+        <div
+          class="marquee-track"
+          id="evmTrack"
+        >
 
-          <!-- First set -->
+          <!-- SET 1 -->
+
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/ethereum.jpg"
+                src="eth.jpg"
                 alt="Ethereum"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Ethereum</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Ethereum
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
 
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/base.jpg"
+                src="base.jpg"
                 alt="Base"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Base</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Base
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
 
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/arbitrum.jpg"
+                src="arb.jpg"
                 alt="Arbitrum"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Arbitrum</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Arbitrum
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
 
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/polygon.jpg"
+                src="poly.jpg"
                 alt="Polygon"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Polygon</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Polygon
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
 
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/avalanche.jpg"
+                src="avax.jpg"
                 alt="Avalanche"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Avalanche</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Avalanche
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
 
-          <!-- Duplicate set for continuous loop -->
+          <!-- SET 2 -->
 
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/ethereum.jpg"
+                src="eth.jpg"
                 alt="Ethereum"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Ethereum</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Ethereum
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
 
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/base.jpg"
+                src="base.jpg"
                 alt="Base"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Base</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Base
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
 
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/arbitrum.jpg"
+                src="arb.jpg"
                 alt="Arbitrum"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Arbitrum</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Arbitrum
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
 
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/polygon.jpg"
+                src="poly.jpg"
                 alt="Polygon"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Polygon</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Polygon
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
 
           <div class="chain-card">
+
             <div class="chain-logo">
+
               <img
-                src="assets/avalanche.jpg"
+                src="avax.jpg"
                 alt="Avalanche"
                 loading="lazy"
               />
+
             </div>
 
             <div>
-              <div class="chain-name">Avalanche</div>
-              <div class="chain-type">EVM Network</div>
+
+              <div class="chain-name">
+                Avalanche
+              </div>
+
+              <div class="chain-type">
+                EVM Network
+              </div>
+
             </div>
+
           </div>
 
         </div>
@@ -2345,9 +2599,11 @@
       <div class="container">
 
         <p class="evm-note reveal">
+
           Phase 1 focuses on EVM networks. Non-EVM chains are not part of
           Phase 1, while the underlying architecture is being designed
           with future multi-chain expansion in mind.
+
         </p>
 
       </div>
@@ -2387,8 +2643,11 @@
 
             <div class="security-icon">
 
-              <svg viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
 
                 <path
                   d="M4 5h16M4 12h16M4 19h10"
@@ -2417,8 +2676,11 @@
 
             <div class="security-icon">
 
-              <svg viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
 
                 <path
                   d="M7 11V8a5 5 0 0 1 10 0v3"
@@ -2456,8 +2718,11 @@
 
             <div class="security-icon">
 
-              <svg viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
 
                 <path
                   d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"
@@ -2494,8 +2759,11 @@
 
             <div class="security-icon">
 
-              <svg viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
 
                 <path
                   d="M12 3v18M3 12h18"
@@ -2710,7 +2978,13 @@
         <div class="founder-card reveal">
 
           <div class="founder-avatar">
-            M
+
+            <img
+              src="founder.png"
+              alt="Mohmmed Aman Nilgar"
+              loading="lazy"
+            />
+
           </div>
 
 
@@ -2767,7 +3041,10 @@
           </p>
 
 
-          <form class="waitlist-form" id="waitlistForm">
+          <form
+            class="waitlist-form"
+            id="waitlistForm"
+          >
 
             <input
               type="email"
@@ -2915,8 +3192,20 @@
         <div>
 
           <a href="#top" class="brand">
-            <div class="brand-mark">M</div>
-            <span>MEVO SHIELD</span>
+
+            <div class="brand-mark">
+
+              <img
+                src="logo.png"
+                alt="MEVO SHIELD"
+              />
+
+            </div>
+
+            <span>
+              MEVO SHIELD
+            </span>
+
           </a>
 
           <div class="footer-copy">
@@ -2929,6 +3218,7 @@
         <div class="socials">
 
           <!-- X -->
+
           <a
             id="mevoX"
             class="social"
@@ -2953,7 +3243,7 @@
           </a>
 
 
-          <!-- DISCORD - NOT CLICKABLE YET -->
+          <!-- DISCORD -->
 
           <div
             class="social"
@@ -2976,7 +3266,7 @@
           </div>
 
 
-          <!-- TELEGRAM - NOT CLICKABLE YET -->
+          <!-- TELEGRAM -->
 
           <div
             class="social"
@@ -2991,7 +3281,7 @@
             >
 
               <path
-                d="M21.6 3.2 2.9 10.4c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.4c.2.6.1.8.8.8.5 0 .7-.2 1-.5l2.4-2.3 5 3.7c.9.5 1.5.3 1.7-.8l3.2-15.1c.3-1.3-.5-1.9-1.7-1.4ZM8.2 13l10.8-6.8c.5-.3 1-.2.6.1l-8.8 7.9-.3 3.2L9 13.7 8.2 13Z"
+                d="M21.6 3.2 2.9 10.4c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.4c.2.6.1.8.8.8.5 0 .7-.2 1-.5 1l2.4-2.3 5 3.7c.9.5 1.5.3 1.7-.8l3.2-15.1c.3-1.3-.5-1.9-1.7-1.4ZM8.2 13l10.8-6.8c.5-.3 1-.2.6.1l-8.8 7.9-.3 3.2L9 13.7 8.2 13Z"
               />
 
             </svg>
@@ -3020,105 +3310,187 @@
 
     /*
       =====================================================
-      MEVO ASSET SETTINGS
+      MEVO ASSETS
       =====================================================
 
-      Put your original JPG blockchain logos here:
+      These are the exact filenames visible in your GitHub
+      repository screenshot.
 
-      assets/ethereum.jpg
-      assets/base.jpg
-      assets/arbitrum.jpg
-      assets/polygon.jpg
-      assets/avalanche.jpg
+      Project logo:
+      logo.png
 
-      If your filenames are different, ONLY change these
-      paths. The circular styling is already handled by CSS.
+      Founder:
+      founder.png
+
+      EVM logos:
+      eth.jpg
+      base.jpg
+      arb.jpg
+      poly.jpg
+      avax.jpg
     */
 
-    const EVM_LOGOS = {
-      ethereum: "assets/ethereum.jpg",
-      base: "assets/base.jpg",
-      arbitrum: "assets/arbitrum.jpg",
-      polygon: "assets/polygon.jpg",
-      avalanche: "assets/avalanche.jpg"
+    const MEVO_ASSETS = {
+
+      logo: "logo.png",
+
+      founder: "founder.png",
+
+      evm: {
+        ethereum: "eth.jpg",
+        base: "base.jpg",
+        arbitrum: "arb.jpg",
+        polygon: "poly.jpg",
+        avalanche: "avax.jpg"
+      }
+
     };
 
 
     /*
       =====================================================
-      MEVO X URL
+      MEVO X
       =====================================================
-
-      If your official X username/page is different,
-      change ONLY this URL.
     */
 
-    const MEVO_X_URL = "https://x.com/MEVO_SHIELD";
+    const MEVO_X_URL =
+      "https://x.com/MEVO_SHIELD";
 
 
-    document.getElementById("mevoX").href = MEVO_X_URL;
+    document.getElementById("mevoX").href =
+      MEVO_X_URL;
 
 
     /*
       =====================================================
-      LOAD EVM LOGOS FROM SETTINGS
+      APPLY MEVO LOGO
+      =====================================================
+    */
+
+    document
+      .querySelectorAll(
+        'img[alt="MEVO SHIELD"], img[alt="MEVO"]'
+      )
+      .forEach(img => {
+
+        if (
+          img.alt === "MEVO SHIELD" ||
+          img.alt === "MEVO"
+        ) {
+
+          img.src = MEVO_ASSETS.logo;
+
+        }
+
+      });
+
+
+    /*
+      =====================================================
+      APPLY FOUNDER IMAGE
+      =====================================================
+    */
+
+    const founderImage =
+      document.querySelector(
+        '.founder-avatar img'
+      );
+
+    if (founderImage) {
+
+      founderImage.src =
+        MEVO_ASSETS.founder;
+
+    }
+
+
+    /*
+      =====================================================
+      APPLY EVM LOGOS
       =====================================================
     */
 
     const evmImageMap = {
-      ethereum: EVM_LOGOS.ethereum,
-      base: EVM_LOGOS.base,
-      arbitrum: EVM_LOGOS.arbitrum,
-      polygon: EVM_LOGOS.polygon,
-      avalanche: EVM_LOGOS.avalanche
+
+      ethereum:
+        MEVO_ASSETS.evm.ethereum,
+
+      base:
+        MEVO_ASSETS.evm.base,
+
+      arbitrum:
+        MEVO_ASSETS.evm.arbitrum,
+
+      polygon:
+        MEVO_ASSETS.evm.polygon,
+
+      avalanche:
+        MEVO_ASSETS.evm.avalanche
+
     };
 
 
-    document.querySelectorAll(".chain-card").forEach(card => {
+    document
+      .querySelectorAll(".chain-card")
+      .forEach(card => {
 
-      const name =
-        card.querySelector(".chain-name")?.textContent
-          ?.trim()
-          ?.toLowerCase();
+        const name =
+          card
+            .querySelector(".chain-name")
+            ?.textContent
+            ?.trim()
+            ?.toLowerCase();
 
-      if (name && evmImageMap[name]) {
+        const image =
+          card.querySelector("img");
 
-        const image = card.querySelector("img");
+        if (
+          image &&
+          name &&
+          evmImageMap[name]
+        ) {
 
-        if (image) {
-          image.src = evmImageMap[name];
+          image.src =
+            evmImageMap[name];
+
         }
 
-      }
-
-    });
+      });
 
 
     /*
       =====================================================
       IMAGE FALLBACK
       =====================================================
-
-      If a JPG filename is wrong, the logo area remains
-      visually clean instead of breaking the layout.
     */
 
-    document.querySelectorAll(".chain-logo img").forEach(img => {
+    document
+      .querySelectorAll(".chain-logo img")
+      .forEach(img => {
 
-      img.addEventListener("error", () => {
+        img.addEventListener(
+          "error",
+          () => {
 
-        img.style.display = "none";
+            img.style.display =
+              "none";
 
-        const parent = img.parentElement;
+            const parent =
+              img.parentElement;
 
-        parent.style.display = "grid";
-        parent.style.placeItems = "center";
-        parent.innerHTML =
-          '<span style="font-weight:900;color:#159ee8;font-size:11px;">EVM</span>';
+            parent.style.display =
+              "grid";
+
+            parent.style.placeItems =
+              "center";
+
+            parent.innerHTML =
+              '<span style="font-weight:900;color:#159ee8;font-size:11px;">EVM</span>';
+
+          }
+        );
 
       });
-
-    });
 
 
     /*
@@ -3129,101 +3501,102 @@
 
     const revealObserver =
       new IntersectionObserver(
+
         (entries, observer) => {
 
           entries.forEach(entry => {
 
             if (entry.isIntersecting) {
 
-              entry.target.classList.add("is-visible");
+              entry.target.classList.add(
+                "is-visible"
+              );
 
-              observer.unobserve(entry.target);
+              observer.unobserve(
+                entry.target
+              );
 
             }
 
           });
 
         },
+
         {
           threshold: 0.12
         }
+
       );
 
 
     document
       .querySelectorAll(".reveal")
       .forEach(element => {
-        revealObserver.observe(element);
+
+        revealObserver.observe(
+          element
+        );
+
       });
 
 
     /*
       =====================================================
-      3D DEVICE INTERACTION
+      DEVICE SHAKE ONLY
       =====================================================
 
-      Drag / touch:
-      - Horizontal movement = rotateY
-      - Vertical movement = rotateX
-      - Can rotate beyond 360 degrees continuously
+      IMPORTANT:
+      360-degree rotation has been completely removed.
 
-      Tap:
-      - small shake
-      - navigator.vibrate() when supported
+      No drag rotation.
+      No touch rotation.
+      No continuous transform calculations.
+
+      Tap / click:
+      - small physical shake
+      - vibration when supported
     */
 
-    function setup3DDevice(element) {
+    function setupShakeDevice(element) {
 
-      let rotateX = -4;
-      let rotateY = 0;
-
-      let startX = 0;
-      let startY = 0;
-
-      let lastX = 0;
-      let lastY = 0;
-
-      let dragging = false;
-      let moved = false;
-
-      const sensitivity = 0.55;
+      if (!element) return;
 
 
-      function applyTransform() {
+      function triggerShake() {
 
-        element.style.setProperty(
-          "--rx",
-          `${rotateX}deg`
+        element.classList.remove(
+          "shake"
         );
 
-        element.style.setProperty(
-          "--ry",
-          `${rotateY}deg`
+        /*
+          Force reflow so the animation
+          can restart every time.
+        */
+
+        void element.offsetWidth;
+
+        element.classList.add(
+          "shake"
         );
 
-        element.style.transform =
-          `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-      }
+        /*
+          Mobile vibration where supported.
+        */
 
-
-      function pointerDown(event) {
-
-        dragging = true;
-        moved = false;
-
-        element.classList.add("dragging");
-
-        startX = event.clientX;
-        startY = event.clientY;
-
-        lastX = event.clientX;
-        lastY = event.clientY;
-
-        if (element.setPointerCapture) {
+        if (
+          "vibrate" in navigator &&
+          typeof navigator.vibrate === "function"
+        ) {
 
           try {
-            element.setPointerCapture(event.pointerId);
+
+            navigator.vibrate([
+              25,
+              35,
+              25
+            ]);
+
           } catch (e) {}
 
         }
@@ -3231,115 +3604,26 @@
       }
 
 
-      function pointerMove(event) {
-
-        if (!dragging) return;
-
-        const dx = event.clientX - lastX;
-        const dy = event.clientY - lastY;
-
-        if (
-          Math.abs(event.clientX - startX) > 4 ||
-          Math.abs(event.clientY - startY) > 4
-        ) {
-
-          moved = true;
-
-        }
-
-        rotateY += dx * sensitivity;
-        rotateX -= dy * sensitivity;
-
-        /*
-          Keep vertical angle controlled so the device
-          doesn't become visually inverted.
-        */
-
-        rotateX = Math.max(
-          -80,
-          Math.min(80, rotateX)
-        );
-
-        lastX = event.clientX;
-        lastY = event.clientY;
-
-        applyTransform();
-
-      }
-
-
-      function pointerUp(event) {
-
-        if (!dragging) return;
-
-        dragging = false;
-
-        element.classList.remove("dragging");
-
-
-        /*
-          A simple tap activates the physical-style
-          shake/vibration feedback.
-        */
-
-        if (!moved) {
-
-          element.classList.remove("shake");
-
-          /*
-            Force browser reflow so the animation can
-            trigger again on every tap.
-          */
-
-          void element.offsetWidth;
-
-          element.classList.add("shake");
-
-
-          if (
-            "vibrate" in navigator &&
-            typeof navigator.vibrate === "function"
-          ) {
-
-            try {
-              navigator.vibrate([25, 35, 25]);
-            } catch (e) {}
-
-          }
-
-        }
-
-      }
-
-
       element.addEventListener(
-        "pointerdown",
-        pointerDown
+        "click",
+        triggerShake
       );
 
-      element.addEventListener(
-        "pointermove",
-        pointerMove
-      );
 
       element.addEventListener(
-        "pointerup",
-        pointerUp
-      );
-
-      element.addEventListener(
-        "pointercancel",
-        pointerUp
-      );
-
-      element.addEventListener(
-        "pointerleave",
+        "keydown",
         event => {
 
-          /*
-            Do not stop rotation while the pointer is
-            captured. Pointer capture handles this.
-          */
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+
+            event.preventDefault();
+
+            triggerShake();
+
+          }
 
         }
       );
@@ -3348,23 +3632,28 @@
       element.addEventListener(
         "animationend",
         () => {
-          element.classList.remove("shake");
-          applyTransform();
+
+          element.classList.remove(
+            "shake"
+          );
+
         }
       );
-
-
-      applyTransform();
 
     }
 
 
-    setup3DDevice(
-      document.getElementById("phoneDevice")
+    setupShakeDevice(
+      document.getElementById(
+        "phoneDevice"
+      )
     );
 
-    setup3DDevice(
-      document.getElementById("laptopDevice")
+
+    setupShakeDevice(
+      document.getElementById(
+        "laptopDevice"
+      )
     );
 
 
@@ -3375,13 +3664,19 @@
     */
 
     const waitlistForm =
-      document.getElementById("waitlistForm");
+      document.getElementById(
+        "waitlistForm"
+      );
 
     const emailInput =
-      document.getElementById("emailInput");
+      document.getElementById(
+        "emailInput"
+      );
 
     const waitlistMessage =
-      document.getElementById("waitlistMessage");
+      document.getElementById(
+        "waitlistMessage"
+      );
 
 
     waitlistForm.addEventListener(
@@ -3416,12 +3711,38 @@
 
         img.addEventListener(
           "dragstart",
-          event => event.preventDefault()
+          event =>
+            event.preventDefault()
         );
 
       });
 
   </script>
+
+
+  <style>
+
+    /*
+      Microsoft Store logo
+      Four-square Microsoft mark.
+    */
+
+    .microsoft-icon {
+      display: grid;
+      grid-template-columns: repeat(2, 9px);
+      grid-template-rows: repeat(2, 9px);
+      gap: 2px;
+      place-content: center;
+    }
+
+    .microsoft-icon span {
+      display: block;
+      width: 9px;
+      height: 9px;
+      background: #111;
+    }
+
+  </style>
 
 </body>
 </html>
