@@ -1,2668 +1,3236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
 
-<title>MEVO SHIELD — Proactive Security for Crypto Wallets</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover"
+  />
 
-<meta
-  name="description"
-  content="MEVO is building a security-first crypto wallet designed to inspect transactions, approvals and signatures before execution."
->
+  <title>MEVO SHIELD — Proactive Security for Crypto Wallets</title>
 
-<link
-  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-  rel="stylesheet"
->
+  <meta
+    name="description"
+    content="MEVO is building a security-first crypto wallet designed to inspect transactions, approvals and signatures before execution."
+  />
 
-<style>
+  <meta name="theme-color" content="#f7fcff" />
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-:root{
-    --white:#ffffff;
-    --bg:#f7fcff;
-    --blue:#19afe8;
-    --blue-dark:#0788bd;
-    --blue-light:#e8f8ff;
-    --navy:#102536;
-    --text:#152b3d;
-    --muted:#718695;
-    --border:#d8eaf3;
-    --shadow:0 25px 70px rgba(30,135,175,.10);
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    background:
-        radial-gradient(circle at 50% -5%,#dff5ff 0%,transparent 32%),
-        linear-gradient(180deg,#ffffff 0%,#f7fcff 100%);
-    color:var(--text);
-    overflow-x:hidden;
-}
-
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.32;
-    background-image:
-        linear-gradient(rgba(30,150,195,.045) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(30,150,195,.045) 1px,transparent 1px);
-    background-size:42px 42px;
-    z-index:-1;
-}
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-nav{
-    position:relative;
-    z-index:20;
-    max-width:1180px;
-    margin:auto;
-    padding:18px 22px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid rgba(30,140,185,.08);
-}
-
-.nav-brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
-    color:var(--navy);
-}
-
-.nav-brand img{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    object-fit:cover;
-    border:1px solid #b8e3f5;
-}
-
-.nav-brand span{
-    font-size:15px;
-    font-weight:800;
-    letter-spacing:1px;
-}
-
-.network-status{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    border:1px solid #bfe5f5;
-    background:rgba(255,255,255,.85);
-    padding:8px 13px;
-    border-radius:50px;
-    color:var(--blue-dark);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:1px;
-}
-
-.status-dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:var(--blue);
-    animation:pulse 1.8s infinite;
-}
-
-@keyframes pulse{
-    0%,100%{
-        opacity:1;
-        box-shadow:0 0 0 0 rgba(25,175,232,.35);
-    }
-    50%{
-        opacity:.45;
-        box-shadow:0 0 0 7px rgba(25,175,232,0);
-    }
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    position:relative;
-    z-index:2;
-    max-width:920px;
-    margin:auto;
-    text-align:center;
-    padding:72px 22px 70px;
-}
-
-.hero-logo{
-    width:132px;
-    height:132px;
-    margin:auto;
-    padding:8px;
-    border-radius:50%;
-    background:#fff;
-    border:1px solid #b9e3f4;
-    box-shadow:
-        0 18px 50px rgba(30,145,190,.13),
-        0 0 0 10px rgba(25,175,232,.04);
-}
-
-.hero-logo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:50%;
-}
-
-.badge{
-    display:inline-block;
-    margin-top:27px;
-    padding:9px 15px;
-    border-radius:50px;
-    background:#e9f8ff;
-    border:1px solid #c9ebf8;
-    color:var(--blue-dark);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:1.5px;
-}
-
-h1{
-    margin-top:20px;
-    font-size:clamp(38px,7vw,70px);
-    line-height:1.05;
-    letter-spacing:-3px;
-    color:var(--navy);
-    font-weight:800;
-}
-
-h1 span{
-    color:var(--blue-dark);
-}
-
-.hero-desc{
-    max-width:710px;
-    margin:22px auto 0;
-    color:var(--muted);
-    font-size:15px;
-    line-height:1.8;
-}
-
-
-/* =========================
-   WAITLIST
-========================= */
-
-.waitlist{
-    max-width:480px;
-    margin:30px auto 0;
-    padding:5px;
-    display:flex;
-    background:#fff;
-    border:1px solid #cbe6f3;
-    border-radius:15px;
-    box-shadow:0 15px 40px rgba(30,130,170,.08);
-}
-
-.waitlist input{
-    flex:1;
-    border:0;
-    outline:0;
-    padding:13px;
-    font-family:inherit;
-    color:var(--text);
-    background:transparent;
-}
-
-.waitlist button{
-    border:0;
-    background:var(--blue);
-    color:#fff;
-    padding:0 22px;
-    border-radius:11px;
-    font-weight:800;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.waitlist button:hover{
-    background:var(--blue-dark);
-}
-
-.waitlist-msg{
-    display:none;
-    margin-top:10px;
-    color:var(--blue-dark);
-    font-size:12px;
-    font-weight:700;
-}
-
-
-/* =========================
-   COMMON SECTION
-========================= */
-
-.section{
-    position:relative;
-    z-index:2;
-    max-width:1080px;
-    margin:auto;
-    padding:20px 22px 90px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:25px;
-    font-weight:800;
-    color:var(--navy);
-}
-
-.section-subtitle{
-    max-width:700px;
-    margin:10px auto 34px;
-    text-align:center;
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.75;
-}
-
-
-/* =========================
-   SECURITY CARDS
-========================= */
-
-.security-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
-}
-
-.security-card{
-    padding:24px;
-    background:rgba(255,255,255,.94);
-    border:1px solid var(--border);
-    border-radius:20px;
-    box-shadow:var(--shadow);
-    transition:.3s;
-}
-
-.security-card:hover{
-    transform:translateY(-5px);
-    border-color:#a9dff3;
-}
-
-.layer{
-    color:var(--blue-dark);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:1.5px;
-    margin-bottom:9px;
-}
-
-.security-card h3{
-    font-size:16px;
-    margin-bottom:7px;
-}
-
-.security-card p{
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.7;
-}
-
-
-/* =========================
-   PRODUCT SHOWCASE
-========================= */
-
-.product-showcase{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:45px;
-    align-items:center;
-    min-height:530px;
-}
-
-.product-copy{
-    padding:10px;
-}
-
-.product-label{
-    display:inline-block;
-    padding:9px 14px;
-    border-radius:50px;
-    background:#e8f8ff;
-    border:1px solid #ccecf8;
-    color:var(--blue-dark);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:1.3px;
-}
-
-.product-copy h2{
-    margin-top:18px;
-    font-size:31px;
-    line-height:1.2;
-    letter-spacing:-1px;
-}
-
-.product-copy p{
-    margin-top:13px;
-    max-width:500px;
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.8;
-}
-
-
-/* =========================
-   COMING SOON
-========================= */
-
-.coming{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    margin-top:22px;
-    color:var(--blue-dark);
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:.7px;
-}
-
-.coming-dot{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--blue);
-    animation:comingBlink 1.05s infinite;
-}
-
-@keyframes comingBlink{
-    0%,100%{
-        opacity:1;
-        transform:scale(1);
-        box-shadow:0 0 0 0 rgba(25,175,232,.25);
+  <style>
+    :root {
+      --navy: #092033;
+      --navy-2: #102f45;
+      --blue: #079bd3;
+      --blue-2: #21b8e8;
+      --sky: #e9f9ff;
+      --sky-2: #d8f3fc;
+      --line: #d8eaf1;
+      --muted: #718796;
+      --white: #ffffff;
+      --bg: #f8fcfe;
+      --shadow: 0 25px 70px rgba(8, 75, 105, 0.11);
+      --soft-shadow: 0 12px 35px rgba(8, 75, 105, 0.08);
+      --radius: 28px;
+      --max: 1180px;
     }
 
-    50%{
-        opacity:.2;
-        transform:scale(.65);
-        box-shadow:0 0 0 7px rgba(25,175,232,0);
-    }
-}
-
-
-/* =========================
-   PHONE
-========================= */
-
-.product-visual{
-    min-height:500px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    perspective:1200px;
-}
-
-.phone{
-    width:255px;
-    height:470px;
-    padding:8px;
-    border-radius:38px;
-    background:#112536;
-    box-shadow:
-        0 35px 75px rgba(20,105,140,.22),
-        0 0 70px rgba(25,175,232,.08);
-    transform:rotate(-2deg);
-    transition:
-        transform .18s ease-out,
-        box-shadow .3s;
-    will-change:transform;
-}
-
-.phone:hover{
-    box-shadow:
-        0 42px 90px rgba(20,105,140,.27),
-        0 0 80px rgba(25,175,232,.14);
-}
-
-.phone-screen{
-    position:relative;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    border-radius:31px;
-    background:linear-gradient(180deg,#fff,#f1faff);
-    padding:20px 15px;
-}
-
-.phone-notch{
-    width:78px;
-    height:18px;
-    margin:-20px auto 17px;
-    background:#112536;
-    border-radius:20px;
-}
-
-.app-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.app-name{
-    font-size:14px;
-    font-weight:800;
-}
-
-.shield-mini{
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    background:#e5f8ff;
-    border:1px solid #bde5f4;
-}
-
-.balance-label{
-    margin-top:25px;
-    color:#8498a6;
-    font-size:8px;
-}
-
-.balance{
-    margin-top:3px;
-    font-size:25px;
-    font-weight:800;
-    letter-spacing:-1px;
-}
-
-.phone-card{
-    margin-top:12px;
-    padding:14px;
-    border-radius:15px;
-    background:#fff;
-    border:1px solid #d7eaf3;
-    box-shadow:0 8px 22px rgba(30,130,170,.07);
-}
-
-.phone-card-title{
-    color:#8296a4;
-    font-size:8px;
-    margin-bottom:5px;
-}
-
-.phone-card-main{
-    font-size:11px;
-    font-weight:800;
-}
-
-.protected{
-    margin-top:6px;
-    color:var(--blue-dark);
-    font-size:8px;
-    font-weight:800;
-}
-
-.phone-bottom{
-    position:absolute;
-    bottom:13px;
-    left:14px;
-    right:14px;
-    text-align:center;
-    padding:13px 8px;
-    border-radius:13px;
-    background:#e8f8ff;
-    border:1px solid #c8eaf7;
-    color:var(--blue-dark);
-    font-size:8px;
-    font-weight:800;
-}
-
-
-/* =========================
-   STORE BADGES
-========================= */
-
-.store-row{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:26px;
-}
-
-.store-badge{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    padding:10px 13px;
-    border:1px solid #d4e8f1;
-    background:#fff;
-    border-radius:12px;
-    box-shadow:0 8px 25px rgba(30,130,170,.06);
-    min-width:145px;
-}
-
-.store-icon{
-    width:27px;
-    height:27px;
-    object-fit:contain;
-}
-
-.store-text{
-    display:flex;
-    flex-direction:column;
-    gap:2px;
-}
-
-.store-small{
-    font-size:7px;
-    color:#8497a4;
-    font-weight:600;
-}
-
-.store-name{
-    font-size:10px;
-    font-weight:800;
-    color:var(--navy);
-}
-
-.store-soon{
-    font-size:7px;
-    color:var(--blue-dark);
-    font-weight:800;
-}
-
-
-/* =========================
-   LAPTOP
-========================= */
-
-.laptop-area{
-    min-height:500px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    perspective:1300px;
-}
-
-.laptop{
-    width:535px;
-    max-width:100%;
-    transition:transform .18s ease-out;
-    will-change:transform;
-}
-
-.laptop-screen-frame{
-    padding:9px;
-    background:#132737;
-    border-radius:15px 15px 8px 8px;
-    box-shadow:0 32px 70px rgba(20,110,145,.21);
-}
-
-.laptop-screen{
-    height:300px;
-    overflow:hidden;
-    border-radius:8px;
-    background:#f8fcff;
-    border:1px solid #d9ebf4;
-}
-
-.browser-bar{
-    height:32px;
-    display:flex;
-    align-items:center;
-    gap:5px;
-    padding:0 11px;
-    background:#fff;
-    border-bottom:1px solid #dcecf3;
-}
-
-.browser-dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#b6cad5;
-}
-
-.extension-layout{
-    display:grid;
-    grid-template-columns:1fr 190px;
-    height:calc(100% - 32px);
-}
-
-.web-content{
-    padding:22px;
-    background:linear-gradient(135deg,#fff,#effaff);
-}
-
-.web-line{
-    width:58%;
-    height:10px;
-    margin-bottom:11px;
-    border-radius:5px;
-    background:#d9edf6;
-}
-
-.web-line.small{
-    width:39%;
-}
-
-.web-box{
-    height:105px;
-    margin-top:20px;
-    border-radius:12px;
-    border:1px solid #d9ebf4;
-    background:#fff;
-}
-
-.extension-panel{
-    padding:16px;
-    background:#fff;
-    border-left:1px solid #d8eaf2;
-}
-
-.extension-header{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-size:11px;
-    font-weight:800;
-}
-
-.extension-logo{
-    width:28px;
-    height:28px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:#e7f8ff;
-    border:1px solid #bfe5f3;
-}
-
-.risk-box{
-    margin-top:14px;
-    padding:11px;
-    border:1px solid #cde7f2;
-    background:#f6fcff;
-    border-radius:10px;
-}
-
-.risk-title{
-    color:var(--blue-dark);
-    font-size:8px;
-    font-weight:800;
-}
-
-.risk-text{
-    margin-top:5px;
-    color:#8294a1;
-    font-size:7px;
-    line-height:1.55;
-}
-
-.inspect-btn{
-    width:100%;
-    margin-top:13px;
-    padding:9px;
-    border:0;
-    border-radius:8px;
-    background:var(--blue);
-    color:#fff;
-    font-size:8px;
-    font-weight:800;
-}
-
-.laptop-base{
-    width:108%;
-    height:15px;
-    margin-left:-4%;
-    background:#b7c8d2;
-    border-radius:0 0 14px 14px;
-}
-
-.desktop-store-row{
-    margin-top:25px;
-}
-
-
-/* =========================
-   EVM LOOP
-========================= */
-
-.evm-section{
-    padding-top:10px;
-}
-
-.evm-box{
-    overflow:hidden;
-    padding:27px 0 22px;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:23px;
-    box-shadow:var(--shadow);
-}
-
-.evm-title{
-    text-align:center;
-    font-size:18px;
-    font-weight:800;
-}
-
-.evm-sub{
-    margin-top:5px;
-    text-align:center;
-    color:var(--blue-dark);
-    font-size:9px;
-    font-weight:800;
-    letter-spacing:1.3px;
-}
-
-.logo-window{
-    position:relative;
-    overflow:hidden;
-    width:100%;
-    margin-top:23px;
-}
-
-.logo-window:before,
-.logo-window:after{
-    content:"";
-    position:absolute;
-    top:0;
-    bottom:0;
-    width:100px;
-    z-index:2;
-    pointer-events:none;
-}
-
-.logo-window:before{
-    left:0;
-    background:linear-gradient(90deg,#fff,transparent);
-}
-
-.logo-window:after{
-    right:0;
-    background:linear-gradient(270deg,#fff,transparent);
-}
-
-.logo-track{
-    display:flex;
-    width:max-content;
-    animation:logoLoop 22s linear infinite;
-}
-
-.logo-set{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    padding-right:18px;
-}
-
-.chain-logo{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    min-width:145px;
-    height:58px;
-    padding:9px 14px;
-    border:1px solid #d7eaf3;
-    border-radius:15px;
-    background:#fcfeff;
-}
-
-.chain-logo img{
-    width:31px;
-    height:31px;
-    object-fit:contain;
-}
-
-.chain-name{
-    font-size:11px;
-    font-weight:800;
-    color:var(--navy);
-}
-
-@keyframes logoLoop{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(-50%);
-    }
-}
-
-.future-note{
-    margin-top:19px;
-    text-align:center;
-    color:#8799a5;
-    font-size:9px;
-}
-
-
-/* =========================
-   SECURITY CORE
-========================= */
-
-.feature-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.feature{
-    padding:20px;
-    border:1px solid var(--border);
-    border-radius:18px;
-    background:#fff;
-    box-shadow:var(--shadow);
-}
-
-.feature-num{
-    color:var(--blue-dark);
-    font-size:10px;
-    font-weight:800;
-}
-
-.feature h3{
-    margin-top:9px;
-    font-size:13px;
-}
-
-.feature p{
-    margin-top:6px;
-    color:var(--muted);
-    font-size:10px;
-    line-height:1.65;
-}
-
-
-/* =========================
-   ROADMAP
-========================= */
-
-.roadmap{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.roadmap-card{
-    padding:20px;
-    border:1px solid var(--border);
-    border-radius:18px;
-    background:#fff;
-    box-shadow:var(--shadow);
-}
-
-.roadmap-card small{
-    color:#8295a3;
-    font-size:8px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:1px;
-}
-
-.roadmap-card h3{
-    margin:7px 0;
-    font-size:13px;
-}
-
-.roadmap-card strong{
-    color:var(--blue-dark);
-    font-size:9px;
-}
-
-
-/* =========================
-   FOUNDER
-========================= */
-
-.founder-section{
-    max-width:900px;
-}
-
-.founder-card{
-    display:flex;
-    align-items:center;
-    gap:22px;
-    padding:28px;
-    background:linear-gradient(135deg,#fff,#effaff);
-    border:1px solid #cfe8f4;
-    border-radius:25px;
-    box-shadow:0 25px 65px rgba(30,125,165,.10);
-}
-
-.founder-img{
-    width:110px;
-    height:120px;
-    flex-shrink:0;
-    object-fit:cover;
-    object-position:center top;
-    border-radius:18px;
-    border:2px solid #bce4f4;
-}
-
-.founder-badge{
-    color:var(--blue-dark);
-    font-size:9px;
-    font-weight:800;
-    letter-spacing:1.4px;
-    text-transform:uppercase;
-}
-
-.founder-info h2{
-    margin-top:7px;
-    font-size:22px;
-}
-
-.founder-year{
-    margin-top:4px;
-    color:var(--muted);
-    font-size:10px;
-}
-
-.founder-year span{
-    color:var(--blue-dark);
-    font-weight:800;
-}
-
-.founder-info p{
-    margin-top:10px;
-    color:var(--muted);
-    font-size:11px;
-    line-height:1.7;
-}
-
-
-/* =========================
-   SOCIAL
-========================= */
-
-.social-row{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    margin-top:25px;
-}
-
-.social{
-    width:45px;
-    height:45px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:13px;
-    background:#fff;
-    border:1px solid #d4e8f2;
-    color:#637b8a;
-    text-decoration:none;
-    font-size:10px;
-    font-weight:800;
-    transition:.2s;
-}
-
-.social:hover{
-    color:var(--blue-dark);
-    border-color:#91d1ec;
-    transform:translateY(-3px);
-}
-
-
-/* =========================
-   FAQ
-========================= */
-
-.faq{
-    max-width:730px;
-    margin:auto;
-}
-
-.faq-item{
-    padding:17px 19px;
-    margin-bottom:9px;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:14px;
-}
-
-.faq-q{
-    font-size:11px;
-    font-weight:800;
-}
-
-.faq-a{
-    margin-top:6px;
-    color:var(--muted);
-    font-size:10px;
-    line-height:1.6;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    padding:30px 20px;
-    border-top:1px solid #dfedf4;
-    text-align:center;
-    color:#8194a1;
-    font-size:9px;
-    letter-spacing:1px;
-}
-
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
-.reveal{
-    opacity:0;
-    transform:translateY(35px);
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-}
-
-.reveal.visible{
-    opacity:1;
-    transform:translateY(0);
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:800px){
-
-    .security-grid,
-    .product-showcase,
-    .feature-grid,
-    .roadmap{
-        grid-template-columns:1fr;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .product-showcase{
-        gap:10px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .product-copy{
-        text-align:left;
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: var(--navy);
+      background:
+        radial-gradient(circle at 50% 0%, #e9faff 0%, transparent 34%),
+        linear-gradient(#fbfeff, #f7fcfe);
+
+      overflow-x: hidden;
     }
 
-    .product-visual{
-        min-height:520px;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.42;
+
+      background-image:
+        linear-gradient(rgba(18, 145, 190, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 145, 190, 0.035) 1px, transparent 1px);
+
+      background-size: 42px 42px;
+      z-index: -2;
     }
 
-    .laptop-area{
-        min-height:430px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .founder-card{
-        flex-direction:column;
-        text-align:center;
+    button,
+    input {
+      font: inherit;
     }
 
-    .store-row{
-        justify-content:flex-start;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-}
-
-@media(max-width:600px){
-
-    nav{
-        padding:14px;
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
     }
 
-    .nav-brand span{
-        font-size:12px;
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(160, 210, 225, 0.35);
     }
 
-    .network-status{
-        font-size:8px;
-        padding:7px 9px;
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .hero{
-        padding:48px 18px 60px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      font-size: 18px;
     }
 
-    .hero-logo{
-        width:105px;
-        height:105px;
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+
+      display: grid;
+      place-items: center;
+
+      background: linear-gradient(145deg, #dff8ff, #ffffff);
+      border: 1px solid #bfe8f5;
+      box-shadow: 0 7px 20px rgba(0, 154, 211, 0.12);
+
+      color: var(--blue);
+      font-weight: 1000;
     }
 
-    h1{
-        font-size:42px;
-        letter-spacing:-2px;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: #627887;
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    .hero-desc{
-        font-size:13px;
+    .nav-links a {
+      transition: 0.25s ease;
     }
 
-    .waitlist{
-        flex-direction:column;
-        border:0;
-        background:transparent;
-        box-shadow:none;
-        gap:8px;
+    .nav-links a:hover {
+      color: var(--blue);
     }
 
-    .waitlist input{
-        height:48px;
-        background:#fff;
-        border:1px solid #cbe6f3;
-        border-radius:11px;
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 9px 13px;
+      border-radius: 999px;
+
+      background: #effaff;
+      border: 1px solid #cceef8;
+
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
     }
 
-    .waitlist button{
-        height:48px;
+    /* =========================
+       BLINKING DOT
+    ========================= */
+
+    .blink-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #25b8e7;
+      box-shadow: 0 0 0 rgba(37,184,231,0.8);
+      animation: blink 1.35s infinite;
+      flex: 0 0 auto;
     }
 
-    .section{
-        padding-left:17px;
-        padding-right:17px;
-        padding-bottom:75px;
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37,184,231,0.5);
+      }
+
+      50% {
+        opacity: 0.28;
+        transform: scale(0.68);
+        box-shadow: 0 0 0 7px rgba(37,184,231,0);
+      }
     }
 
-    .section-title{
-        font-size:23px;
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      padding: 110px 0 90px;
+      overflow: hidden;
     }
 
-    .product-copy h2{
-        font-size:27px;
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+
+      right: -180px;
+      top: 80px;
+
+      background: radial-gradient(
+        circle,
+        rgba(24, 186, 231, 0.13),
+        transparent 68%
+      );
+
+      filter: blur(4px);
+      pointer-events: none;
     }
 
-    .phone{
-        width:245px;
-        height:450px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 70px;
     }
 
-    .laptop{
-        width:100%;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 11px 16px;
+      border-radius: 999px;
+
+      background: #e7f8fd;
+      border: 1px solid #c8edf7;
+
+      color: #008bbd;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 0.13em;
+
+      margin-bottom: 25px;
     }
 
-    .laptop-screen{
-        height:210px;
+    h1 {
+      font-size: clamp(48px, 6vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      max-width: 800px;
     }
 
-    .extension-layout{
-        grid-template-columns:1fr 125px;
+    .hero h1 span {
+      color: var(--blue);
     }
 
-    .extension-panel{
-        padding:10px;
+    .hero-copy {
+      margin-top: 27px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 680px;
     }
 
-    .web-content{
-        padding:15px;
+    .hero-actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin-top: 32px;
     }
 
-    .web-box{
-        height:70px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      padding: 14px 19px;
+      border-radius: 14px;
+
+      font-weight: 900;
+      font-size: 14px;
+
+      transition: 0.25s ease;
+      cursor: pointer;
     }
 
-    .chain-logo{
-        min-width:135px;
-        height:54px;
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #079bd3, #13b8e4);
+      box-shadow: 0 13px 30px rgba(0,155,210,0.22);
     }
 
-    .chain-logo img{
-        width:28px;
-        height:28px;
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(0,155,210,0.27);
     }
 
-    .store-badge{
-        min-width:140px;
+    .btn-secondary {
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--navy);
     }
 
-    .founder-card{
-        padding:25px 18px;
+    .btn-secondary:hover {
+      border-color: #9edceb;
+      transform: translateY(-2px);
     }
 
-}
+    /* =========================
+       HERO SECURITY VISUAL
+    ========================= */
 
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *:before,
-    *:after{
-        scroll-behavior:auto !important;
-        animation:none !important;
-        transition:none !important;
+    .hero-visual {
+      min-height: 480px;
+      display: grid;
+      place-items: center;
+      position: relative;
     }
 
-}
+    .security-orbit {
+      width: 410px;
+      height: 410px;
+      border-radius: 50%;
+      border: 1px solid rgba(11,163,213,0.22);
+      position: absolute;
+      animation: orbitPulse 4s ease-in-out infinite;
+    }
 
-</style>
+    .security-orbit::before,
+    .security-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 38px;
+      border-radius: 50%;
+      border: 1px dashed rgba(11,163,213,0.18);
+    }
+
+    .security-orbit::after {
+      inset: 88px;
+    }
+
+    @keyframes orbitPulse {
+      0%,100% {
+        transform: scale(0.97);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: scale(1.03);
+        opacity: 1;
+      }
+    }
+
+    .hero-core {
+      width: 220px;
+      height: 220px;
+      border-radius: 52px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #cfeaf2;
+
+      box-shadow:
+        0 35px 80px rgba(8,88,120,0.13),
+        inset 0 0 35px rgba(30,192,232,0.04);
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-core-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 22px;
+
+      display: grid;
+      place-items: center;
+
+      background: linear-gradient(145deg,#e1f8ff,#ffffff);
+      border: 1px solid #c0eaf5;
+
+      color: var(--blue);
+      font-size: 28px;
+      font-weight: 1000;
+
+      margin-bottom: 17px;
+    }
+
+    .hero-core strong {
+      font-size: 19px;
+    }
+
+    .hero-core small {
+      color: #79909e;
+      margin-top: 6px;
+      font-weight: 700;
+    }
+
+    .orbit-dot {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #14aeda;
+      box-shadow: 0 0 0 8px rgba(20,174,218,0.08);
+    }
+
+    .orbit-dot.one {
+      top: 58px;
+      left: 80px;
+    }
+
+    .orbit-dot.two {
+      right: 40px;
+      top: 190px;
+    }
+
+    .orbit-dot.three {
+      left: 100px;
+      bottom: 45px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-head {
+      max-width: 750px;
+      margin: 0 auto 55px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      color: #078dbd;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: 0.13em;
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(35px, 5vw, 56px);
+      letter-spacing: -0.045em;
+      line-height: 1.05;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-top: 18px;
+      font-size: 17px;
+    }
+
+    /* =========================
+       SECURITY CARDS
+    ========================= */
+
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 18px;
+    }
+
+    .security-card {
+      padding: 27px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.88);
+      border-radius: 24px;
+      box-shadow: var(--soft-shadow);
+      transition: 0.3s ease;
+    }
+
+    .security-card:hover {
+      transform: translateY(-7px);
+      border-color: #a7dfea;
+      box-shadow: var(--shadow);
+    }
+
+    .card-number {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: 0.1em;
+      margin-bottom: 35px;
+    }
+
+    .security-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .security-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* =========================
+       DEVICE SHOWCASE
+    ========================= */
+
+    .device-section {
+      padding-top: 70px;
+    }
+
+    .device-showcase {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .device-showcase.reverse {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .device-showcase.reverse .device-copy {
+      order: 2;
+    }
+
+    .device-showcase.reverse .device-stage {
+      order: 1;
+    }
+
+    .device-copy .eyebrow {
+      margin-bottom: 18px;
+    }
+
+    .device-copy h2 {
+      font-size: clamp(36px,4.5vw,58px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .device-copy p {
+      margin-top: 20px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 17px;
+      max-width: 580px;
+    }
+
+    .coming {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-top: 26px;
+
+      color: #008dbd;
+      font-weight: 1000;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    /* =========================
+       DEVICE STAGE
+    ========================= */
+
+    .device-stage {
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      perspective: 1500px;
+      position: relative;
+    }
+
+    .device-glow {
+      position: absolute;
+      width: 400px;
+      height: 270px;
+      border-radius: 50%;
+
+      background: radial-gradient(
+        ellipse,
+        rgba(31,184,230,0.18),
+        transparent 70%
+      );
+
+      filter: blur(5px);
+    }
+
+    .device {
+      position: relative;
+      z-index: 2;
+
+      transform-style: preserve-3d;
+      cursor: grab;
+
+      user-select: none;
+      -webkit-user-select: none;
+
+      transition: transform 0.12s linear;
+      will-change: transform;
+    }
+
+    .device:active {
+      cursor: grabbing;
+    }
+
+    .device.shake {
+      animation: deviceShake 0.36s ease;
+    }
+
+    @keyframes deviceShake {
+      0% { transform: var(--device-transform) translate3d(0,0,0); }
+      20% { transform: var(--device-transform) translate3d(-5px,1px,0) rotateZ(-1deg); }
+      40% { transform: var(--device-transform) translate3d(5px,-1px,0) rotateZ(1deg); }
+      60% { transform: var(--device-transform) translate3d(-4px,0,0) rotateZ(-0.8deg); }
+      80% { transform: var(--device-transform) translate3d(3px,0,0) rotateZ(0.6deg); }
+      100% { transform: var(--device-transform) translate3d(0,0,0); }
+    }
+
+    .phone {
+      width: 285px;
+      height: 565px;
+
+      padding: 11px;
+
+      border-radius: 48px;
+
+      background:
+        linear-gradient(145deg,#071b2b,#0d2e43 45%,#071b2b);
+
+      box-shadow:
+        0 38px 80px rgba(4,49,73,0.27),
+        inset 2px 2px 0 rgba(255,255,255,0.09),
+        inset -3px -3px 0 rgba(0,0,0,0.28);
+
+      transform-style: preserve-3d;
+    }
+
+    .phone-screen {
+      height: 100%;
+      width: 100%;
+      border-radius: 39px;
+      overflow: hidden;
+
+      background:
+        radial-gradient(circle at 50% 0%,#e8faff,#fff 36%),
+        white;
+
+      padding: 27px 20px 20px;
+      position: relative;
+    }
+
+    .dynamic-island {
+      position: absolute;
+      width: 92px;
+      height: 22px;
+      border-radius: 999px;
+      background: #092033;
+      top: 9px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .phone-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .phone-logo {
+      font-size: 17px;
+      font-weight: 1000;
+    }
+
+    .profile-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #dff7fd;
+      border: 1px solid #bce7f1;
+    }
+
+    .balance-label {
+      margin-top: 31px;
+      color: #8296a1;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .balance {
+      margin-top: 5px;
+      font-size: 31px;
+      font-weight: 1000;
+      letter-spacing: -0.045em;
+    }
+
+    .phone-card {
+      margin-top: 15px;
+      padding: 15px;
+
+      border-radius: 18px;
+      border: 1px solid #d5e9ef;
+      background: rgba(255,255,255,0.9);
+
+      box-shadow: 0 9px 22px rgba(19,90,115,0.06);
+    }
+
+    .phone-card small {
+      color: #8296a1;
+      font-size: 10px;
+    }
+
+    .phone-card strong {
+      display: block;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .phone-card .blue-text {
+      color: #008dbd;
+      font-size: 10px;
+      font-weight: 1000;
+      margin-top: 7px;
+    }
+
+    .phone-network {
+      margin-top: 15px;
+      padding: 14px;
+
+      border-radius: 17px;
+      border: 1px solid #d5e9ef;
+      background: #fff;
+    }
+
+    .phone-network span {
+      color: #8398a4;
+      font-size: 10px;
+      display: block;
+    }
+
+    .phone-network strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .phone-coming {
+      margin-top: 15px;
+      padding: 14px;
+      border-radius: 17px;
+
+      background: #e8f9ff;
+      border: 1px solid #c2eaf5;
+
+      color: #008cb9;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 1000;
+    }
+
+    /* =========================
+       LAPTOP
+    ========================= */
+
+    .laptop {
+      width: min(650px, 92%);
+      transform-style: preserve-3d;
+    }
+
+    .laptop-screen {
+      border: 11px solid #092033;
+      border-bottom-width: 17px;
+
+      border-radius: 22px 22px 10px 10px;
+
+      background: white;
+      box-shadow:
+        0 38px 75px rgba(4,49,73,0.23),
+        inset 0 0 0 1px rgba(255,255,255,0.15);
+
+      overflow: hidden;
+    }
+
+    .browser-bar {
+      height: 42px;
+      border-bottom: 1px solid #dceaf0;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      gap: 7px;
+    }
+
+    .browser-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #b9d1db;
+    }
+
+    .browser-content {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      min-height: 275px;
+    }
+
+    .browser-main {
+      padding: 26px;
+      background:
+        linear-gradient(135deg,#ffffff,#f5fcfe);
+    }
+
+    .fake-line {
+      width: 45%;
+      height: 12px;
+      border-radius: 999px;
+      background: #d8f2fa;
+      margin-bottom: 11px;
+    }
+
+    .fake-line.short {
+      width: 27%;
+    }
+
+    .fake-window {
+      height: 125px;
+      margin-top: 24px;
+      border: 1px solid #d5e8ee;
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .extension-panel {
+      padding: 24px 19px;
+      background: #f7fcfe;
+      border-left: 1px solid #dceaf0;
+    }
+
+    .extension-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 1000;
+      margin-bottom: 19px;
+    }
+
+    .extension-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #e1f8ff;
+      border: 1px solid #bce8f4;
+      display: grid;
+      place-items: center;
+      color: #008dbd;
+      font-weight: 1000;
+    }
+
+    .extension-card {
+      padding: 15px;
+      border: 1px solid #cfe7ee;
+      border-radius: 17px;
+      background: #fff;
+    }
+
+    .extension-card h4 {
+      color: #008dbd;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .extension-card p {
+      color: #78909c;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .extension-card + .extension-card {
+      margin-top: 12px;
+    }
+
+    .laptop-base {
+      width: 108%;
+      height: 28px;
+      margin-left: -4%;
+      border-radius: 0 0 25px 25px;
+
+      background: linear-gradient(#b8cdd5,#d6e4e8);
+
+      box-shadow:
+        0 15px 25px rgba(4,49,73,0.12),
+        inset 0 2px 0 rgba(255,255,255,0.75);
+    }
+
+    /* =========================
+       STORE BADGES
+    ========================= */
+
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 15px;
+      margin-top: 30px;
+      max-width: 600px;
+    }
+
+    .store-badge {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      padding: 14px 17px;
+
+      background: rgba(255,255,255,0.94);
+      border: 1px solid #cfe6ed;
+      border-radius: 17px;
+
+      box-shadow: 0 9px 24px rgba(11,91,120,0.06);
+
+      transition: 0.25s ease;
+    }
+
+    .store-badge:hover {
+      transform: translateY(-3px);
+      border-color: #9bd9e8;
+    }
+
+    .store-icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: grid;
+      place-items: center;
+    }
+
+    .store-copy {
+      min-width: 0;
+    }
+
+    .store-copy small {
+      display: block;
+      color: #8296a1;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .store-copy strong {
+      display: block;
+      margin-top: 3px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .store-copy em {
+      display: block;
+      margin-top: 3px;
+      color: #008dbd;
+      font-style: normal;
+      font-size: 9px;
+      font-weight: 1000;
+    }
+
+    /* =========================
+       EVM MARQUEE
+    ========================= */
+
+    .evm-section {
+      overflow: hidden;
+    }
+
+    .evm-box {
+      border: 1px solid #cfe6ed;
+      background: rgba(255,255,255,0.9);
+      border-radius: 30px;
+      padding: 35px 0 30px;
+      box-shadow: var(--soft-shadow);
+      overflow: hidden;
+    }
+
+    .evm-title {
+      text-align: center;
+      margin-bottom: 27px;
+    }
+
+    .evm-title h3 {
+      font-size: 27px;
+      letter-spacing: -0.03em;
+    }
+
+    .evm-title p {
+      color: #0793be;
+      font-size: 11px;
+      font-weight: 1000;
+      letter-spacing: 0.14em;
+      margin-top: 8px;
+    }
+
+    .marquee {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .marquee-track {
+      width: max-content;
+      display: flex;
+      align-items: center;
+      gap: 17px;
+
+      animation: marquee 27s linear infinite;
+      will-change: transform;
+    }
+
+    .marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .chain-card {
+      width: 175px;
+      height: 94px;
+
+      flex: 0 0 175px;
+
+      border: 1px solid #d6e9ef;
+      border-radius: 22px;
+
+      background: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+
+      box-shadow: 0 8px 22px rgba(9,83,108,0.05);
+    }
+
+    .chain-logo {
+      width: 47px;
+      height: 47px;
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      border: 1px solid #d9eaf0;
+      background: #fff;
+
+      box-shadow:
+        0 5px 15px rgba(9,83,108,0.08),
+        inset 0 0 0 3px #fff;
+    }
+
+    .chain-name {
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .chain-type {
+      color: #8297a2;
+      font-size: 9px;
+      margin-top: 4px;
+      font-weight: 700;
+    }
+
+    .evm-note {
+      text-align: center;
+      color: #8398a3;
+      font-size: 13px;
+      margin: 27px auto 0;
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       SECURITY CORE
+    ========================= */
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 18px;
+    }
+
+    .core-card {
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .core-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 45px;
+    }
+
+    .core-icon {
+      width: 47px;
+      height: 47px;
+      border-radius: 15px;
+
+      display: grid;
+      place-items: center;
+
+      background: #e9faff;
+      border: 1px solid #c9edf6;
+      color: #008ebc;
+      font-weight: 1000;
+    }
+
+    .core-index {
+      color: #9cb0ba;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .core-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .core-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* =========================
+       ROADMAP
+    ========================= */
+
+    .roadmap {
+      display: grid;
+      gap: 0;
+      max-width: 880px;
+      margin: auto;
+    }
+
+    .roadmap-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 28px;
+
+      padding: 25px 0;
+      border-bottom: 1px solid #dbeaf0;
+    }
+
+    .roadmap-phase {
+      color: #0796c2;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: 0.08em;
+    }
+
+    .roadmap-item h3 {
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .roadmap-item p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* =========================
+       FOUNDER
+    ========================= */
+
+    .founder-section {
+      padding-bottom: 110px;
+    }
+
+    .founder-card {
+      max-width: 850px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 35px;
+      align-items: center;
+
+      padding: 35px;
+
+      background: linear-gradient(135deg,#ffffff,#f0fbff);
+      border: 1px solid #cde8ef;
+      border-radius: 32px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .founder-avatar {
+      width: 155px;
+      height: 155px;
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        radial-gradient(circle at 35% 25%,#ffffff,#dcf6fc);
+
+      border: 1px solid #c1e7f0;
+
+      color: #008dbb;
+      font-size: 48px;
+      font-weight: 1000;
+
+      box-shadow:
+        inset 0 0 0 8px rgba(255,255,255,0.65),
+        0 18px 45px rgba(8,90,117,0.12);
+    }
+
+    .founder-role {
+      color: #008dbd;
+      font-size: 11px;
+      font-weight: 1000;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .founder-card h2 {
+      font-size: 35px;
+      letter-spacing: -0.04em;
+    }
+
+    .founder-card p {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    /* =========================
+       SOCIAL
+    ========================= */
+
+    .social-section {
+      padding-top: 0;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .social {
+      width: 52px;
+      height: 52px;
+
+      border-radius: 16px;
+
+      display: grid;
+      place-items: center;
+
+      background: white;
+      border: 1px solid #d6e9ef;
+
+      color: #17384c;
+
+      box-shadow: 0 8px 22px rgba(8,85,110,0.06);
+
+      transition: 0.25s ease;
+    }
+
+    .social:hover {
+      transform: translateY(-4px);
+      border-color: #9ddae8;
+      color: #008fbd;
+      box-shadow: 0 13px 28px rgba(8,85,110,0.10);
+    }
+
+    .social svg {
+      width: 21px;
+      height: 21px;
+      fill: currentColor;
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      border: 1px solid #d7e9ef;
+      border-radius: 18px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 21px 22px;
+      font-weight: 900;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      padding: 0 22px 22px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    /* =========================
+       WAITLIST
+    ========================= */
+
+    .waitlist {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+      padding: 55px 30px;
+
+      border-radius: 30px;
+      background: linear-gradient(135deg,#e9faff,#ffffff);
+
+      border: 1px solid #cce9f1;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .waitlist h2 {
+      font-size: clamp(32px,5vw,50px);
+      letter-spacing: -0.045em;
+    }
+
+    .waitlist p {
+      color: var(--muted);
+      margin-top: 13px;
+      line-height: 1.7;
+    }
+
+    .waitlist-form {
+      display: flex;
+      gap: 10px;
+      margin: 25px auto 0;
+      max-width: 550px;
+    }
+
+    .waitlist-form input {
+      min-width: 0;
+      flex: 1;
+
+      padding: 15px 17px;
+      border-radius: 14px;
+
+      border: 1px solid #cfe5ec;
+      background: white;
+
+      outline: none;
+    }
+
+    .waitlist-form input:focus {
+      border-color: #76cfe4;
+      box-shadow: 0 0 0 4px rgba(13,170,215,0.08);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 35px 0 45px;
+      border-top: 1px solid #deedf2;
+      color: #8296a1;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-weight: 1000;
+      color: var(--navy);
+      letter-spacing: 0.08em;
+    }
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.94);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+      .hero-grid,
+      .device-showcase,
+      .device-showcase.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .device-showcase.reverse .device-copy,
+      .device-showcase.reverse .device-stage {
+        order: initial;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .security-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .device-copy {
+        text-align: center;
+      }
+
+      .device-copy p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .device-copy .eyebrow {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .coming {
+        justify-content: center;
+      }
+
+      .store-grid {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      header {
+        position: relative;
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-status {
+        font-size: 10px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding: 65px 0 55px;
+      }
+
+      h1 {
+        font-size: clamp(43px, 13vw, 67px);
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        min-height: 350px;
+      }
+
+      .security-orbit {
+        width: 310px;
+        height: 310px;
+      }
+
+      .hero-core {
+        width: 175px;
+        height: 175px;
+        border-radius: 42px;
+      }
+
+      .security-grid,
+      .core-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .device-stage {
+        min-height: 490px;
+        overflow: hidden;
+      }
+
+      .phone {
+        width: 255px;
+        height: 505px;
+      }
+
+      .store-grid {
+        grid-template-columns: 1fr;
+        max-width: 330px;
+      }
+
+      .browser-content {
+        grid-template-columns: 1fr;
+      }
+
+      .extension-panel {
+        display: none;
+      }
+
+      .laptop {
+        width: 94%;
+      }
+
+      .browser-main {
+        min-height: 230px;
+      }
+
+      .founder-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+
+      .founder-card h2 {
+        font-size: 29px;
+      }
+
+      .roadmap-item {
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+
+      .waitlist-form {
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- =========================================================
+       IMPORTANT CONFIG
+       ========================================================= -->
 
-<!-- =====================================
-     NAV
-====================================== -->
+  <script>
+    /*
+      PUT YOUR EXACT OFFICIAL X PROFILE HERE.
 
-<nav>
+      Example:
+      "https://x.com/YourActualHandle"
 
-    <a href="#" class="nav-brand">
+      I am keeping this as ONE variable so you only change one line.
+    */
+    const MEVO_X_URL = "https://x.com/MEVO_SHIELD";
 
-        <img src="logo.png" alt="MEVO SHIELD">
+    /*
+      EVM JPG ASSETS
 
+      Put your original JPG logos inside:
+      /assets/
+
+      Required names:
+      ethereum.jpg
+      base.jpg
+      arbitrum.jpg
+      polygon.jpg
+      avalanche.jpg
+    */
+    const EVM_LOGOS = {
+      ethereum: "assets/ethereum.jpg",
+      base: "assets/base.jpg",
+      arbitrum: "assets/arbitrum.jpg",
+      polygon: "assets/polygon.jpg",
+      avalanche: "assets/avalanche.jpg"
+    };
+  </script>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+    <div class="container nav">
+
+      <a class="brand" href="#top">
+        <span class="brand-mark">M</span>
         <span>MEVO SHIELD</span>
+      </a>
 
-    </a>
+      <nav class="nav-links">
+        <a href="#security">Security</a>
+        <a href="#wallet">Wallet</a>
+        <a href="#extension">Extension</a>
+        <a href="#ecosystem">EVM</a>
+        <a href="#founder">Founder</a>
+      </nav>
 
-    <div class="network-status">
-
-        <span class="status-dot"></span>
-
+      <div class="nav-status">
+        <span class="blink-dot"></span>
         IN DEVELOPMENT
+      </div>
 
     </div>
-
-</nav>
-
-
-<!-- =====================================
-     HERO
-====================================== -->
-
-<header class="hero">
-
-    <div class="hero-logo">
-
-        <img
-            src="logo.png"
-            alt="MEVO SHIELD"
-        >
-
-    </div>
+  </header>
 
 
-    <div class="badge">
+  <main id="top">
 
-        EVM FIRST • SECURITY-FIRST WALLET
+    <!-- ================= HERO ================= -->
 
-    </div>
+    <section class="hero">
+      <div class="container hero-grid">
 
+        <div class="reveal">
 
-    <h1>
+          <div class="eyebrow">
+            <span class="blink-dot"></span>
+            EVM FIRST • SECURITY-FIRST WALLET
+          </div>
 
-        Proactive Security<br>
+          <h1>
+            Proactive Security
+            <span>for Crypto Wallets.</span>
+          </h1>
 
-        <span>for Crypto Wallets.</span>
+          <p class="hero-copy">
+            MEVO is building a security-first crypto wallet designed to
+            inspect transactions, approvals and signatures before execution —
+            helping users understand and stop dangerous actions before they
+            become irreversible.
+          </p>
 
-    </h1>
+          <div class="hero-actions">
+            <a href="#security" class="btn btn-primary">
+              Explore MEVO
+            </a>
 
-
-    <p class="hero-desc">
-
-        MEVO is building a security-first crypto wallet designed
-        to inspect transactions, approvals and signatures before
-        execution — helping users understand and stop dangerous
-        actions before they become irreversible.
-
-    </p>
-
-
-    <div class="waitlist">
-
-        <input
-            type="email"
-            id="userEmail"
-            placeholder="Enter your email for early access..."
-        >
-
-        <button onclick="submitWaitlist()">
-            Join
-        </button>
-
-    </div>
-
-
-    <div
-        id="successMsg"
-        class="waitlist-msg"
-    >
-
-        ✓ You're on the early access list.
-
-    </div>
-
-</header>
-
-
-<!-- =====================================
-     HOW MEVO PROTECTS
-====================================== -->
-
-<section class="section reveal">
-
-    <div class="section-title">
-
-        How MEVO Protects You
-
-    </div>
-
-    <p class="section-subtitle">
-
-        MEVO is designed around multiple protection layers
-        rather than relying on a single warning.
-
-    </p>
-
-
-    <div class="security-grid">
-
-
-        <div class="security-card">
-
-            <div class="layer">
-                LAYER 01
-            </div>
-
-            <h3>
-                Before You Sign
-            </h3>
-
-            <p>
-                Inspect transaction payloads, smart-contract calls,
-                approvals and signature requests before authorization.
-            </p>
+            <a href="#wallet" class="btn btn-secondary">
+              See the Wallet
+            </a>
+          </div>
 
         </div>
 
 
-        <div class="security-card">
+        <div class="hero-visual reveal-scale">
 
-            <div class="layer">
-                LAYER 02
-            </div>
+          <div class="security-orbit">
+            <span class="orbit-dot one"></span>
+            <span class="orbit-dot two"></span>
+            <span class="orbit-dot three"></span>
+          </div>
 
-            <h3>
-                Protected Transfers
-            </h3>
-
-            <p>
-                MEVO is designed to support protected transfer flows
-                where recipient confirmation can become part of settlement.
-            </p>
-
-        </div>
-
-
-        <div class="security-card">
-
-            <div class="layer">
-                LAYER 03
-            </div>
-
-            <h3>
-                After You Receive
-            </h3>
-
-            <p>
-                Future protection policies are designed to reduce
-                immediate exposure of newly received assets.
-            </p>
+          <div class="hero-core">
+            <div class="hero-core-icon">M</div>
+            <strong>MEVO SECURITY</strong>
+            <small>Inspect before sign</small>
+          </div>
 
         </div>
 
+      </div>
+    </section>
 
-        <div class="security-card">
 
-            <div class="layer">
-                LAYER 04
-            </div>
+    <!-- ================= SECURITY ================= -->
 
-            <h3>
-                Protected Key Operations
-            </h3>
+    <section id="security">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <span class="section-kicker">HOW MEVO PROTECTS YOU</span>
+
+          <h2>
+            Security built into the transaction experience.
+          </h2>
+
+          <p>
+            MEVO is designed around multiple protection layers instead of
+            relying only on warnings after a dangerous action has already
+            happened.
+          </p>
+        </div>
+
+
+        <div class="security-grid">
+
+          <article class="security-card reveal">
+            <div class="card-number">01</div>
+
+            <h3>Before You Sign</h3>
 
             <p>
-                Sensitive wallet operations are being designed around
-                stronger local authorization and policy-controlled security.
+              Inspect transaction payloads, smart-contract calls,
+              approvals and signature requests before authorization.
             </p>
+          </article>
+
+
+          <article class="security-card reveal">
+            <div class="card-number">02</div>
+
+            <h3>Protected Transfers</h3>
+
+            <p>
+              Future MEVO transfer flows can add recipient confirmation
+              and policy-based settlement controls.
+            </p>
+          </article>
+
+
+          <article class="security-card reveal">
+            <div class="card-number">03</div>
+
+            <h3>After You Receive</h3>
+
+            <p>
+              Future protection policies are designed to reduce immediate
+              exposure after funds enter a protected wallet.
+            </p>
+          </article>
+
+
+          <article class="security-card reveal">
+            <div class="card-number">04</div>
+
+            <h3>Protected Key Operations</h3>
+
+            <p>
+              Stronger local authorization and policy-controlled key
+              operations are part of the MEVO security architecture.
+            </p>
+          </article>
 
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     MOBILE WALLET
-====================================== -->
-
-<section class="section reveal">
-
-    <div class="product-showcase">
+      </div>
+    </section>
 
 
-        <div class="product-copy">
+    <!-- ================= WALLET ================= -->
 
-            <div class="product-label">
-                NATIVE MEVO WALLET
-            </div>
+    <section id="wallet" class="device-section">
+
+      <div class="container device-showcase">
+
+        <div class="device-copy reveal">
+
+          <div class="eyebrow">
+            MEVO WALLET
+          </div>
+
+          <h2>
+            Security belongs inside the wallet.
+          </h2>
+
+          <p>
+            MEVO Wallet is being designed as a native EVM wallet where
+            security is part of the transaction experience — not something
+            added afterwards.
+          </p>
+
+          <div class="coming">
+            <span class="blink-dot"></span>
+            COMING SOON
+          </div>
 
 
-            <h2>
-                Security built into the wallet.
-            </h2>
+          <!-- STORE BADGES -->
 
-
-            <p>
-                The first MEVO product is being designed as a native
-                EVM wallet where security is part of the transaction
-                experience — not something added afterwards.
-            </p>
-
-
-            <div class="coming">
-
-                <span class="coming-dot"></span>
-
-                COMING SOON
-
-            </div>
-
+          <div class="store-grid">
 
             <!-- APP STORE -->
 
-            <div class="store-row">
+            <div class="store-badge">
 
+              <div class="store-icon">
 
-                <div class="store-badge">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M16.7 12.7c0-2.1 1.7-3.2 1.8-3.3-1-.1-2.1-1.1-3.5-1.1-1.5 0-2.8.9-3.5.9-.7 0-1.8-.9-3-.9-1.5 0-3 .9-3.8 2.2-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.5 3 2.4 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.9-1.1-2.9-4.7zM14.4 6.8c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.7 1.3-.6.6-1.1 1.6-.9 2.6 1 .1 2-.5 2.7-1.2z"
+                  />
+                </svg>
 
-                    <img
-                        class="store-icon"
-                        src="https://cdn.simpleicons.org/apple/102536"
-                        alt="Apple"
-                    >
+              </div>
 
-                    <div class="store-text">
-
-                        <span class="store-small">
-                            AVAILABLE SOON ON
-                        </span>
-
-                        <span class="store-name">
-                            App Store
-                        </span>
-
-                        <span class="store-soon">
-                            COMING SOON
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- GOOGLE PLAY -->
-
-                <div class="store-badge">
-
-                    <img
-                        class="store-icon"
-                        src="https://cdn.simpleicons.org/googleplay/102536"
-                        alt="Google Play"
-                    >
-
-                    <div class="store-text">
-
-                        <span class="store-small">
-                            GET IT ON
-                        </span>
-
-                        <span class="store-name">
-                            Google Play
-                        </span>
-
-                        <span class="store-soon">
-                            COMING SOON
-                        </span>
-
-                    </div>
-
-                </div>
-
+              <div class="store-copy">
+                <small>AVAILABLE SOON ON</small>
+                <strong>App Store</strong>
+                <em>COMING SOON</em>
+              </div>
 
             </div>
+
+
+            <!-- GOOGLE PLAY -->
+
+            <div class="store-badge">
+
+              <div class="store-icon">
+
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                  <path fill="#08A6DF" d="M5 5l22 19-7 7L5 5z"/>
+                  <path fill="#4DCB5B" d="M5 43l15-12 7 7L5 43z"/>
+                  <path fill="#FFD54A" d="M27 24l8-6 7 4-8 6-7-4z"/>
+                  <path fill="#E84C3D" d="M27 24l7 4-14 8 7-12z"/>
+                  <path fill="#16A7DF" d="M5 5l22 19-7 12L5 43V5z"/>
+                </svg>
+
+              </div>
+
+              <div class="store-copy">
+                <small>GET IT ON</small>
+                <strong>Google Play</strong>
+                <em>COMING SOON</em>
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
 
-        <!-- PHONE -->
+        <!-- INTERACTIVE PHONE -->
 
-        <div class="product-visual">
+        <div class="device-stage reveal-scale">
 
-            <div
-                class="phone tilt-card"
-                id="phoneCard"
-            >
+          <div class="device-glow"></div>
 
-                <div class="phone-screen">
+          <div class="device phone interactive-device"
+               data-device-type="phone">
 
-                    <div class="phone-notch"></div>
+            <div class="phone-screen">
 
+              <div class="dynamic-island"></div>
 
-                    <div class="app-top">
+              <div class="phone-top">
+                <div class="phone-logo">MEVO</div>
+                <div class="profile-circle"></div>
+              </div>
 
-                        <div class="app-name">
-                            MEVO
-                        </div>
+              <div class="balance-label">
+                TOTAL BALANCE
+              </div>
 
-                        <div class="shield-mini"></div>
+              <div class="balance">
+                $12,480.52
+              </div>
 
-                    </div>
-
-
-                    <div class="balance-label">
-                        TOTAL BALANCE
-                    </div>
-
-
-                    <div class="balance">
-                        $12,480.52
-                    </div>
-
-
-                    <div class="phone-card">
-
-                        <div class="phone-card-title">
-                            SECURITY STATUS
-                        </div>
-
-                        <div class="phone-card-main">
-                            Protection Active
-                        </div>
-
-                        <div class="protected">
-                            ● MEVO SECURITY
-                        </div>
-
-                    </div>
-
-
-                    <div class="phone-card">
-
-                        <div class="phone-card-title">
-                            TRANSACTION INSPECTION
-                        </div>
-
-                        <div class="phone-card-main">
-                            Contract Interaction
-                        </div>
-
-                        <div class="protected">
-                            INSPECT BEFORE SIGN
-                        </div>
-
-                    </div>
-
-
-                    <div class="phone-card">
-
-                        <div class="phone-card-title">
-                            WALLET NETWORK
-                        </div>
-
-                        <div class="phone-card-main">
-                            EVM
-                        </div>
-
-                    </div>
-
-
-                    <div class="phone-bottom">
-
-                        MEVO WALLET • COMING SOON
-
-                    </div>
-
+              <div class="phone-card">
+                <small>SECURITY STATUS</small>
+                <strong>Protection Active</strong>
+                <div class="blue-text">
+                  ● MEVO SECURITY
                 </div>
+              </div>
+
+              <div class="phone-card">
+                <small>TRANSACTION INSPECTION</small>
+                <strong>Contract Interaction</strong>
+                <div class="blue-text">
+                  INSPECT BEFORE SIGN
+                </div>
+              </div>
+
+              <div class="phone-network">
+                <span>WALLET NETWORK</span>
+                <strong>EVM</strong>
+              </div>
+
+              <div class="phone-coming">
+                MEVO WALLET • COMING SOON
+              </div>
 
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     BROWSER EXTENSION
-====================================== -->
-
-<section class="section reveal">
-
-    <div class="product-showcase">
-
-
-        <!-- LAPTOP -->
-
-        <div class="laptop-area">
-
-            <div
-                class="laptop tilt-card"
-                id="laptopCard"
-            >
-
-                <div class="laptop-screen-frame">
-
-                    <div class="laptop-screen">
-
-                        <div class="browser-bar">
-
-                            <div class="browser-dot"></div>
-                            <div class="browser-dot"></div>
-                            <div class="browser-dot"></div>
-
-                        </div>
-
-
-                        <div class="extension-layout">
-
-
-                            <div class="web-content">
-
-                                <div class="web-line"></div>
-
-                                <div class="web-line small"></div>
-
-                                <div class="web-box"></div>
-
-                            </div>
-
-
-                            <div class="extension-panel">
-
-
-                                <div class="extension-header">
-
-                                    <div class="extension-logo">
-                                        M
-                                    </div>
-
-                                    MEVO SHIELD
-
-                                </div>
-
-
-                                <div class="risk-box">
-
-                                    <div class="risk-title">
-                                        TRANSACTION INSPECTION
-                                    </div>
-
-                                    <div class="risk-text">
-                                        Review contract interaction,
-                                        approvals and signature request
-                                        before authorization.
-                                    </div>
-
-                                </div>
-
-
-                                <div class="risk-box">
-
-                                    <div class="risk-title">
-                                        SECURITY CHECK
-                                    </div>
-
-                                    <div class="risk-text">
-                                        MEVO security layer is reviewing
-                                        the requested action.
-                                    </div>
-
-                                </div>
-
-
-                                <button class="inspect-btn">
-
-                                    INSPECT REQUEST
-
-                                </button>
-
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="laptop-base"></div>
-
-            </div>
+          </div>
 
         </div>
 
+      </div>
 
-        <div class="product-copy">
+    </section>
 
-            <div class="product-label">
 
-                MEVO BROWSER EXTENSION
+    <!-- ================= EXTENSION ================= -->
+
+    <section id="extension" class="device-section">
+
+      <div class="container device-showcase reverse">
+
+        <div class="device-copy reveal">
+
+          <div class="eyebrow">
+            MEVO BROWSER EXTENSION
+          </div>
+
+          <h2>
+            Protection while you use Web3.
+          </h2>
+
+          <p>
+            A future browser extension can bring MEVO's security inspection
+            layer closer to the websites and dApps where users interact with
+            blockchain applications.
+          </p>
+
+          <div class="coming">
+            <span class="blink-dot"></span>
+            COMING SOON
+          </div>
+
+
+          <!-- EXTENSION STORE BADGES -->
+
+          <div class="store-grid">
+
+            <!-- CHROME -->
+
+            <div class="store-badge">
+
+              <div class="store-icon">
+
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+
+                  <path
+                    fill="#EA4335"
+                    d="M24 4a20 20 0 0 1 17.3 10H24a10 10 0 0 0-8.7 5L9.2 10.2A20 20 0 0 1 24 4z"
+                  />
+
+                  <path
+                    fill="#FBBC05"
+                    d="M6.7 10.2A20 20 0 0 0 24 44c5.5 0 10.5-2.2 14.1-5.9L24 24H12.5a10 10 0 0 0-5.8 3.4A20 20 0 0 1 6.7 10.2z"
+                  />
+
+                  <path
+                    fill="#34A853"
+                    d="M38.1 38.1A20 20 0 0 0 41.3 14H24a10 10 0 0 1 8.7 15L38.1 38.1z"
+                  />
+
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="8"
+                    fill="#4285F4"
+                  />
+
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="4.2"
+                    fill="#EAF3FF"
+                  />
+
+                </svg>
+
+              </div>
+
+              <div class="store-copy">
+                <small>AVAILABLE SOON ON</small>
+                <strong>Chrome Web Store</strong>
+                <em>COMING SOON</em>
+              </div>
 
             </div>
 
 
-            <h2>
+            <!-- MICROSOFT STORE -->
 
-                Protection while you use Web3.
+            <div class="store-badge">
 
-            </h2>
+              <div class="store-icon">
 
+                <svg viewBox="0 0 48 48" aria-hidden="true">
 
-            <p>
+                  <rect
+                    x="5"
+                    y="5"
+                    width="18"
+                    height="18"
+                    fill="#08A6DF"
+                  />
 
-                A future browser extension can bring MEVO's
-                security inspection layer closer to the websites
-                and dApps where users interact with blockchain
-                applications.
+                  <rect
+                    x="25"
+                    y="5"
+                    width="18"
+                    height="18"
+                    fill="#08A6DF"
+                  />
 
-            </p>
+                  <rect
+                    x="5"
+                    y="25"
+                    width="18"
+                    height="18"
+                    fill="#08A6DF"
+                  />
 
+                  <rect
+                    x="25"
+                    y="25"
+                    width="18"
+                    height="18"
+                    fill="#08A6DF"
+                  />
 
-            <div class="coming">
+                </svg>
 
-                <span class="coming-dot"></span>
+              </div>
 
-                COMING SOON
-
-            </div>
-
-
-            <!-- EXTENSION STORES -->
-
-            <div class="store-row desktop-store-row">
-
-
-                <!-- CHROME -->
-
-                <div class="store-badge">
-
-                    <img
-                        class="store-icon"
-                        src="https://cdn.simpleicons.org/googlechrome/102536"
-                        alt="Google Chrome"
-                    >
-
-                    <div class="store-text">
-
-                        <span class="store-small">
-                            AVAILABLE SOON ON
-                        </span>
-
-                        <span class="store-name">
-                            Chrome Web Store
-                        </span>
-
-                        <span class="store-soon">
-                            COMING SOON
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MICROSOFT -->
-
-                <div class="store-badge">
-
-                    <img
-                        class="store-icon"
-                        src="https://cdn.simpleicons.org/microsoft/102536"
-                        alt="Microsoft"
-                    >
-
-                    <div class="store-text">
-
-                        <span class="store-small">
-                            AVAILABLE SOON ON
-                        </span>
-
-                        <span class="store-name">
-                            Microsoft Store
-                        </span>
-
-                        <span class="store-soon">
-                            COMING SOON
-                        </span>
-
-                    </div>
-
-                </div>
-
+              <div class="store-copy">
+                <small>AVAILABLE SOON ON</small>
+                <strong>Microsoft Store</strong>
+                <em>COMING SOON</em>
+              </div>
 
             </div>
 
-        </div>
+          </div>
 
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     EVM ECOSYSTEM
-====================================== -->
-
-<section class="section evm-section reveal">
-
-    <div class="section-title">
-        EVM First
-    </div>
-
-
-    <p class="section-subtitle">
-
-        Phase 1 focuses on the EVM ecosystem.
-        The architecture is being designed with future
-        multi-chain expansion in mind.
-
-    </p>
-
-
-    <div class="evm-box">
-
-
-        <div class="evm-title">
-            MEVO Wallet — Phase 1
         </div>
 
 
-        <div class="evm-sub">
-            EVM ARCHITECTURE
-        </div>
+        <!-- INTERACTIVE LAPTOP -->
+
+        <div class="device-stage reveal-scale">
+
+          <div class="device-glow"></div>
+
+          <div class="device laptop interactive-device"
+               data-device-type="laptop">
+
+            <div class="laptop-screen">
+
+              <div class="browser-bar">
+
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+
+              </div>
 
 
-        <div class="logo-window">
+              <div class="browser-content">
 
+                <div class="browser-main">
 
-            <div class="logo-track">
+                  <div class="fake-line"></div>
+                  <div class="fake-line short"></div>
 
-
-                <!-- SET 1 -->
-
-                <div class="logo-set">
-
-
-                    <div class="chain-logo">
-
-                        <img
-                            src="https://cdn.simpleicons.org/ethereum"
-                            alt="Ethereum"
-                        >
-
-                        <span class="chain-name">
-                            Ethereum
-                        </span>
-
-                    </div>
-
-
-                    <div class="chain-logo">
-
-                        <img
-                            src="https://cdn.simpleicons.org/base"
-                            alt="Base"
-                        >
-
-                        <span class="chain-name">
-                            Base
-                        </span>
-
-                    </div>
-
-
-                    <div class="chain-logo">
-
-                        <img
-                            src="https://cdn.simpleicons.org/arbitrum"
-                            alt="Arbitrum"
-                        >
-
-                        <span class="chain-name">
-                            Arbitrum
-                        </span>
-
-                    </div>
-
-
-                    <div class="chain-logo">
-
-                        <img
-                            src="https://cdn.simpleicons.org/polygon"
-                            alt="Polygon"
-                        >
-
-                        <span class="chain-name">
-                            Polygon
-                        </span>
-
-                    </div>
-
-
-                    <div class="chain-logo">
-
-                        <img
-                            src="https://cdn.simpleicons.org/avalanche"
-                            alt="Avalanche"
-                        >
-
-                        <span class="chain-name">
-                            Avalanche
-                        </span>
-
-                    </div>
-
+                  <div class="fake-window"></div>
 
                 </div>
 
 
-                <!-- SET 2 — DUPLICATE FOR INFINITE LOOP -->
+                <div class="extension-panel">
 
-                <div class="logo-set">
+                  <div class="extension-brand">
 
-
-                    <div class="chain-logo">
-
-                        <img
-                            src="https://cdn.simpleicons.org/ethereum"
-                            alt="Ethereum"
-                        >
-
-                        <span class="chain-name">
-                            Ethereum
-                        </span>
-
+                    <div class="extension-icon">
+                      M
                     </div>
 
+                    <span>
+                      MEVO<br />
+                      SHIELD
+                    </span>
 
-                    <div class="chain-logo">
-
-                        <img
-                            src="https://cdn.simpleicons.org/base"
-                            alt="Base"
-                        >
-
-                        <span class="chain-name">
-                            Base
-                        </span>
-
-                    </div>
+                  </div>
 
 
-                    <div class="chain-logo">
+                  <div class="extension-card">
 
-                        <img
-                            src="https://cdn.simpleicons.org/arbitrum"
-                            alt="Arbitrum"
-                        >
+                    <h4>
+                      TRANSACTION INSPECTION
+                    </h4>
 
-                        <span class="chain-name">
-                            Arbitrum
-                        </span>
+                    <p>
+                      Review contract interaction,
+                      approvals and signature requests
+                      before authorization.
+                    </p>
 
-                    </div>
-
-
-                    <div class="chain-logo">
-
-                        <img
-                            src="https://cdn.simpleicons.org/polygon"
-                            alt="Polygon"
-                        >
-
-                        <span class="chain-name">
-                            Polygon
-                        </span>
-
-                    </div>
+                  </div>
 
 
-                    <div class="chain-logo">
+                  <div class="extension-card">
 
-                        <img
-                            src="https://cdn.simpleicons.org/avalanche"
-                            alt="Avalanche"
-                        >
+                    <h4>
+                      SECURITY CHECK
+                    </h4>
 
-                        <span class="chain-name">
-                            Avalanche
-                        </span>
+                    <p>
+                      Inspect the requested blockchain
+                      action before the user signs.
+                    </p>
 
-                    </div>
-
+                  </div>
 
                 </div>
 
+              </div>
 
             </div>
 
+            <div class="laptop-base"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= EVM ================= -->
+
+    <section id="ecosystem" class="evm-section">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="section-kicker">
+            EVM FIRST
+          </span>
+
+          <h2>
+            Built for the EVM ecosystem.
+          </h2>
+
+          <p>
+            Phase 1 focuses on the EVM ecosystem. The architecture is being
+            designed with future multi-chain expansion in mind.
+          </p>
+
         </div>
 
 
-        <div class="future-note">
+        <div class="evm-box reveal-scale">
 
+          <div class="evm-title">
+            <h3>MEVO Wallet — Phase 1</h3>
+            <p>EVM ARCHITECTURE</p>
+          </div>
+
+
+          <div class="marquee">
+
+            <div class="marquee-track">
+
+              <!-- SET 1 -->
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/ethereum.jpg"
+                  alt="Ethereum"
+                />
+
+                <div>
+                  <div class="chain-name">Ethereum</div>
+                  <div class="chain-type">EVM</div>
+                </div>
+              </div>
+
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/base.jpg"
+                  alt="Base"
+                />
+
+                <div>
+                  <div class="chain-name">Base</div>
+                  <div class="chain-type">LAYER 2</div>
+                </div>
+              </div>
+
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/arbitrum.jpg"
+                  alt="Arbitrum"
+                />
+
+                <div>
+                  <div class="chain-name">Arbitrum</div>
+                  <div class="chain-type">LAYER 2</div>
+                </div>
+              </div>
+
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/polygon.jpg"
+                  alt="Polygon"
+                />
+
+                <div>
+                  <div class="chain-name">Polygon</div>
+                  <div class="chain-type">EVM</div>
+                </div>
+              </div>
+
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/avalanche.jpg"
+                  alt="Avalanche"
+                />
+
+                <div>
+                  <div class="chain-name">Avalanche</div>
+                  <div class="chain-type">EVM</div>
+                </div>
+              </div>
+
+
+              <!-- SET 2 - DUPLICATE FOR SEAMLESS LOOP -->
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/ethereum.jpg"
+                  alt="Ethereum"
+                />
+
+                <div>
+                  <div class="chain-name">Ethereum</div>
+                  <div class="chain-type">EVM</div>
+                </div>
+              </div>
+
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/base.jpg"
+                  alt="Base"
+                />
+
+                <div>
+                  <div class="chain-name">Base</div>
+                  <div class="chain-type">LAYER 2</div>
+                </div>
+              </div>
+
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/arbitrum.jpg"
+                  alt="Arbitrum"
+                />
+
+                <div>
+                  <div class="chain-name">Arbitrum</div>
+                  <div class="chain-type">LAYER 2</div>
+                </div>
+              </div>
+
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/polygon.jpg"
+                  alt="Polygon"
+                />
+
+                <div>
+                  <div class="chain-name">Polygon</div>
+                  <div class="chain-type">EVM</div>
+                </div>
+              </div>
+
+
+              <div class="chain-card">
+                <img
+                  class="chain-logo"
+                  src="assets/avalanche.jpg"
+                  alt="Avalanche"
+                />
+
+                <div>
+                  <div class="chain-name">Avalanche</div>
+                  <div class="chain-type">EVM</div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <p class="evm-note">
             Designed with future multi-chain expansion in mind.
             Non-EVM chains are not part of Phase 1.
+          </p>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
-
-
-<!-- =====================================
-     SECURITY CORE
-====================================== -->
-
-<section class="section reveal">
-
-    <div class="section-title">
-        Security Core
-    </div>
+    </section>
 
 
-    <p class="section-subtitle">
+    <!-- ================= SECURITY CORE ================= -->
 
-        The security architecture focuses on understanding
-        what a transaction is actually asking the wallet
-        to authorize.
+    <section>
 
-    </p>
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="section-kicker">
+            SECURITY CORE
+          </span>
+
+          <h2>
+            Inspect the action before it becomes irreversible.
+          </h2>
+
+        </div>
 
 
-    <div class="feature-grid">
+        <div class="core-grid">
 
+          <article class="core-card reveal">
 
-        <div class="feature">
+            <div class="core-card-top">
 
-            <div class="feature-num">
+              <div class="core-icon">
                 01
+              </div>
+
+              <span class="core-index">
+                TRANSACTION
+              </span>
+
             </div>
 
             <h3>
-                Transaction Inspection
+              Transaction Inspection
             </h3>
 
             <p>
-                Analyze transaction payloads and contract
-                interactions before authorization.
+              Analyze contract interactions and transaction payloads
+              before authorization.
             </p>
 
-        </div>
+          </article>
 
 
-        <div class="feature">
+          <article class="core-card reveal">
 
-            <div class="feature-num">
+            <div class="core-card-top">
+
+              <div class="core-icon">
                 02
+              </div>
+
+              <span class="core-index">
+                APPROVAL
+              </span>
+
             </div>
 
             <h3>
-                Approval & Permit Protection
+              Approval & Permit Protection
             </h3>
 
             <p>
-                Designed to identify dangerous approvals,
-                permit requests and authorization patterns.
+              Security logic is designed to inspect dangerous approval,
+              permit and authorization requests.
             </p>
 
-        </div>
+          </article>
 
 
-        <div class="feature">
+          <article class="core-card reveal">
 
-            <div class="feature-num">
+            <div class="core-card-top">
+
+              <div class="core-icon">
                 03
+              </div>
+
+              <span class="core-index">
+                DRAINER
+              </span>
+
             </div>
 
             <h3>
-                Drainer Detection
+              Drainer Detection
             </h3>
 
             <p>
-                Security logic focused on identifying malicious
-                wallet draining behavior before execution.
+              MEVO is being designed to identify suspicious wallet-draining
+              behavior before the user authorizes the action.
             </p>
 
-        </div>
+          </article>
 
 
-        <div class="feature">
+          <article class="core-card reveal">
 
-            <div class="feature-num">
+            <div class="core-card-top">
+
+              <div class="core-icon">
                 04
+              </div>
+
+              <span class="core-index">
+                POLICY
+              </span>
+
             </div>
 
             <h3>
-                Policy-Based Protection
+              Policy-Based Protection
             </h3>
 
             <p>
-                Wallet-level security policies rather than
-                relying only on warnings.
+              Future protection policies can add stronger controls around
+              transfers, key operations and sensitive wallet actions.
             </p>
 
+          </article>
+
         </div>
 
+      </div>
 
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     ROADMAP
-====================================== -->
-
-<section class="section reveal">
-
-    <div class="section-title">
-        MEVO Product Roadmap
-    </div>
+    </section>
 
 
-    <p class="section-subtitle">
+    <!-- ================= ROADMAP ================= -->
 
-        Building the native security-first wallet first,
-        then expanding the MEVO security architecture.
+    <section>
 
-    </p>
+      <div class="container">
 
+        <div class="section-head reveal">
 
-    <div class="roadmap">
+          <span class="section-kicker">
+            PRODUCT ROADMAP
+          </span>
 
-
-        <div class="roadmap-card">
-
-            <small>
-                Phase 1
-            </small>
-
-            <h3>
-                MEVO Wallet
-            </h3>
-
-            <strong>
-                IN DEVELOPMENT
-            </strong>
+          <h2>
+            Build native first. Design for everything.
+          </h2>
 
         </div>
 
 
-        <div class="roadmap-card">
+        <div class="roadmap">
 
-            <small>
-                Future
-            </small>
+          <div class="roadmap-item reveal">
+            <div class="roadmap-phase">PHASE 01</div>
 
-            <h3>
-                Browser Extension
-            </h3>
-
-            <strong>
-                PLANNED
-            </strong>
-
-        </div>
-
-
-        <div class="roadmap-card">
-
-            <small>
-                Future
-            </small>
-
-            <h3>
-                Existing Wallet Integration
-            </h3>
-
-            <strong>
-                FUTURE PHASE
-            </strong>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     FOUNDER
-====================================== -->
-
-<section class="section founder-section reveal">
-
-    <div class="section-title">
-        Founder
-    </div>
-
-
-    <p class="section-subtitle">
-
-        The person behind the MEVO vision and
-        security-first architecture.
-
-    </p>
-
-
-    <div class="founder-card">
-
-
-        <img
-            src="founder.png"
-            alt="Mohmmed Aman Nilgar"
-            class="founder-img"
-        >
-
-
-        <div class="founder-info">
-
-
-            <div class="founder-badge">
-                Founder & Lead Architect
+            <div>
+              <h3>MEVO Wallet — EVM First</h3>
+              <p>
+                Native wallet architecture with security integrated into
+                the transaction experience.
+              </p>
             </div>
+          </div>
 
+
+          <div class="roadmap-item reveal">
+            <div class="roadmap-phase">PHASE 02</div>
+
+            <div>
+              <h3>MEVO Security Core</h3>
+              <p>
+                Transaction inspection, approvals, permits and security
+                analysis.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="roadmap-item reveal">
+            <div class="roadmap-phase">PHASE 03</div>
+
+            <div>
+              <h3>Protected Transfers</h3>
+              <p>
+                Recipient confirmation and policy-based protected transfer
+                flows.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="roadmap-item reveal">
+            <div class="roadmap-phase">PHASE 04</div>
+
+            <div>
+              <h3>Advanced Protection</h3>
+              <p>
+                Stronger wallet policies, post-receipt protection and
+                protected key operations.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="roadmap-item reveal">
+            <div class="roadmap-phase">PHASE 05</div>
+
+            <div>
+              <h3>Multi-Chain Expansion</h3>
+              <p>
+                Extend the architecture beyond the initial EVM-first
+                implementation.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="roadmap-item reveal">
+            <div class="roadmap-phase">PHASE 06</div>
+
+            <div>
+              <h3>Existing Wallet Integration</h3>
+              <p>
+                Adapt the MEVO security core for integration with
+                existing wallet ecosystems where technically possible.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= FOUNDER ================= -->
+
+    <section id="founder" class="founder-section">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="section-kicker">
+            FOUNDER
+          </span>
+
+          <h2>
+            The person building MEVO.
+          </h2>
+
+        </div>
+
+
+        <div class="founder-card reveal-scale">
+
+          <div class="founder-avatar">
+            M
+          </div>
+
+
+          <div>
+
+            <div class="founder-role">
+              FOUNDER & LEAD ARCHITECT
+            </div>
 
             <h2>
-                Mohmmed Aman Nilgar
+              Mohmmed Aman Nilgar
             </h2>
 
-
-            <div class="founder-year">
-
-                Crypto Native Since
-                <span>2019</span>
-
-            </div>
-
-
             <p>
-
-                Building MEVO around a simple principle:
-                security should act before the damage happens.
-                The goal is to develop a proactive security
-                architecture for the next generation of crypto wallets.
-
+              Crypto Native Since 2019.
+              Building MEVO around a simple principle:
+              security should become part of the transaction experience,
+              not an afterthought.
             </p>
 
+          </div>
 
         </div>
 
-    </div>
+      </div>
+
+    </section>
 
 
-    <div class="social-row">
+    <!-- ================= SOCIAL ================= -->
+
+    <section class="social-section">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="section-kicker">
+            FOLLOW MEVO
+          </span>
+
+          <h2>
+            Stay connected.
+          </h2>
+
+        </div>
 
 
-        <a
-            href="https://x.com/MEVOSHIELD"
+        <div class="socials reveal">
+
+          <!-- X -->
+
+          <a
+            class="social"
+            id="xSocialLink"
+            href="https://x.com/MEVO_SHIELD"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="MEVO on X"
+          >
+
+            <svg viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26L22.827 21.75h-6.68l-5.23-6.837-5.98 6.837H1.627l7.73-8.835L1.173 2.25H8.02l4.727 6.256 5.497-6.256Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+            </svg>
+
+          </a>
+
+
+          <!-- DISCORD -->
+
+          <a
             class="social"
-        >
-            X
-        </a>
+            href="#"
+            aria-label="MEVO Discord"
+            onclick="return false;"
+          >
+
+            <svg viewBox="0 0 24 24">
+              <path d="M19.54 5.34A16.2 16.2 0 0 0 15.6 4l-.49 1a14.7 14.7 0 0 0-6.2 0l-.5-1a16.3 16.3 0 0 0-3.94 1.34C2 8.92 1.33 12.43 1.66 15.9a16.2 16.2 0 0 0 4.85 2.46l1.18-1.62a10.1 10.1 0 0 1-1.85-.9l.45-.35c3.57 1.65 7.44 1.65 10.97 0l.46.35c-.59.36-1.2.66-1.85.9l1.18 1.62a16.1 16.1 0 0 0 4.85-2.46c.4-4.02-.68-7.5-2.36-10.56ZM8.75 14.4c-1.04 0-1.9-.95-1.9-2.12s.84-2.12 1.9-2.12c1.05 0 1.9.95 1.9 2.12s-.84 2.12-1.9 2.12Zm6.5 0c-1.05 0-1.9-.95-1.9-2.12s.84-2.12 1.9-2.12c1.04 0 1.9.95 1.9 2.12s-.84 2.12-1.9 2.12Z"/>
+            </svg>
+
+          </a>
 
 
-        <div class="social">
-            TG
+          <!-- TELEGRAM -->
+
+          <a
+            class="social"
+            href="#"
+            aria-label="MEVO Telegram"
+            onclick="return false;"
+          >
+
+            <svg viewBox="0 0 24 24">
+              <path d="M21.5 3.4 18.2 20c-.25 1.17-.92 1.46-1.86.91l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.18 9.44-8.53c.41-.36-.09-.56-.64-.2L5.25 13.1.19 11.5c-1.1-.34-1.12-1.1.23-1.6L20.2 2.45c.91-.34 1.71.22 1.3.95Z"/>
+            </svg>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= FAQ ================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="section-kicker">
+            FREQUENTLY ASKED
+          </span>
+
+          <h2>
+            Questions about MEVO.
+          </h2>
+
         </div>
 
 
-        <div class="social">
-            DC
+        <div class="faq">
+
+          <details class="reveal">
+            <summary>
+              What is MEVO?
+            </summary>
+
+            <p>
+              MEVO is a security-first crypto wallet architecture focused
+              on proactive transaction and authorization protection.
+            </p>
+          </details>
+
+
+          <details class="reveal">
+            <summary>
+              What is MEVO building first?
+            </summary>
+
+            <p>
+              Phase 1 focuses on the native MEVO Wallet for the EVM
+              ecosystem.
+            </p>
+          </details>
+
+
+          <details class="reveal">
+            <summary>
+              What can MEVO inspect?
+            </summary>
+
+            <p>
+              The security architecture is being designed around
+              transaction payloads, smart-contract interactions,
+              approvals, permits and signature requests.
+            </p>
+          </details>
+
+
+          <details class="reveal">
+            <summary>
+              Is MEVO available now?
+            </summary>
+
+            <p>
+              The MEVO Wallet and browser extension are currently in
+              development. Product availability will be announced as
+              development progresses.
+            </p>
+          </details>
+
+
+          <details class="reveal">
+            <summary>
+              Which chains are part of Phase 1?
+            </summary>
+
+            <p>
+              Phase 1 is EVM-first, including the planned Ethereum,
+              Base, Arbitrum, Polygon and Avalanche architecture.
+              Non-EVM chains are not part of Phase 1.
+            </p>
+          </details>
+
         </div>
 
+      </div>
+
+    </section>
+
+
+    <!-- ================= WAITLIST ================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="waitlist reveal-scale">
+
+          <h2>
+            Get early access to MEVO.
+          </h2>
+
+          <p>
+            Join the early access list and follow the development of
+            MEVO Wallet and its security architecture.
+          </p>
+
+
+          <form
+            class="waitlist-form"
+            id="waitlistForm"
+          >
+
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              Join
+            </button>
+
+          </form>
+
+          <div
+            id="waitlistMessage"
+            style="
+              margin-top:15px;
+              color:#008dbd;
+              font-size:13px;
+              font-weight:800;
+              display:none;
+            "
+          ></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        MEVO SHIELD
+      </div>
+
+      <div>
+        © 2026 MEVO SHIELD. All Rights Reserved.
+      </div>
 
     </div>
 
-</section>
+  </footer>
 
 
-<!-- =====================================
-     FAQ
-====================================== -->
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
 
-<section class="section reveal">
+  <script>
 
-    <div class="section-title">
-        Frequently Asked Questions
-    </div>
+    /* =========================
+       X LINK
+    ========================= */
 
+    const xSocialLink = document.getElementById("xSocialLink");
 
-    <div class="faq">
-
-
-        <div class="faq-item">
-
-            <div class="faq-q">
-                What is MEVO?
-            </div>
-
-            <div class="faq-a">
-
-                MEVO is a security-first crypto wallet project
-                focused on proactive protection before dangerous
-                blockchain actions are authorized.
-
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <div class="faq-q">
-                What is MEVO building first?
-            </div>
-
-            <div class="faq-a">
-
-                Phase 1 is a native MEVO Wallet built for
-                the EVM ecosystem.
-
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <div class="faq-q">
-                What can MEVO inspect?
-            </div>
-
-            <div class="faq-a">
-
-                The security model focuses on transaction payloads,
-                smart-contract interactions, approvals, permit-style
-                signatures and other authorization requests.
-
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <div class="faq-q">
-                Is MEVO available now?
-            </div>
-
-            <div class="faq-a">
-
-                MEVO Wallet is currently in development.
-                Product, architecture and security research are
-                being developed before public production deployment.
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<footer>
-
-    © 2026 MEVO SHIELD. ALL RIGHTS RESERVED.
-
-</footer>
-
-
-<script>
-
-/* =====================================
-   WAITLIST
-===================================== */
-
-function submitWaitlist(){
-
-    const email =
-        document.getElementById("userEmail").value.trim();
-
-    const message =
-        document.getElementById("successMsg");
-
-    if(
-        email &&
-        email.includes("@") &&
-        email.includes(".")
-    ){
-
-        message.style.display = "block";
-
-        document.getElementById("userEmail").value = "";
-
-    }else{
-
-        alert("Please enter a valid email address.");
-
+    if (xSocialLink) {
+      xSocialLink.href = MEVO_X_URL;
     }
 
-}
 
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
 
-/* =====================================
-   SCROLL REVEAL
-===================================== */
+    const revealElements = document.querySelectorAll(
+      ".reveal, .reveal-scale"
+    );
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
 
-const observer =
-    new IntersectionObserver(
+        entries.forEach((entry) => {
 
-        entries => {
+          if (entry.isIntersecting) {
 
-            entries.forEach(entry => {
+            entry.target.classList.add("visible");
 
-                if(entry.isIntersecting){
+            revealObserver.unobserve(entry.target);
 
-                    entry.target.classList.add("visible");
+          }
 
-                }
+        });
 
-            });
-
-        },
-
-        {
-            threshold:.12
-        }
-
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px"
+      }
     );
 
 
-revealElements.forEach(element => {
-
-    observer.observe(element);
-
-});
-
-
-/* =====================================
-   TOUCH / MOUSE TILT
-===================================== */
-
-function setupTilt(element){
-
-    if(!element) return;
-
-    let active = false;
-
-
-    function move(x,y){
-
-        const rect =
-            element.getBoundingClientRect();
-
-        const centerX =
-            rect.left + rect.width / 2;
-
-        const centerY =
-            rect.top + rect.height / 2;
-
-        const rotateY =
-            ((x - centerX) / (rect.width / 2)) * 7;
-
-        const rotateX =
-            ((centerY - y) / (rect.height / 2)) * 7;
-
-        element.style.transform =
-            `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(-1deg) scale(1.015)`;
-
-    }
-
-
-    element.addEventListener("mousemove",event =>{
-
-        active = true;
-
-        move(event.clientX,event.clientY);
-
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
     });
 
 
-    element.addEventListener("mouseleave",()=>{
+    /* =========================
+       INTERACTIVE 360° DEVICES
+       ========================= */
 
-        active = false;
+    document.querySelectorAll(".interactive-device").forEach((device) => {
 
-        element.style.transform =
-            "rotateX(0deg) rotateY(0deg) rotateZ(-2deg)";
+      let dragging = false;
 
-    });
+      let startX = 0;
+      let startY = 0;
 
+      let rotationY = 0;
+      let rotationX = 0;
 
-    element.addEventListener("touchstart",event =>{
+      let lastX = 0;
+      let lastY = 0;
 
-        active = true;
-
-        const touch =
-            event.touches[0];
-
-        move(touch.clientX,touch.clientY);
-
-    },{passive:true});
+      let moved = false;
 
 
-    element.addEventListener("touchmove",event =>{
+      function applyTransform() {
 
-        if(!active) return;
+        const safeX = Math.max(-28, Math.min(28, rotationX));
 
-        const touch =
-            event.touches[0];
+        device.style.setProperty(
+          "--device-transform",
+          `perspective(1400px) rotateX(${safeX}deg) rotateY(${rotationY}deg)`
+        );
 
-        move(touch.clientX,touch.clientY);
+        device.style.transform =
+          `perspective(1400px) rotateX(${safeX}deg) rotateY(${rotationY}deg)`;
 
-    },{passive:true});
-
-
-    element.addEventListener("touchend",()=>{
-
-        active = false;
-
-        element.style.transform =
-            "rotateX(0deg) rotateY(0deg) rotateZ(-2deg)";
-
-    });
-
-}
+      }
 
 
-setupTilt(
-    document.getElementById("phoneCard")
-);
+      function vibrate() {
 
-setupTilt(
-    document.getElementById("laptopCard")
-);
+        try {
+
+          if (
+            "vibrate" in navigator &&
+            typeof navigator.vibrate === "function"
+          ) {
+
+            navigator.vibrate(16);
+
+          }
+
+        } catch (error) {}
+
+      }
 
 
-/* =====================================
-   SMALL SCROLL FLOAT EFFECT
-===================================== */
+      function pointerDown(event) {
 
-window.addEventListener(
-    "scroll",
-    ()=>{
+        dragging = true;
+        moved = false;
 
-        const phone =
-            document.getElementById("phoneCard");
+        startX = event.clientX;
+        startY = event.clientY;
 
-        const laptop =
-            document.getElementById("laptopCard");
+        lastX = event.clientX;
+        lastY = event.clientY;
 
-        if(!phone || !laptop) return;
+        device.setPointerCapture(event.pointerId);
 
-        const scrollY =
-            window.scrollY;
+        device.style.transition = "none";
 
-        if(!phone.matches(":hover")){
+        vibrate();
 
-            phone.style.marginTop =
-                `${Math.sin(scrollY / 260) * 5}px`;
+        device.classList.remove("shake");
+
+        void device.offsetWidth;
+
+        device.classList.add("shake");
+
+      }
+
+
+      function pointerMove(event) {
+
+        if (!dragging) return;
+
+        const dx = event.clientX - lastX;
+        const dy = event.clientY - lastY;
+
+        if (Math.abs(event.clientX - startX) > 4 ||
+            Math.abs(event.clientY - startY) > 4) {
+
+          moved = true;
 
         }
 
-        if(!laptop.matches(":hover")){
+        rotationY += dx * 0.72;
+        rotationX -= dy * 0.42;
 
-            laptop.style.marginTop =
-                `${Math.sin(scrollY / 300) * 5}px`;
+        lastX = event.clientX;
+        lastY = event.clientY;
+
+        applyTransform();
+
+      }
+
+
+      function pointerUp(event) {
+
+        if (!dragging) return;
+
+        dragging = false;
+
+        try {
+          device.releasePointerCapture(event.pointerId);
+        } catch (error) {}
+
+        device.style.transition =
+          "transform 0.32s cubic-bezier(.2,.7,.2,1)";
+
+        applyTransform();
+
+      }
+
+
+      device.addEventListener(
+        "pointerdown",
+        pointerDown,
+        { passive: true }
+      );
+
+      device.addEventListener(
+        "pointermove",
+        pointerMove,
+        { passive: true }
+      );
+
+      device.addEventListener(
+        "pointerup",
+        pointerUp,
+        { passive: true }
+      );
+
+      device.addEventListener(
+        "pointercancel",
+        pointerUp,
+        { passive: true }
+      );
+
+      device.addEventListener(
+        "dblclick",
+        () => {
+
+          rotationY += 360;
+
+          applyTransform();
+
+          vibrate();
 
         }
+      );
 
-    },
-    {passive:true}
-);
 
-</script>
+      applyTransform();
 
+    });
+
+
+    /* =========================
+       WAITLIST DEMO
+    ========================= */
+
+    const waitlistForm =
+      document.getElementById("waitlistForm");
+
+    const waitlistMessage =
+      document.getElementById("waitlistMessage");
+
+
+    waitlistForm.addEventListener("submit", (event) => {
+
+      event.preventDefault();
+
+      const email =
+        document.getElementById("email").value.trim();
+
+      if (!email) return;
+
+      waitlistMessage.style.display = "block";
+
+      waitlistMessage.textContent =
+        "You're on the early access list. Stay tuned.";
+
+      waitlistForm.reset();
+
+    });
+
+
+    /* =========================
+       IMAGE FALLBACK
+       ========================= */
+
+    /*
+      If a JPG filename is wrong, the chain card will not break the
+      entire layout. It will show the chain name instead.
+    */
+
+    document.querySelectorAll(".chain-logo").forEach((img) => {
+
+      img.addEventListener("error", () => {
+
+        const wrapper = img.parentElement;
+
+        const fallback =
+          document.createElement("div");
+
+        fallback.style.width = "47px";
+        fallback.style.height = "47px";
+        fallback.style.borderRadius = "50%";
+        fallback.style.display = "grid";
+        fallback.style.placeItems = "center";
+        fallback.style.background = "#eaf9fd";
+        fallback.style.border = "1px solid #cceaf2";
+        fallback.style.color = "#008dbd";
+        fallback.style.fontWeight = "900";
+        fallback.style.fontSize = "11px";
+
+        fallback.textContent =
+          (img.alt || "EVM").slice(0, 3).toUpperCase();
+
+        img.replaceWith(fallback);
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
