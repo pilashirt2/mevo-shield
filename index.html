@@ -147,10 +147,11 @@
     }
 
     /* Upgraded Professional Circular Logo with Glow */
-    .brand-mark {
+     .brand-mark {
       width: 42px;
       height: 42px;
       border-radius: 50%;
+      position: relative;
       display: grid;
       place-items: center;
       background: linear-gradient(145deg, #ffffff, #dff4ff);
@@ -158,7 +159,7 @@
       box-shadow: 0 0 18px rgba(21, 158, 232, 0.3);
       overflow: hidden;
       transition: all 0.3s ease;
-    }
+     }
 
     .brand-mark:hover {
       box-shadow: 0 0 24px rgba(21, 158, 232, 0.5);
@@ -166,13 +167,15 @@
     }
 
     .brand-mark img {
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      width: 140%;
+      height: 140%;
       object-fit: cover;
-      object-position: center 30%; /* Logo ko upar shift karne ke liye */
-      transform: scale(1.35);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -58%);
       display: block;
-        }
+    }
   
 
     .nav-links {
