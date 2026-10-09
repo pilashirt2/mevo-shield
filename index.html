@@ -102,7 +102,7 @@
       100% { opacity: 1; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
     }
 
-    /* MEVO TOP BANNER - FLOATING */
+    /* MEVO TOP BANNER */
     .mevo-banner-section {
       position: relative;
       padding: 80px 0 40px;
@@ -127,13 +127,9 @@
 
     .banner-particle {
       position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+      width: 8px; height: 8px; border-radius: 50%;
       background: radial-gradient(circle, #FFC000, rgba(255, 192, 0, 0));
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.7;
+      pointer-events: none; z-index: 1; opacity: 0.7;
     }
     .banner-particle.p1 { top: 15%; left: 5%; animation: particleFloat 6s ease-in-out infinite; }
     .banner-particle.p2 { top: 70%; right: 6%; animation: particleFloat 8s ease-in-out infinite 1s; }
@@ -173,12 +169,7 @@
       50% { transform: translateY(-14px) rotateZ(0.3deg); }
     }
 
-    .banner-img {
-      width: 100%;
-      display: block;
-      border-radius: 28px;
-      position: relative;
-    }
+    .banner-img { width: 100%; display: block; border-radius: 28px; position: relative; }
 
     /* HERO */
     .hero { min-height: 760px; display: grid; place-items: center; padding: 110px 0 90px; position: relative; }
@@ -353,13 +344,15 @@
     .keyboard { position: absolute; left: 12%; right: 12%; top: 9px; height: 38px; border-radius: 7px; background: repeating-linear-gradient(90deg, rgba(15, 23, 42, 0.15) 0 17px, transparent 17px 20px), repeating-linear-gradient(0deg, rgba(15, 23, 42, 0.1) 0 7px, transparent 7px 10px); opacity: 0.8; }
     .trackpad { position: absolute; width: 115px; height: 30px; left: 50%; bottom: 7px; transform: translateX(-50%); border-radius: 6px; border: 1px solid rgba(15, 23, 42, 0.2); }
 
-    /* EVM SECTION */
+    /* =========================================
+       EVM SECTION - LIGHTWEIGHT VERSION
+    ========================================= */
     .evm-section { overflow: hidden; padding: 140px 0; }
 
     .marquee {
       overflow: hidden; width: 100%;
       mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
-      padding: 50px 0;
+      padding: 40px 0;
     }
 
     .marquee-track {
@@ -367,6 +360,7 @@
       width: max-content;
       animation: marquee 32s linear infinite reverse;
       gap: 44px;
+      will-change: transform;
     }
     .marquee:hover .marquee-track { animation-play-state: paused; }
     @keyframes marquee {
@@ -386,29 +380,13 @@
       background: #ffffff;
       border: 1px solid rgba(212, 175, 55, 0.25);
       box-shadow: 0 22px 50px rgba(0, 0, 0, 0.07);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       overflow: hidden;
-      transform-style: preserve-3d;
-      animation: floatCard 4s ease-in-out infinite;
+      will-change: transform;
     }
 
-    @keyframes floatCard {
-      0%, 100% { transform: translateY(0) rotateZ(0deg); }
-      50% { transform: translateY(-10px) rotateZ(0.5deg); }
-    }
-
-    .chain-card:nth-child(1) { animation-delay: 0s; }
-    .chain-card:nth-child(2) { animation-delay: 0.4s; }
-    .chain-card:nth-child(3) { animation-delay: 0.8s; }
-    .chain-card:nth-child(4) { animation-delay: 1.2s; }
-    .chain-card:nth-child(5) { animation-delay: 1.6s; }
-    .chain-card:nth-child(6) { animation-delay: 0.2s; }
-    .chain-card:nth-child(7) { animation-delay: 0.6s; }
-    .chain-card:nth-child(8) { animation-delay: 1s; }
-    .chain-card:nth-child(9) { animation-delay: 1.4s; }
-    .chain-card:nth-child(10) { animation-delay: 1.8s; }
-
+    /* Holographic shimmer - only on hover (no constant rendering) */
     .chain-card::before {
       content: "";
       position: absolute;
@@ -422,15 +400,16 @@
     }
     .chain-card:hover::before { left: 200%; }
 
+    /* Only animate on hover (zero cost when idle) */
     .chain-card:hover {
-      transform: translateY(-14px) scale(1.05) rotateZ(-2deg) rotateY(8deg);
+      transform: translateY(-12px) scale(1.04) rotateZ(-1.5deg) rotateY(6deg);
       border-color: rgba(212, 175, 55, 0.7);
       box-shadow:
-        0 35px 75px rgba(212, 175, 55, 0.32),
-        0 0 0 1px rgba(212, 175, 55, 0.4),
-        inset 0 0 30px rgba(212, 175, 55, 0.1);
+        0 30px 65px rgba(212, 175, 55, 0.28),
+        0 0 0 1px rgba(212, 175, 55, 0.4);
     }
 
+    /* SINGLE PULSE RING - lightweight */
     .chain-logo-wrap {
       position: relative;
       display: flex;
@@ -441,6 +420,25 @@
       flex: 0 0 110px;
     }
 
+    .chain-logo-wrap .pulse-ring {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 2px solid rgba(212, 175, 55, 0.45);
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      animation: pulseWave 3s ease-out infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes pulseWave {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+
+    /* CHAIN LOGO - static, no heavy animations */
     .chain-logo {
       width: 110px;
       height: 110px;
@@ -452,7 +450,7 @@
         0 16px 35px rgba(0, 0, 0, 0.1),
         inset 0 0 0 1px rgba(212, 175, 55, 0.2);
       position: relative;
-      transition: border-color 0.5s ease;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -460,51 +458,11 @@
 
     .chain-card:hover .chain-logo {
       border-color: rgba(212, 175, 55, 0.55);
+      box-shadow:
+        0 20px 45px rgba(212, 175, 55, 0.25),
+        inset 0 0 0 1px rgba(212, 175, 55, 0.3);
     }
 
-    /* CONIC SCANNER behind logo */
-    .chain-logo::before {
-      content: "";
-      position: absolute;
-      inset: -14px;
-      border-radius: 50%;
-      background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        rgba(212, 175, 55, 0.6) 45deg,
-        transparent 90deg,
-        transparent 360deg
-      );
-      animation: scannerSpin 2.5s linear infinite;
-      z-index: -1;
-      filter: blur(3px);
-    }
-    .chain-card:hover .chain-logo::before { animation-duration: 0.8s; }
-
-    @keyframes scannerSpin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* PULSE WAVE RINGS */
-    .chain-logo-wrap .pulse-ring {
-      position: absolute;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      border: 2px solid rgba(212, 175, 55, 0.55);
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      animation: pulseWave 2.5s ease-out infinite;
-    }
-    .chain-logo-wrap .pulse-ring:nth-child(2) { animation-delay: 1.25s; }
-
-    @keyframes pulseWave {
-      0% { transform: scale(1); opacity: 0.8; border-width: 2px; }
-      100% { transform: scale(1.9); opacity: 0; border-width: 0.5px; }
-    }
-
-    /* LOGO IMAGE - NO FLIP, JUST STATIC */
     .chain-logo img {
       width: 100%;
       height: 100%;
@@ -514,10 +472,9 @@
       border-radius: 50%;
       position: relative;
       z-index: 2;
-      transition: transform 0.5s ease;
     }
 
-    /* BIGGER TEXT + ANIMATED UNDERLINE */
+    /* TEXT */
     .chain-name {
       font-weight: 800;
       font-size: 22px;
@@ -525,31 +482,6 @@
       transition: color 0.3s ease;
       letter-spacing: -0.5px;
       margin-bottom: 4px;
-      display: inline-block;
-      position: relative;
-    }
-
-    .chain-name::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, #D4AF37, #FFC000, #D4AF37);
-      background-size: 200% auto;
-      border-radius: 2px;
-      transform: scaleX(0.2);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-      animation: underlineShift 3s linear infinite;
-    }
-
-    .chain-card:hover .chain-name::after { transform: scaleX(1); }
-
-    @keyframes underlineShift {
-      0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
     }
 
     .chain-card:hover .chain-name { color: var(--blue-dark); }
@@ -560,26 +492,6 @@
       margin-top: 4px;
       font-weight: 650;
       letter-spacing: 0.2px;
-    }
-
-    /* Floating glow dots inside card */
-    .chain-card .glow-dot {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #FFC000, rgba(255, 192, 0, 0));
-      pointer-events: none;
-      opacity: 0.6;
-      z-index: 1;
-    }
-    .chain-card .glow-dot.g1 { top: 12%; right: 15%; animation: dotFloat 4s ease-in-out infinite; }
-    .chain-card .glow-dot.g2 { bottom: 15%; right: 8%; animation: dotFloat 5s ease-in-out infinite 1s; }
-    .chain-card .glow-dot.g3 { top: 20%; right: 30%; animation: dotFloat 6s ease-in-out infinite 2s; }
-
-    @keyframes dotFloat {
-      0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
-      50% { transform: translateY(-8px) scale(1.5); opacity: 0.9; }
     }
 
     .evm-note { text-align: center; max-width: 680px; margin: 45px auto 0; color: var(--muted); font-size: 14px; }
@@ -855,7 +767,7 @@
       </div>
     </section>
 
-    <!-- EVM FIRST -->
+    <!-- EVM FIRST - LIGHTWEIGHT -->
     <section id="evm" class="evm-section">
       <div class="container">
         <div class="section-heading reveal">
@@ -871,93 +783,82 @@
           <div class="chain-card">
             <div class="chain-logo-wrap">
               <div class="pulse-ring"></div>
-              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="eth.jpg" alt="Ethereum" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Ethereum</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
             <div class="chain-logo-wrap">
-              <div class="pulse-ring"></div><div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="base.jpg" alt="Base" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Base</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
             <div class="chain-logo-wrap">
-              <div class="pulse-ring"></div><div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="arb.jpg" alt="Arbitrum" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Arbitrum</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
             <div class="chain-logo-wrap">
-              <div class="pulse-ring"></div><div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="poly.jpg" alt="Polygon" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Polygon</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
             <div class="chain-logo-wrap">
-              <div class="pulse-ring"></div><div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="avax.jpg" alt="Avalanche" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Avalanche</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <!-- SET 2 -->
           <div class="chain-card">
             <div class="chain-logo-wrap">
-              <div class="pulse-ring"></div><div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="eth.jpg" alt="Ethereum" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Ethereum</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
             <div class="chain-logo-wrap">
-              <div class="pulse-ring"></div><div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="base.jpg" alt="Base" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Base</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
             <div class="chain-logo-wrap">
-              <div class="pulse-ring"></div><div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="arb.jpg" alt="Arbitrum" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Arbitrum</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
             <div class="chain-logo-wrap">
-              <div class="pulse-ring"></div><div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="poly.jpg" alt="Polygon" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Polygon</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
             <div class="chain-logo-wrap">
-              <div class="pulse-ring"></div><div class="pulse-ring"></div>
+              <div class="pulse-ring"></div>
               <div class="chain-logo"><img src="avax.jpg" alt="Avalanche" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Avalanche</div><div class="chain-type">EVM Network</div></div>
-            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
         </div>
       </div>
