@@ -102,7 +102,90 @@
       100% { opacity: 1; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
     }
 
-    /* HERO */
+    /* =========================
+       MEVO TOP BANNER - FLOATING
+    ========================== */
+    .mevo-banner-section {
+      position: relative;
+      padding: 80px 0 40px;
+      overflow: hidden;
+    }
+
+    .mevo-banner-section::before {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%; height: 100%;
+      background: radial-gradient(ellipse at center, rgba(255, 192, 0, 0.18), transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+    }
+
+    /* Floating decorative particles */
+    .banner-particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFC000, rgba(255, 192, 0, 0));
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.7;
+    }
+    .banner-particle.p1 { top: 15%; left: 5%; animation: particleFloat 6s ease-in-out infinite; }
+    .banner-particle.p2 { top: 70%; right: 6%; animation: particleFloat 8s ease-in-out infinite 1s; }
+    .banner-particle.p3 { top: 30%; right: 12%; animation: particleFloat 7s ease-in-out infinite 2s; }
+    .banner-particle.p4 { top: 80%; left: 10%; animation: particleFloat 9s ease-in-out infinite 0.5s; }
+    .banner-particle.p5 { top: 20%; left: 45%; animation: particleFloat 5s ease-in-out infinite 1.5s; }
+
+    @keyframes particleFloat {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
+      50% { transform: translateY(-30px) scale(1.4); opacity: 1; }
+    }
+
+    .banner-frame {
+      position: relative;
+      border-radius: 36px;
+      padding: 8px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.5), rgba(255, 192, 0, 0.1), rgba(212, 175, 55, 0.5));
+      box-shadow:
+        0 50px 120px rgba(212, 175, 55, 0.2),
+        0 25px 60px rgba(0, 0, 0, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+      animation: bannerFloat 7s ease-in-out infinite;
+      transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease;
+      z-index: 2;
+    }
+
+    .banner-frame:hover {
+      transform: translateY(-12px) scale(1.012);
+      box-shadow:
+        0 65px 140px rgba(212, 175, 55, 0.3),
+        0 30px 70px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+    }
+
+    @keyframes bannerFloat {
+      0%, 100% { transform: translateY(0) rotateZ(0deg); }
+      50% { transform: translateY(-14px) rotateZ(0.3deg); }
+    }
+
+    .banner-img {
+      width: 100%;
+      display: block;
+      border-radius: 28px;
+      position: relative;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
     .hero { min-height: 760px; display: grid; place-items: center; padding: 110px 0 90px; position: relative; }
     .hero-content { text-align: center; max-width: 930px; margin: auto; }
     .hero-badge {
@@ -276,7 +359,7 @@
     .trackpad { position: absolute; width: 115px; height: 30px; left: 50%; bottom: 7px; transform: translateX(-50%); border-radius: 6px; border: 1px solid rgba(15, 23, 42, 0.2); }
 
     /* =========================================
-       EVM SECTION - BIGGER & PREMIUM
+       EVM SECTION - AUTO FLIP LOGOS + EXTRAS
     ========================================= */
     .evm-section { overflow: hidden; padding: 140px 0; }
 
@@ -298,7 +381,6 @@
       to { transform: translateX(-50%); }
     }
 
-    /* ---- BIGGER INDIVIDUAL CARD ---- */
     .chain-card {
       width: 340px;
       height: 200px;
@@ -334,7 +416,6 @@
     .chain-card:nth-child(9) { animation-delay: 1.4s; }
     .chain-card:nth-child(10) { animation-delay: 1.8s; }
 
-    /* HOLOGRAPHIC SHIMMER SWEEP */
     .chain-card::before {
       content: "";
       position: absolute;
@@ -346,11 +427,8 @@
       transition: left 0.8s ease;
       pointer-events: none;
     }
-    .chain-card:hover::before {
-      left: 200%;
-    }
+    .chain-card:hover::before { left: 200%; }
 
-    /* HOVER TILT + GLOW */
     .chain-card:hover {
       transform: translateY(-14px) scale(1.05) rotateZ(-2deg) rotateY(8deg);
       border-color: rgba(212, 175, 55, 0.7);
@@ -369,9 +447,9 @@
       width: 110px;
       height: 110px;
       flex: 0 0 110px;
+      perspective: 600px;
     }
 
-    /* BIGGER LOGO CIRCLE */
     .chain-logo {
       width: 110px;
       height: 110px;
@@ -383,14 +461,14 @@
         0 16px 35px rgba(0, 0, 0, 0.1),
         inset 0 0 0 1px rgba(212, 175, 55, 0.2);
       position: relative;
-      transition: transform 0.5s ease;
+      transition: border-color 0.5s ease;
       display: flex;
       align-items: center;
       justify-content: center;
+      transform-style: preserve-3d;
     }
 
     .chain-card:hover .chain-logo {
-      transform: scale(1.08);
       border-color: rgba(212, 175, 55, 0.55);
     }
 
@@ -417,7 +495,7 @@
       to { transform: rotate(360deg); }
     }
 
-    /* PULSE WAVE RINGS - BIGGER */
+    /* PULSE WAVE RINGS */
     .chain-logo-wrap .pulse-ring {
       position: absolute;
       width: 110px;
@@ -432,18 +510,13 @@
     .chain-logo-wrap .pulse-ring:nth-child(2) { animation-delay: 1.25s; }
 
     @keyframes pulseWave {
-      0% {
-        transform: scale(1);
-        opacity: 0.8;
-        border-width: 2px;
-      }
-      100% {
-        transform: scale(1.9);
-        opacity: 0;
-        border-width: 0.5px;
-      }
+      0% { transform: scale(1); opacity: 0.8; border-width: 2px; }
+      100% { transform: scale(1.9); opacity: 0; border-width: 0.5px; }
     }
 
+    /* =========================================
+       AUTO FLIP LOGO - CONTINUOUS, UNIFORM SPEED
+    ========================================= */
     .chain-logo img {
       width: 100%;
       height: 100%;
@@ -453,22 +526,66 @@
       border-radius: 50%;
       position: relative;
       z-index: 2;
-      transition: transform 0.5s ease;
+      transform-style: preserve-3d;
+      animation: autoFlipLogo 6s linear infinite;
     }
 
-    .chain-card:hover .chain-logo img {
-      transform: rotate(360deg);
+    @keyframes autoFlipLogo {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
     }
 
-    /* BIGGER TEXT */
+    /* Stagger flip so all logos aren't synced */
+    .chain-card:nth-child(1) .chain-logo img { animation-delay: 0s; }
+    .chain-card:nth-child(2) .chain-logo img { animation-delay: 0.5s; }
+    .chain-card:nth-child(3) .chain-logo img { animation-delay: 1s; }
+    .chain-card:nth-child(4) .chain-logo img { animation-delay: 1.5s; }
+    .chain-card:nth-child(5) .chain-logo img { animation-delay: 2s; }
+    .chain-card:nth-child(6) .chain-logo img { animation-delay: 0.3s; }
+    .chain-card:nth-child(7) .chain-logo img { animation-delay: 0.8s; }
+    .chain-card:nth-child(8) .chain-logo img { animation-delay: 1.3s; }
+    .chain-card:nth-child(9) .chain-logo img { animation-delay: 1.8s; }
+    .chain-card:nth-child(10) .chain-logo img { animation-delay: 2.3s; }
+
+    /* Slow down flip on hover for readability */
+    .chain-card:hover .chain-logo img { animation-duration: 3s; }
+
+    /* BIGGER TEXT + ANIMATED UNDERLINE */
     .chain-name {
       font-weight: 800;
       font-size: 22px;
       color: var(--text);
       transition: color 0.3s ease;
       letter-spacing: -0.5px;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
+      display: inline-block;
+      position: relative;
     }
+
+    /* Animated gold underline under chain name */
+    .chain-name::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #D4AF37, #FFC000, #D4AF37);
+      background-size: 200% auto;
+      border-radius: 2px;
+      transform: scaleX(0.2);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      animation: underlineShift 3s linear infinite;
+    }
+
+    .chain-card:hover .chain-name::after { transform: scaleX(1); }
+
+    @keyframes underlineShift {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
     .chain-card:hover .chain-name { color: var(--blue-dark); }
 
     .chain-type {
@@ -477,6 +594,26 @@
       margin-top: 4px;
       font-weight: 650;
       letter-spacing: 0.2px;
+    }
+
+    /* Floating glow dots inside card */
+    .chain-card .glow-dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFC000, rgba(255, 192, 0, 0));
+      pointer-events: none;
+      opacity: 0.6;
+      z-index: 1;
+    }
+    .chain-card .glow-dot.g1 { top: 12%; right: 15%; animation: dotFloat 4s ease-in-out infinite; }
+    .chain-card .glow-dot.g2 { bottom: 15%; right: 8%; animation: dotFloat 5s ease-in-out infinite 1s; }
+    .chain-card .glow-dot.g3 { top: 20%; right: 30%; animation: dotFloat 6s ease-in-out infinite 2s; }
+
+    @keyframes dotFloat {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+      50% { transform: translateY(-8px) scale(1.5); opacity: 0.9; }
     }
 
     .evm-note { text-align: center; max-width: 680px; margin: 45px auto 0; color: var(--muted); font-size: 14px; }
@@ -561,6 +698,9 @@
       .footer-top { flex-direction: column; text-align: center; }
       .footer-top .socials { justify-content: center; }
       .evm-section { padding: 90px 0; }
+      .mevo-banner-section { padding: 50px 0 30px; }
+      .banner-frame { border-radius: 22px; padding: 6px; }
+      .banner-img { border-radius: 16px; }
     }
     @media (max-width: 430px) {
       .product-stage { transform: scale(0.78); margin-left: -30px; margin-right: -30px; }
@@ -570,6 +710,9 @@
       .chain-name { font-size: 18px; }
       .chain-type { font-size: 11px; }
       .marquee-track { gap: 28px; }
+      .mevo-banner-section { padding: 30px 0 20px; }
+      .banner-frame { border-radius: 16px; padding: 5px; }
+      .banner-img { border-radius: 12px; }
     }
   </style>
 </head>
@@ -599,6 +742,22 @@
   </header>
 
   <main id="top">
+
+    <!-- =========================================
+         TOP BANNER - FLOATING, LARGE
+    ========================================== -->
+    <section class="mevo-banner-section">
+      <div class="banner-particle p1"></div>
+      <div class="banner-particle p2"></div>
+      <div class="banner-particle p3"></div>
+      <div class="banner-particle p4"></div>
+      <div class="banner-particle p5"></div>
+      <div class="container">
+        <div class="banner-frame">
+          <img src="banner.png" alt="MEVO Banner" class="banner-img" />
+        </div>
+      </div>
+    </section>
 
     <!-- HERO -->
     <section class="hero">
@@ -732,7 +891,7 @@
       </div>
     </section>
 
-    <!-- EVM FIRST - BIGGER & PREMIUM -->
+    <!-- EVM FIRST - AUTO FLIP LOGOS -->
     <section id="evm" class="evm-section">
       <div class="container">
         <div class="section-heading reveal">
@@ -752,6 +911,7 @@
               <div class="chain-logo"><img src="eth.jpg" alt="Ethereum" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Ethereum</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
@@ -760,6 +920,7 @@
               <div class="chain-logo"><img src="base.jpg" alt="Base" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Base</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
@@ -768,6 +929,7 @@
               <div class="chain-logo"><img src="arb.jpg" alt="Arbitrum" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Arbitrum</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
@@ -776,6 +938,7 @@
               <div class="chain-logo"><img src="poly.jpg" alt="Polygon" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Polygon</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
@@ -784,6 +947,7 @@
               <div class="chain-logo"><img src="avax.jpg" alt="Avalanche" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Avalanche</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <!-- SET 2 -->
@@ -793,6 +957,7 @@
               <div class="chain-logo"><img src="eth.jpg" alt="Ethereum" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Ethereum</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
@@ -801,6 +966,7 @@
               <div class="chain-logo"><img src="base.jpg" alt="Base" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Base</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
@@ -809,6 +975,7 @@
               <div class="chain-logo"><img src="arb.jpg" alt="Arbitrum" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Arbitrum</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
@@ -817,6 +984,7 @@
               <div class="chain-logo"><img src="poly.jpg" alt="Polygon" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Polygon</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
 
           <div class="chain-card">
@@ -825,6 +993,7 @@
               <div class="chain-logo"><img src="avax.jpg" alt="Avalanche" loading="lazy"/></div>
             </div>
             <div><div class="chain-name">Avalanche</div><div class="chain-type">EVM Network</div></div>
+            <div class="glow-dot g1"></div><div class="glow-dot g2"></div><div class="glow-dot g3"></div>
           </div>
         </div>
       </div>
