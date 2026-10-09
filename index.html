@@ -11,7 +11,7 @@
     content="MEVO is building a security-first crypto wallet designed to inspect transactions, approvals and signatures before execution. EVM first, designed for future multi-chain expansion."
   />
 
-  <meta name="theme-color" content="#eef9ff" />
+  <meta name="theme-color" content="#050505" />
 
   <!-- Premium Web3 Tech Fonts Import -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,18 +20,18 @@
 
   <style>
     :root {
-      --bg: #f6fcff;
-      --bg-soft: #eef9ff;
-      --white: #ffffff;
-      --blue: #159ee8;
-      --blue-dark: #0877bd;
-      --blue-light: #65c9ff;
-      --blue-pale: #dff4ff;
-      --text: #0d1b2a; /* Rich professional theme text color */
-      --muted: #5a7386;
-      --border: rgba(21, 158, 232, 0.16);
-      --shadow: 0 25px 70px rgba(25, 116, 164, 0.13);
-      --shadow-soft: 0 15px 45px rgba(25, 116, 164, 0.09);
+      --bg: #050505; /* Deep Black */
+      --bg-soft: #111111;
+      --white: #1a1a1a; /* Dark Grey for Cards */
+      --blue: #FFC000; /* Logo Gold */
+      --blue-dark: #D4AF37; /* Darker Gold */
+      --blue-light: #FFE066;
+      --blue-pale: #222222;
+      --text: #ffffff; /* White Text */
+      --muted: #a0a0a0; /* Grey Text */
+      --border: rgba(255, 192, 0, 0.2); /* Gold Border */
+      --shadow: 0 25px 70px rgba(255, 192, 0, 0.08);
+      --shadow-soft: 0 15px 45px rgba(255, 192, 0, 0.05);
       --radius: 26px;
       --max: 1180px;
     }
@@ -50,8 +50,8 @@
       font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 5%, rgba(101, 201, 255, 0.16), transparent 25%),
-        radial-gradient(circle at 90% 15%, rgba(21, 158, 232, 0.09), transparent 26%),
+        radial-gradient(circle at 10% 5%, rgba(255, 192, 0, 0.08), transparent 25%),
+        radial-gradient(circle at 90% 15%, rgba(255, 192, 0, 0.05), transparent 26%),
         var(--bg);
       overflow-x: hidden;
       line-height: 1.65;
@@ -83,10 +83,10 @@
       inset: 0;
       pointer-events: none;
       z-index: -2;
-      opacity: 0.35;
+      opacity: 0.25;
       background-image:
-        linear-gradient(rgba(21, 158, 232, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(21, 158, 232, 0.045) 1px, transparent 1px);
+        linear-gradient(rgba(255, 192, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 192, 0, 0.05) 1px, transparent 1px);
       background-size: 55px 55px;
       mask-image: linear-gradient(to bottom, black, transparent 85%);
     }
@@ -97,13 +97,13 @@
       filter: blur(80px);
       pointer-events: none;
       z-index: -1;
-      opacity: 0.22;
+      opacity: 0.15;
     }
 
     .orb.one {
       width: 300px;
       height: 300px;
-      background: #75d2ff;
+      background: #FFC000;
       left: -130px;
       top: 25%;
     }
@@ -111,7 +111,7 @@
     .orb.two {
       width: 280px;
       height: 280px;
-      background: #159ee8;
+      background: #D4AF37;
       right: -120px;
       top: 55%;
     }
@@ -125,8 +125,8 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(20px);
-      background: rgba(246, 252, 255, 0.85);
-      border-bottom: 1px solid rgba(21, 158, 232, 0.10);
+      background: rgba(10, 10, 10, 0.85);
+      border-bottom: 1px solid rgba(255, 192, 0, 0.15);
     }
 
     .nav {
@@ -153,14 +153,14 @@
       border-radius: 50%;
       position: relative;
       background: #070c14;
-      border: 1.5px solid rgba(21, 158, 232, 0.4);
-      box-shadow: 0 0 16px rgba(21, 158, 232, 0.45);
+      border: 1.5px solid rgba(255, 192, 0, 0.4);
+      box-shadow: 0 0 16px rgba(255, 192, 0, 0.45);
       overflow: hidden;
     }
     
     .brand-mark:hover {
-      box-shadow: 0 0 24px rgba(21, 158, 232, 0.5);
-      border-color: rgba(21, 158, 232, 0.7);
+      box-shadow: 0 0 24px rgba(255, 192, 0, 0.5);
+      border-color: rgba(255, 192, 0, 0.7);
     }
 
     .brand-mark img {
@@ -172,7 +172,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       display: block;
-      }
+    }
     
     .nav-links {
       display: flex;
@@ -196,8 +196,8 @@
       font-weight: 700;
       padding: 9px 14px;
       border-radius: 999px;
-      background: rgba(21, 158, 232, 0.08);
-      border: 1px solid rgba(21, 158, 232, 0.13);
+      background: rgba(255, 192, 0, 0.08);
+      border: 1px solid rgba(255, 192, 0, 0.15);
       letter-spacing: 0.5px;
     }
 
@@ -206,24 +206,24 @@
       height: 7px;
       border-radius: 50%;
       background: var(--blue);
-      box-shadow: 0 0 0 rgba(21, 158, 232, 0.5);
+      box-shadow: 0 0 0 rgba(255, 192, 0, 0.5);
       animation: pulseDot 1.25s infinite;
     }
 
     @keyframes pulseDot {
       0% {
         opacity: 1;
-        box-shadow: 0 0 0 0 rgba(21, 158, 232, 0.45);
+        box-shadow: 0 0 0 0 rgba(255, 192, 0, 0.45);
       }
 
       55% {
         opacity: 0.35;
-        box-shadow: 0 0 0 7px rgba(21, 158, 232, 0);
+        box-shadow: 0 0 0 7px rgba(255, 192, 0, 0);
       }
 
       100% {
         opacity: 1;
-        box-shadow: 0 0 0 0 rgba(21, 158, 232, 0);
+        box-shadow: 0 0 0 0 rgba(255, 192, 0, 0);
       }
     }
 
@@ -251,7 +251,7 @@
       gap: 9px;
       padding: 9px 16px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
       box-shadow: var(--shadow-soft);
       color: var(--blue-dark);
@@ -270,7 +270,7 @@
     }
 
     .gradient-text {
-      background: linear-gradient(110deg, #0877bd, #159ee8, #62caff);
+      background: linear-gradient(110deg, #D4AF37, #FFC000, #FFE066);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -308,23 +308,25 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #159ee8, #0877bd);
-      color: #fff;
-      box-shadow: 0 15px 35px rgba(21, 158, 232, 0.25);
+      background: linear-gradient(135deg, #FFC000, #D4AF37);
+      color: #000000; /* Black text on Gold button */
+      box-shadow: 0 15px 35px rgba(255, 192, 0, 0.25);
+      border: none;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 20px 45px rgba(21, 158, 232, 0.3);
+      box-shadow: 0 20px 45px rgba(255, 192, 0, 0.4);
     }
 
     .btn-secondary {
-      background: #fff;
+      background: #111111;
       color: var(--text);
+      border: 1px solid rgba(255, 192, 0, 0.3);
     }
 
     .btn-secondary:hover {
-      border-color: rgba(21, 158, 232, 0.35);
+      border-color: rgba(255, 192, 0, 0.6);
       transform: translateY(-2px);
     }
 
@@ -377,11 +379,11 @@
     }
 
     .protection-card {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(235, 248, 255, 0.85));
-      border: 1px solid rgba(21, 158, 232, 0.22);
+      background: linear-gradient(145deg, #1a1a1a, #111111);
+      border: 1px solid rgba(255, 192, 0, 0.2);
       border-radius: var(--radius);
       padding: 32px 24px;
-      box-shadow: 0 20px 45px rgba(21, 158, 232, 0.08);
+      box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -389,8 +391,8 @@
 
     .protection-card:hover {
       transform: translateY(-8px);
-      border-color: rgba(21, 158, 232, 0.5);
-      box-shadow: 0 30px 65px rgba(21, 158, 232, 0.16);
+      border-color: rgba(255, 192, 0, 0.5);
+      box-shadow: 0 30px 65px rgba(255, 192, 0, 0.15);
     }
 
     .protection-card::before {
@@ -400,7 +402,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, #159ee8, #62caff);
+      background: linear-gradient(90deg, #FFC000, #D4AF37);
     }
 
     .card-number {
@@ -409,12 +411,12 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      color: #fff;
-      background: linear-gradient(135deg, #159ee8, #0877bd);
+      color: #000000; /* Black text */
+      background: linear-gradient(135deg, #FFC000, #D4AF37);
       font-size: 14px;
       font-weight: 800;
       margin-bottom: 22px;
-      box-shadow: 0 10px 22px rgba(21, 158, 232, 0.3);
+      box-shadow: 0 10px 22px rgba(255, 192, 0, 0.3);
     }
 
     .protection-card h3 {
@@ -437,8 +439,8 @@
 
     .product-section {
       background:
-        radial-gradient(circle at 50% 40%, rgba(101,201,255,0.15), transparent 35%),
-        linear-gradient(180deg, transparent, rgba(223,244,255,0.4), transparent);
+        radial-gradient(circle at 50% 40%, rgba(255, 192, 0, 0.1), transparent 35%),
+        linear-gradient(180deg, transparent, rgba(17, 17, 17, 0.5), transparent);
     }
 
     .product-stage {
@@ -503,11 +505,11 @@
       position: relative;
       transform-style: preserve-3d;
       background: linear-gradient(145deg, #1e293b, #0f172a, #334155);
-      border: 3px solid rgba(255, 255, 255, 0.25);
+      border: 3px solid rgba(255, 192, 0, 0.3); /* Gold border */
       box-shadow:
-        0 45px 95px rgba(15, 23, 42, 0.32),
+        0 45px 95px rgba(0, 0, 0, 0.5),
         0 0 0 1px rgba(0, 0, 0, 0.5),
-        inset 0 0 18px rgba(255, 255, 255, 0.15);
+        inset 0 0 18px rgba(255, 255, 255, 0.1);
     }
 
     .phone::before {
@@ -540,9 +542,9 @@
       overflow: hidden;
       border-radius: 41px;
       background:
-        radial-gradient(circle at 90% 0%, rgba(21,158,232,0.18), transparent 30%),
-        #f9fdff;
-      border: 1px solid rgba(21, 158, 232, 0.14);
+        radial-gradient(circle at 90% 0%, rgba(255, 192, 0, 0.1), transparent 30%),
+        #111111;
+      border: 1px solid rgba(255, 192, 0, 0.2);
       position: relative;
     }
 
@@ -556,7 +558,7 @@
       border-radius: 20px;
       background: #090d16;
       z-index: 4;
-      box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.2);
+      box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
     }
 
     .phone-ui {
@@ -573,7 +575,7 @@
     .mini-brand {
       font-weight: 800;
       font-size: 17px;
-      color: #0877bd;
+      color: var(--blue-dark);
       letter-spacing: -0.5px;
     }
 
@@ -583,8 +585,8 @@
       border-radius: 10px;
       display: grid;
       place-items: center;
-      background: #e2f6ff;
-      color: #0877bd;
+      background: rgba(255, 192, 0, 0.15);
+      color: var(--blue-dark);
       font-size: 14px;
       font-weight: 800;
     }
@@ -605,7 +607,7 @@
 
     .balance-usd {
       font-size: 11px;
-      color: #7290a1;
+      color: var(--muted);
       margin-bottom: 20px;
       font-weight: 600;
     }
@@ -613,8 +615,8 @@
     .protection-active {
       padding: 12px;
       border-radius: 15px;
-      background: #e8f9ff;
-      border: 1px solid #c8edfc;
+      background: rgba(255, 192, 0, 0.08);
+      border: 1px solid rgba(255, 192, 0, 0.2);
       margin-bottom: 13px;
     }
 
@@ -624,30 +626,30 @@
       gap: 8px;
       font-size: 12px;
       font-weight: 800;
-      color: #0877bd;
+      color: var(--blue-dark);
     }
 
     .active-light {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #19a8e9;
+      background: #FFC000;
       animation: pulseDot 1.1s infinite;
     }
 
     .active-sub {
       font-size: 10px;
-      color: #668a9e;
+      color: var(--muted);
       margin-top: 4px;
       font-weight: 500;
     }
 
     .inspect-card {
       padding: 14px;
-      background: #fff;
-      border: 1px solid #dbeef7;
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 192, 0, 0.15);
       border-radius: 17px;
-      box-shadow: 0 9px 25px rgba(40, 116, 150, 0.07);
+      box-shadow: 0 9px 25px rgba(0, 0, 0, 0.3);
       margin-bottom: 12px;
     }
 
@@ -666,8 +668,8 @@
     .safe-badge {
       font-size: 9px;
       font-weight: 800;
-      color: #0877bd;
-      background: #e5f7ff;
+      color: var(--blue-dark);
+      background: rgba(255, 192, 0, 0.15);
       padding: 5px 7px;
       border-radius: 999px;
     }
@@ -676,7 +678,7 @@
       display: flex;
       justify-content: space-between;
       padding: 7px 0;
-      border-bottom: 1px solid #edf5f8;
+      border-bottom: 1px solid rgba(255, 192, 0, 0.1);
       font-size: 10px;
     }
 
@@ -685,7 +687,7 @@
     }
 
     .inspect-line span:first-child {
-      color: #7690a0;
+      color: var(--muted);
       font-weight: 500;
     }
 
@@ -697,17 +699,17 @@
       margin-top: 13px;
       padding: 14px;
       border-radius: 16px;
-      background: linear-gradient(135deg, #0c83c9, #42bdf4);
-      color: white;
+      background: linear-gradient(135deg, #D4AF37, #FFC000);
+      color: #000000;
       text-align: center;
-      box-shadow: 0 13px 30px rgba(21,158,232,0.2);
+      box-shadow: 0 13px 30px rgba(255, 192, 0, 0.2);
     }
 
     .coming-box small {
       display: block;
       font-size: 8px;
       letter-spacing: 1.4px;
-      font-weight: 700;
+      font-weight: 800;
       opacity: 0.8;
       margin-bottom: 3px;
     }
@@ -734,8 +736,8 @@
       min-width: 190px;
       padding: 13px 16px;
       border-radius: 15px;
-      background: #fff;
-      border: 1px solid var(--border);
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 192, 0, 0.2);
       box-shadow: var(--shadow-soft);
       display: flex;
       align-items: center;
@@ -750,8 +752,8 @@
       display: grid;
       place-items: center;
       border-radius: 9px;
-      background: #f2fbff;
-      color: #111;
+      background: rgba(255, 192, 0, 0.1);
+      color: #FFC000;
     }
 
     .store-icon svg {
@@ -791,10 +793,10 @@
       width: 100%;
       padding: 14px;
       border-radius: 26px 26px 12px 12px;
-      background: linear-gradient(145deg, #334155, #1e293b, #0f172a);
+      background: linear-gradient(145deg, #1e293b, #0f172a, #334155);
       box-shadow:
-        0 55px 95px rgba(15, 23, 42, 0.35),
-        inset 0 1px 2px rgba(255, 255, 255, 0.25);
+        0 55px 95px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 192, 0, 0.2);
       transform-style: preserve-3d;
     }
 
@@ -802,9 +804,9 @@
       min-height: 465px;
       border-radius: 14px;
       background:
-        radial-gradient(circle at 90% 0%, rgba(21,158,232,0.15), transparent 30%),
-        #f7fcff;
-      border: 1px solid rgba(21,158,232,0.13);
+        radial-gradient(circle at 90% 0%, rgba(255, 192, 0, 0.1), transparent 30%),
+        #111111;
+      border: 1px solid rgba(255, 192, 0, 0.2);
       overflow: hidden;
       position: relative;
     }
@@ -827,26 +829,26 @@
       align-items: center;
       gap: 7px;
       padding: 0 14px;
-      background: rgba(255,255,255,0.86);
-      border-bottom: 1px solid #e4f1f6;
+      background: rgba(26, 26, 26, 0.9);
+      border-bottom: 1px solid rgba(255, 192, 0, 0.15);
     }
 
     .browser-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #b5d5e4;
+      background: #475569;
     }
 
     .address-bar {
       flex: 1;
       height: 26px;
       border-radius: 8px;
-      background: #f1f8fb;
-      border: 1px solid #e2eff4;
+      background: #111111;
+      border: 1px solid rgba(255, 192, 0, 0.1);
       padding: 5px 10px;
       font-size: 9px;
-      color: #7a95a4;
+      color: var(--muted);
       font-weight: 500;
     }
 
@@ -858,11 +860,11 @@
     }
 
     .extension-left {
-      background: #fff;
-      border: 1px solid #dceff7;
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 192, 0, 0.15);
       border-radius: 17px;
       padding: 20px;
-      box-shadow: 0 10px 28px rgba(25,116,164,0.06);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
     }
 
     .extension-logo {
@@ -879,8 +881,8 @@
       overflow: hidden;
       display: grid;
       place-items: center;
-      background: #e3f6ff;
-      color: #0877bd;
+      background: rgba(255, 192, 0, 0.15);
+      color: var(--blue-dark);
       font-weight: 800;
     }
 
@@ -898,21 +900,21 @@
     .extension-logo span {
       display: block;
       font-size: 9px;
-      color: #7995a4;
+      color: var(--muted);
       font-weight: 600;
     }
 
     .tx-preview {
       padding: 15px;
       border-radius: 14px;
-      background: #f8fcfe;
-      border: 1px solid #e5f1f6;
+      background: #111111;
+      border: 1px solid rgba(255, 192, 0, 0.1);
       margin-bottom: 12px;
     }
 
     .tx-preview-title {
       font-size: 10px;
-      color: #6f8b9b;
+      color: var(--muted);
       margin-bottom: 7px;
       font-weight: 700;
     }
@@ -927,10 +929,11 @@
       padding: 12px;
       border: 0;
       border-radius: 12px;
-      background: linear-gradient(135deg, #159ee8, #0877bd);
-      color: #fff;
+      background: linear-gradient(135deg, #FFC000, #D4AF37);
+      color: #000000;
       font-weight: 800;
       font-size: 11px;
+      cursor: pointer;
     }
 
     .extension-right {
@@ -939,16 +942,16 @@
     }
 
     .risk-card {
-      background: #fff;
-      border: 1px solid #dceff7;
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 192, 0, 0.15);
       border-radius: 16px;
       padding: 17px;
-      box-shadow: 0 10px 25px rgba(25,116,164,0.06);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
 
     .risk-card .risk-title {
       font-size: 10px;
-      color: #7793a3;
+      color: var(--muted);
       margin-bottom: 7px;
       font-weight: 700;
     }
@@ -963,8 +966,8 @@
       margin-top: 10px;
       padding: 5px 8px;
       border-radius: 999px;
-      background: #e6f8ff;
-      color: #0877bd;
+      background: rgba(255, 192, 0, 0.15);
+      color: var(--blue-dark);
       font-size: 8px;
       font-weight: 800;
     }
@@ -976,10 +979,10 @@
       margin-top: -2px;
       border-radius: 4px 4px 25px 25px;
       background:
-        linear-gradient(145deg, #cbd5e1, #64748b);
+        linear-gradient(145deg, #334155, #0f172a);
       box-shadow:
-        0 30px 50px rgba(15, 23, 42, 0.3),
-        inset 0 1px 0 rgba(255,255,255,0.9);
+        0 30px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 192, 0, 0.2);
       transform: rotateX(55deg) translateZ(-12px);
       transform-origin: top center;
       position: relative;
@@ -995,15 +998,15 @@
       background:
         repeating-linear-gradient(
           90deg,
-          rgba(15, 23, 42, 0.2) 0 17px,
+          rgba(255, 255, 255, 0.1) 0 17px,
           transparent 17px 20px
         ),
         repeating-linear-gradient(
           0deg,
-          rgba(15, 23, 42, 0.15) 0 7px,
+          rgba(255, 255, 255, 0.05) 0 7px,
           transparent 7px 10px
         );
-      opacity: 0.85;
+      opacity: 0.8;
     }
 
     .trackpad {
@@ -1014,7 +1017,7 @@
       bottom: 7px;
       transform: translateX(-50%);
       border-radius: 6px;
-      border: 1px solid rgba(15, 23, 42, 0.25);
+      border: 1px solid rgba(255, 192, 0, 0.2);
     }
 
     /* =========================
@@ -1042,7 +1045,8 @@
     .marquee-track {
       display: flex;
       width: max-content;
-      animation: marquee 26s linear infinite;
+      /* ULTA ANIMATION YAHAN HAI */
+      animation: marquee 26s linear infinite reverse; 
       gap: 28px;
     }
 
@@ -1069,16 +1073,16 @@
       gap: 18px;
       padding: 24px;
       border-radius: 26px;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(230, 246, 255, 0.9));
-      border: 1px solid rgba(21, 158, 232, 0.28);
-      box-shadow: 0 18px 40px rgba(21, 158, 232, 0.12);
+      background: linear-gradient(145deg, #1a1a1a, #111111);
+      border: 1px solid rgba(255, 192, 0, 0.2);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
       transition: all 0.3s ease;
     }
 
     .chain-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(21, 158, 232, 0.6);
-      box-shadow: 0 25px 55px rgba(21, 158, 232, 0.22);
+      border-color: rgba(255, 192, 0, 0.6);
+      box-shadow: 0 25px 55px rgba(255, 192, 0, 0.15);
     }
 
     .chain-logo {
@@ -1087,11 +1091,11 @@
       flex: 0 0 76px;
       border-radius: 50%;
       overflow: hidden;
-      background: #f3fbff;
-      border: 4px solid #edf9fe;
+      background: #111111;
+      border: 4px solid rgba(255, 192, 0, 0.1);
       box-shadow:
-        0 12px 25px rgba(21,158,232,0.16),
-        inset 0 0 0 1px rgba(21,158,232,0.15);
+        0 12px 25px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(255, 192, 0, 0.15);
     }
 
     .chain-logo img {
@@ -1138,8 +1142,8 @@
       min-height: 220px;
       padding: 30px;
       border-radius: var(--radius);
-      background: #fff;
-      border: 1px solid var(--border);
+      background: #111111;
+      border: 1px solid rgba(255, 192, 0, 0.2);
       box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
@@ -1153,7 +1157,7 @@
       border-radius: 50%;
       right: -90px;
       bottom: -100px;
-      background: rgba(101,201,255,0.12);
+      background: rgba(255, 192, 0, 0.05);
     }
 
     .security-icon {
@@ -1162,8 +1166,8 @@
       border-radius: 13px;
       display: grid;
       place-items: center;
-      color: #0877bd;
-      background: #e8f8ff;
+      color: var(--blue-dark);
+      background: rgba(255, 192, 0, 0.1);
       margin-bottom: 20px;
     }
 
@@ -1203,8 +1207,8 @@
       width: 1px;
       background: linear-gradient(
         to bottom,
-        rgba(21,158,232,0.4),
-        rgba(21,158,232,0.05)
+        rgba(255, 192, 0, 0.4),
+        rgba(255, 192, 0, 0.05)
       );
     }
 
@@ -1222,20 +1226,20 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: #fff;
-      border: 1px solid rgba(21,158,232,0.3);
-      color: #0877bd;
+      background: #111111;
+      border: 1px solid rgba(255, 192, 0, 0.3);
+      color: var(--blue-dark);
       font-size: 11px;
       font-weight: 800;
-      box-shadow: 0 8px 25px rgba(21,158,232,0.10);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       z-index: 2;
     }
 
     .roadmap-content {
       padding: 17px 20px;
       border-radius: 17px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--border);
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 192, 0, 0.15);
     }
 
     .roadmap-content strong {
@@ -1259,9 +1263,8 @@
       margin: auto;
       padding: 42px;
       border-radius: 31px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.98), rgba(231,247,255,0.86));
-      border: 1px solid var(--border);
+      background: linear-gradient(145deg, #1a1a1a, #111111);
+      border: 1px solid rgba(255, 192, 0, 0.2);
       box-shadow: var(--shadow);
       display: flex;
       align-items: center;
@@ -1276,11 +1279,10 @@
       border-radius: 28px;
       display: grid;
       place-items: center;
-      background:
-        linear-gradient(145deg, #ffffff, #d7f2ff);
-      border: 1px solid rgba(21,158,232,0.16);
+      background: linear-gradient(145deg, #1a1a1a, #111111);
+      border: 1px solid rgba(255, 192, 0, 0.2);
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(21,158,232,0.13);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
     .founder-avatar img {
@@ -1294,8 +1296,8 @@
 
     .founder-role {
       display: inline-block;
-      color: #0877bd;
-      background: #e2f6ff;
+      color: var(--blue-dark);
+      background: rgba(255, 192, 0, 0.1);
       padding: 6px 10px;
       border-radius: 999px;
       font-size: 9px;
@@ -1312,7 +1314,7 @@
     }
 
     .founder-card .founder-sub {
-      color: #0877bd;
+      color: var(--blue-dark);
       font-size: 13px;
       font-weight: 750;
       margin-bottom: 10px;
@@ -1335,9 +1337,9 @@
       text-align: center;
       border-radius: 31px;
       background:
-        radial-gradient(circle at 50% 0%, rgba(101,201,255,0.22), transparent 45%),
-        #fff;
-      border: 1px solid var(--border);
+        radial-gradient(circle at 50% 0%, rgba(255, 192, 0, 0.1), transparent 45%),
+        #111111;
+      border: 1px solid rgba(255, 192, 0, 0.2);
       box-shadow: var(--shadow);
     }
 
@@ -1352,21 +1354,21 @@
       height: 52px;
       padding: 0 17px;
       border-radius: 14px;
-      border: 1px solid #d7eaf2;
+      border: 1px solid rgba(255, 192, 0, 0.2);
       outline: none;
-      background: #fafdff;
+      background: #1a1a1a;
       color: var(--text);
     }
 
     .waitlist-form input:focus {
-      border-color: rgba(21,158,232,0.45);
-      box-shadow: 0 0 0 4px rgba(21,158,232,0.07);
+      border-color: rgba(255, 192, 0, 0.5);
+      box-shadow: 0 0 0 4px rgba(255, 192, 0, 0.07);
     }
 
     .waitlist-message {
       min-height: 20px;
       margin-top: 13px;
-      color: #0877bd;
+      color: var(--blue-dark);
       font-size: 12px;
       font-weight: 700;
     }
@@ -1381,12 +1383,12 @@
     }
 
     details {
-      background: rgba(255,255,255,0.86);
-      border: 1px solid var(--border);
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 192, 0, 0.15);
       border-radius: 17px;
       padding: 18px 20px;
       margin-bottom: 10px;
-      box-shadow: 0 8px 24px rgba(25,116,164,0.045);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     }
 
     summary {
@@ -1408,8 +1410,8 @@
 
     footer {
       padding: 65px 0 30px;
-      border-top: 1px solid rgba(21,158,232,0.10);
-      background: rgba(238,249,255,0.5);
+      border-top: 1px solid rgba(255, 192, 0, 0.1);
+      background: rgba(10, 10, 10, 0.8);
     }
 
     .footer-top {
@@ -1437,16 +1439,17 @@
       border-radius: 13px;
       display: grid;
       place-items: center;
-      background: #fff;
-      border: 1px solid var(--border);
-      color: #17384a;
-      box-shadow: 0 8px 22px rgba(25,116,164,0.06);
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 192, 0, 0.2);
+      color: #FFC000;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
       transition: 0.25s ease;
     }
 
     .social:hover {
-      color: var(--blue);
+      color: #FFC000;
       transform: translateY(-3px);
+      border-color: rgba(255, 192, 0, 0.5);
     }
 
     .social svg {
@@ -1455,10 +1458,10 @@
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(21,158,232,0.09);
+      border-top: 1px solid rgba(255, 192, 0, 0.1);
       margin-top: 40px;
       padding-top: 20px;
-      color: #8aa0ad;
+      color: #666;
       font-size: 11px;
       text-align: center;
     }
@@ -1988,7 +1991,7 @@
 
                   <path
                     d="M16.7 12.8c0-2.2 1.8-3.3 1.9-3.4-1-.1-2.1-1.1-3.5-1.1-1.3 0-2.5.8-3.2.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.9-3.5 2.2-1.5 2.5-.4 6.2 1.1 8.2.7 1 1.6 2.1 2.7 2 .9 0 1.4-.6 2.7-.6s1.7.6 2.7.6c1.1 0 1.9-1 2.6-2 .8-1.1 1.2-2.2 1.2-2.3-.1 0-2-.8-2-3.6ZM14.5 6.9c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.2Z"
-                    fill="currentColor"
+                    fill="#FFC000"
                   />
 
                 </svg>
@@ -2021,22 +2024,22 @@
 
                   <path
                     d="M3.3 2.5c-.3.3-.5.8-.5 1.5v16c0 .7.2 1.2.5 1.5L12.1 12 3.3 2.5Z"
-                    fill="#159EE8"
+                    fill="#FFC000"
                   />
 
                   <path
                     d="m15.1 15-3-3 3-3 4.2 2.4c.8.5.8 1.1 0 1.6L15.1 15Z"
-                    fill="#0877BD"
+                    fill="#D4AF37"
                   />
 
                   <path
                     d="m3.3 2.5 8.8 9.5 3-3-10.1-5.8c-.7-.4-1.3-.7-1.7-.7Z"
-                    fill="#62C9FF"
+                    fill="#FFE066"
                   />
 
                   <path
                     d="m3.3 21.5 8.8-9.5 3 3L5 20.8c-.7.4-1.3.7-1.7.7Z"
-                    fill="#0B8ED0"
+                    fill="#D4AF37"
                   />
 
                 </svg>
@@ -2275,7 +2278,7 @@
                   <path
                     d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#FFC000"
                     stroke-width="2"
                   />
 
@@ -2283,7 +2286,7 @@
                     cx="12"
                     cy="12"
                     r="3.5"
-                    fill="currentColor"
+                    fill="#FFC000"
                   />
 
                 </svg>
@@ -3565,7 +3568,7 @@
               "center";
 
             parent.innerHTML =
-              '<span style="font-weight:900;color:#159ee8;font-size:11px;">EVM</span>';
+              '<span style="font-weight:900;color:#FFC000;font-size:11px;">EVM</span>';
 
           }
         );
@@ -3793,7 +3796,7 @@
       display: block;
       width: 9px;
       height: 9px;
-      background: #111;
+      background: #FFC000; /* Microsoft logo Gold color */
     }
 
   </style>
