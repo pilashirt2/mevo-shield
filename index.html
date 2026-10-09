@@ -20,16 +20,16 @@
 
   <style>
     :root {
-      --bg: #ffffff; /* Pure White Background */
-      --bg-soft: #fdfcf8; /* Soft Cream */
-      --white: #ffffff; /* White for cards */
-      --blue: #D4AF37; /* Gold */
-      --blue-dark: #B58C1B; /* Dark Gold */
-      --blue-light: #FCEABB; /* Light Gold */
+      --bg: #ffffff;
+      --bg-soft: #fdfcf8;
+      --white: #ffffff;
+      --blue: #D4AF37;
+      --blue-dark: #B58C1B;
+      --blue-light: #FCEABB;
       --blue-pale: #FEFCF3;
-      --text: #050505; /* Black Text */
-      --muted: #555555; /* Dark Grey */
-      --border: rgba(212, 175, 55, 0.3); /* Gold Border */
+      --text: #050505;
+      --muted: #555555;
+      --border: rgba(212, 175, 55, 0.3);
       --shadow: 0 25px 70px rgba(0, 0, 0, 0.06);
       --shadow-soft: 0 15px 45px rgba(0, 0, 0, 0.04);
       --radius: 26px;
@@ -75,7 +75,7 @@
     }
 
     /* =========================
-       BACKGROUND
+       BACKGROUND WITH ULTRA REVERSE ANIMATION
     ========================== */
 
     .background-grid {
@@ -89,6 +89,12 @@
         linear-gradient(90deg, rgba(212, 175, 55, 0.15) 1px, transparent 1px);
       background-size: 55px 55px;
       mask-image: linear-gradient(to bottom, black, transparent 85%);
+      animation: moveGridReverse 12s linear infinite; /* ULTA ANIMATION */
+    }
+
+    @keyframes moveGridReverse {
+      0% { background-position: 0 0; }
+      100% { background-position: -55px -55px; } /* Ulta chalega */
     }
 
     .orb {
@@ -106,6 +112,7 @@
       background: #FFC000;
       left: -130px;
       top: 25%;
+      animation: reverseFloatOrb 18s ease-in-out infinite reverse; /* ULTA */
     }
 
     .orb.two {
@@ -114,6 +121,13 @@
       background: #FCEABB;
       right: -120px;
       top: 55%;
+      animation: reverseFloatOrb 22s ease-in-out infinite; /* ULTA */
+    }
+
+    @keyframes reverseFloatOrb {
+      0% { transform: translateY(0) rotate(0deg) scale(1); }
+      50% { transform: translateY(-50px) rotate(180deg) scale(1.1); }
+      100% { transform: translateY(0) rotate(360deg) scale(1); }
     }
 
     /* =========================
@@ -146,7 +160,6 @@
       font-size: 20px;
     }
 
-    /* Upgraded Professional Circular Logo with Glow */
     .brand-mark {
       width: 42px;
       height: 42px;
@@ -156,11 +169,13 @@
       border: 1.5px solid rgba(212, 175, 55, 0.4);
       box-shadow: 0 0 16px rgba(212, 175, 55, 0.45);
       overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
     .brand-mark:hover {
       box-shadow: 0 0 24px rgba(212, 175, 55, 0.6);
       border-color: rgba(212, 175, 55, 0.8);
+      transform: rotate(-180deg) scale(1.1); /* Ulta ghoomega */
     }
 
     .brand-mark img {
@@ -211,24 +226,13 @@
     }
 
     @keyframes pulseDot {
-      0% {
-        opacity: 1;
-        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.45);
-      }
-
-      55% {
-        opacity: 0.35;
-        box-shadow: 0 0 0 7px rgba(212, 175, 55, 0);
-      }
-
-      100% {
-        opacity: 1;
-        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
-      }
+      0% { opacity: 1; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.45); }
+      55% { opacity: 0.35; box-shadow: 0 0 0 7px rgba(212, 175, 55, 0); }
+      100% { opacity: 1; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
     }
 
     /* =========================
-       HERO
+       HERO (LANDING PAGE) - ULTRA HEAVY REVERSE ANIMATION
     ========================== */
 
     .hero {
@@ -259,6 +263,15 @@
       font-weight: 700;
       letter-spacing: 1px;
       margin-bottom: 28px;
+      /* Heavy 3D Flip Entry */
+      animation: flipInHeavy 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      opacity: 0;
+      transform-origin: top center;
+    }
+
+    @keyframes flipInHeavy {
+      0% { transform: perspective(1000px) rotateX(-90deg) scale(0.8); opacity: 0; }
+      100% { transform: perspective(1000px) rotateX(0deg) scale(1); opacity: 1; }
     }
 
     .hero h1 {
@@ -267,13 +280,25 @@
       letter-spacing: -2.5px;
       font-weight: 800;
       margin-bottom: 27px;
+      /* Heavy 3D Flip Entry with Delay */
+      animation: flipInHeavy 1.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s forwards;
+      opacity: 0;
+      transform-origin: top center;
     }
 
     .gradient-text {
-      background: linear-gradient(110deg, #B58C1B, #D4AF37, #FFE066);
+      background: linear-gradient(110deg, #B58C1B, #D4AF37, #FFE066, #D4AF37, #B58C1B);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      /* Reverse Gold Shimmer */
+      animation: shimmerReverse 4s linear infinite;
+    }
+
+    @keyframes shimmerReverse {
+      0% { background-position: 200% center; }
+      100% { background-position: -200% center; } /* Ulta daudega */
     }
 
     .hero p {
@@ -283,6 +308,14 @@
       color: var(--muted);
       font-weight: 400;
       line-height: 1.7;
+      /* Heavy Slide Up */
+      animation: slideUpHeavy 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideUpHeavy {
+      0% { transform: translateY(60px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
 
     .hero-actions {
@@ -291,6 +324,14 @@
       gap: 14px;
       margin-top: 35px;
       flex-wrap: wrap;
+      /* Heavy Scale Pop */
+      animation: scaleInHeavy 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s forwards;
+      opacity: 0;
+    }
+
+    @keyframes scaleInHeavy {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     .btn {
@@ -309,13 +350,13 @@
 
     .btn-primary {
       background: linear-gradient(135deg, #FFC000, #D4AF37);
-      color: #050505; /* Black text on Gold button */
+      color: #050505;
       box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
       border: none;
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px) scale(1.02);
       box-shadow: 0 20px 45px rgba(212, 175, 55, 0.4);
     }
 
@@ -327,7 +368,7 @@
 
     .btn-secondary:hover {
       border-color: rgba(212, 175, 55, 0.6);
-      transform: translateY(-2px);
+      transform: translateY(-4px) scale(1.02);
     }
 
     /* =========================
@@ -411,7 +452,7 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      color: #050505; /* Black text */
+      color: #050505;
       background: linear-gradient(135deg, #D4AF37, #FFC000);
       font-size: 14px;
       font-weight: 800;
@@ -464,33 +505,13 @@
     }
 
     @keyframes deviceShake {
-      0%, 100% {
-        transform: translateX(0) rotateZ(0deg);
-      }
-
-      15% {
-        transform: translateX(-6px) rotateZ(-1deg);
-      }
-
-      30% {
-        transform: translateX(6px) rotateZ(1deg);
-      }
-
-      45% {
-        transform: translateX(-5px) rotateZ(-0.8deg);
-      }
-
-      60% {
-        transform: translateX(5px) rotateZ(0.8deg);
-      }
-
-      75% {
-        transform: translateX(-3px) rotateZ(-0.4deg);
-      }
-
-      90% {
-        transform: translateX(3px) rotateZ(0.4deg);
-      }
+      0%, 100% { transform: translateX(0) rotateZ(0deg); }
+      15% { transform: translateX(-6px) rotateZ(-1deg); }
+      30% { transform: translateX(6px) rotateZ(1deg); }
+      45% { transform: translateX(-5px) rotateZ(-0.8deg); }
+      60% { transform: translateX(5px) rotateZ(0.8deg); }
+      75% { transform: translateX(-3px) rotateZ(-0.4deg); }
+      90% { transform: translateX(3px) rotateZ(0.4deg); }
     }
 
     /* =========================
@@ -505,7 +526,7 @@
       position: relative;
       transform-style: preserve-3d;
       background: linear-gradient(145deg, #1e293b, #0f172a, #334155);
-      border: 3px solid rgba(212, 175, 55, 0.4); /* Gold border */
+      border: 3px solid rgba(212, 175, 55, 0.4);
       box-shadow:
         0 45px 95px rgba(0, 0, 0, 0.15),
         0 0 0 1px rgba(0, 0, 0, 0.5),
@@ -543,7 +564,7 @@
       border-radius: 41px;
       background:
         radial-gradient(circle at 90% 0%, rgba(212, 175, 55, 0.1), transparent 30%),
-        #ffffff; /* White screen */
+        #ffffff;
       border: 1px solid rgba(212, 175, 55, 0.2);
       position: relative;
     }
@@ -805,7 +826,7 @@
       border-radius: 14px;
       background:
         radial-gradient(circle at 90% 0%, rgba(212, 175, 55, 0.08), transparent 30%),
-        #ffffff; /* White screen */
+        #ffffff;
       border: 1px solid rgba(212, 175, 55, 0.2);
       overflow: hidden;
       position: relative;
@@ -996,16 +1017,8 @@
       height: 38px;
       border-radius: 7px;
       background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(15, 23, 42, 0.15) 0 17px,
-          transparent 17px 20px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          rgba(15, 23, 42, 0.1) 0 7px,
-          transparent 7px 10px
-        );
+        repeating-linear-gradient(90deg, rgba(15, 23, 42, 0.15) 0 17px, transparent 17px 20px),
+        repeating-linear-gradient(0deg, rgba(15, 23, 42, 0.1) 0 7px, transparent 7px 10px);
       opacity: 0.8;
     }
 
@@ -1021,7 +1034,7 @@
     }
 
     /* =========================
-       UPGRADED LARGE EVM LOGO MARQUEE
+       UPGRADED LARGE EVM LOGO MARQUEE (ULTA ANIMATION)
     ========================== */
 
     .evm-section {
@@ -1032,13 +1045,7 @@
     .marquee {
       overflow: hidden;
       width: 100%;
-      mask-image: linear-gradient(
-        90deg,
-        transparent,
-        black 8%,
-        black 92%,
-        transparent
-      );
+      mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
       padding: 20px 0;
     }
 
@@ -1055,13 +1062,8 @@
     }
 
     @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     .chain-card {
@@ -1205,11 +1207,7 @@
       top: 0;
       bottom: 0;
       width: 1px;
-      background: linear-gradient(
-        to bottom,
-        rgba(212, 175, 55, 0.4),
-        rgba(212, 175, 55, 0.05)
-      );
+      background: linear-gradient(to bottom, rgba(212, 175, 55, 0.4), rgba(212, 175, 55, 0.05));
     }
 
     .roadmap-item {
@@ -1336,9 +1334,7 @@
       padding: 45px;
       text-align: center;
       border-radius: 31px;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08), transparent 45%),
-        #ffffff;
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08), transparent 45%), #ffffff;
       border: 1px solid rgba(212, 175, 55, 0.2);
       box-shadow: var(--shadow);
     }
@@ -1473,9 +1469,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(25px);
-      transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
     .reveal.is-visible {
@@ -1488,114 +1482,35 @@
     ========================== */
 
     @media (max-width: 950px) {
-      .protection-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .extension-ui {
-        grid-template-columns: 1fr;
-      }
-
-      .laptop-screen {
-        min-height: 465px;
-      }
+      .protection-grid { grid-template-columns: repeat(2, 1fr); }
+      .extension-ui { grid-template-columns: 1fr; }
+      .laptop-screen { min-height: 465px; }
     }
 
     @media (max-width: 720px) {
-      .container {
-        width: min(var(--max), calc(100% - 26px));
-      }
-
-      .nav {
-        height: 68px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: 680px;
-        padding-top: 80px;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-        font-size: clamp(42px, 13vw, 68px);
-      }
-
-      section {
-        padding: 78px 0;
-      }
-
-      .protection-grid,
-      .security-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .product-stage {
-        min-height: 590px;
-        transform: scale(0.88);
-      }
-
-      .phone {
-        width: 290px;
-        height: 590px;
-      }
-
-      .laptop-stage {
-        min-height: 500px;
-      }
-
-      .laptop {
-        width: 100%;
-        max-width: 100%;
-        transform: none;
-      }
-
-      .store-row {
-        margin-top: 20px;
-      }
-
-      .store-badge {
-        min-width: 170px;
-      }
-
-      .founder-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 22px;
-      }
-
-      .waitlist-box {
-        padding: 32px 20px;
-      }
-
-      .waitlist-form {
-        flex-direction: column;
-      }
-
-      .footer-top {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-top .socials {
-        justify-content: center;
-      }
+      .container { width: min(var(--max), calc(100% - 26px)); }
+      .nav { height: 68px; }
+      .nav-links { display: none; }
+      .hero { min-height: 680px; padding-top: 80px; }
+      .hero h1 { letter-spacing: -2px; font-size: clamp(42px, 13vw, 68px); }
+      section { padding: 78px 0; }
+      .protection-grid, .security-grid { grid-template-columns: 1fr; }
+      .product-stage { min-height: 590px; transform: scale(0.88); }
+      .phone { width: 290px; height: 590px; }
+      .laptop-stage { min-height: 500px; }
+      .laptop { width: 100%; max-width: 100%; transform: none; }
+      .store-row { margin-top: 20px; }
+      .store-badge { min-width: 170px; }
+      .founder-card { flex-direction: column; text-align: center; padding: 30px 22px; }
+      .waitlist-box { padding: 32px 20px; }
+      .waitlist-form { flex-direction: column; }
+      .footer-top { flex-direction: column; text-align: center; }
+      .footer-top .socials { justify-content: center; }
     }
 
     @media (max-width: 430px) {
-      .product-stage {
-        transform: scale(0.78);
-        margin-left: -30px;
-        margin-right: -30px;
-      }
-
-      .chain-card {
-        width: 215px;
-        flex-basis: 215px;
-      }
+      .product-stage { transform: scale(0.78); margin-left: -30px; margin-right: -30px; }
+      .chain-card { width: 215px; flex-basis: 215px; }
     }
   </style>
 </head>
@@ -1614,16 +1529,10 @@
     <div class="container nav">
 
       <a href="#top" class="brand">
-
         <div class="brand-mark">
-          <img
-            src="logo.png"
-            alt="MEVO SHIELD"
-          />
+          <img src="logo.png" alt="MEVO SHIELD" />
         </div>
-
         <span>MEVO SHIELD</span>
-
       </a>
 
       <nav class="nav-links">
@@ -1647,11 +1556,11 @@
   <main id="top">
 
     <!-- =========================================
-         HERO
+         HERO (LANDING PAGE)
     ========================================== -->
 
     <section class="hero">
-      <div class="container hero-content reveal">
+      <div class="container hero-content">
 
         <div class="hero-badge">
           <span class="status-dot"></span>
@@ -1672,15 +1581,12 @@
         </p>
 
         <div class="hero-actions">
-
           <a href="#products" class="btn btn-primary">
             Explore MEVO
           </a>
-
           <a href="#waitlist" class="btn btn-secondary">
             Join Waitlist
           </a>
-
         </div>
 
       </div>
@@ -1688,105 +1594,46 @@
 
 
     <!-- =========================================
-         HOW MEVO PROTECTS YOU (UPGRADED CARDS)
+         HOW MEVO PROTECTS YOU
     ========================================== -->
 
     <section id="protection">
-
       <div class="container">
 
         <div class="section-heading reveal">
-
-          <div class="eyebrow">
-            HOW MEVO PROTECTS YOU
-          </div>
-
-          <h2>
-            Protection while you use Web3.
-          </h2>
-
-          <p>
-            MEVO is being designed around multiple security layers instead
-            of relying only on post-incident warnings.
-          </p>
-
+          <div class="eyebrow">HOW MEVO PROTECTS YOU</div>
+          <h2>Protection while you use Web3.</h2>
+          <p>MEVO is being designed around multiple security layers instead of relying only on post-incident warnings.</p>
         </div>
-
 
         <div class="protection-grid">
 
           <article class="protection-card reveal">
             <div class="card-number">01</div>
-
-            <h3>
-              Before You Sign
-            </h3>
-
-            <p>
-              Inspect transaction payloads, smart-contract calls,
-              approvals and signature requests before authorization.
-            </p>
-
+            <h3>Before You Sign</h3>
+            <p>Inspect transaction payloads, smart-contract calls, approvals and signature requests before authorization.</p>
           </article>
 
-
           <article class="protection-card reveal">
-
-            <div class="card-number">
-              02
-            </div>
-
-            <h3>
-              Protected Transfers
-            </h3>
-
-            <p>
-              Future MEVO transfer flows can use recipient confirmation
-              as part of the settlement process.
-            </p>
-
+            <div class="card-number">02</div>
+            <h3>Protected Transfers</h3>
+            <p>Future MEVO transfer flows can use recipient confirmation as part of the settlement process.</p>
           </article>
 
-
           <article class="protection-card reveal">
-
-            <div class="card-number">
-              03
-            </div>
-
-            <h3>
-              After You Receive
-            </h3>
-
-            <p>
-              A future protection policy is designed to reduce immediate
-              exposure after funds arrive while keeping owner-controlled actions.
-            </p>
-
+            <div class="card-number">03</div>
+            <h3>After You Receive</h3>
+            <p>A future protection policy is designed to reduce immediate exposure after funds arrive while keeping owner-controlled actions.</p>
           </article>
 
-
           <article class="protection-card reveal">
-
-            <div class="card-number">
-              04
-            </div>
-
-            <h3>
-              Protected Key Operations
-            </h3>
-
-            <p>
-              Stronger local authorization and policy-controlled security
-              are being explored for sensitive wallet operations.
-            </p>
-
+            <div class="card-number">04</div>
+            <h3>Protected Key Operations</h3>
+            <p>Stronger local authorization and policy-controlled security are being explored for sensitive wallet operations.</p>
           </article>
 
         </div>
-
       </div>
-
     </section>
 
 
@@ -1795,886 +1642,224 @@
     ========================================== -->
 
     <section id="products" class="product-section">
-
       <div class="container">
 
         <div class="section-heading reveal">
-
-          <div class="eyebrow">
-            MEVO PRODUCTS
-          </div>
-
-          <h2>
-            Built around the wallet.
-          </h2>
-
-          <p>
-            MEVO starts with its own wallet experience and is designed
-            to expand into browser-based protection later.
-          </p>
-
+          <div class="eyebrow">MEVO PRODUCTS</div>
+          <h2>Built around the wallet.</h2>
+          <p>MEVO starts with its own wallet experience and is designed to expand into browser-based protection later.</p>
         </div>
 
-
-        <!-- =====================================
-             MOBILE WALLET (REALISTIC PHONE)
-        ====================================== -->
-
+        <!-- MOBILE WALLET -->
         <div class="reveal">
-
-          <div
-            class="product-stage"
-            id="phoneStage"
-          >
-
-            <div
-              class="device-wrap"
-              id="phoneDevice"
-              data-device="phone"
-              role="button"
-              tabindex="0"
-              aria-label="MEVO Wallet preview"
-            >
-
+          <div class="product-stage" id="phoneStage">
+            <div class="device-wrap" id="phoneDevice" data-device="phone" role="button" tabindex="0" aria-label="MEVO Wallet preview">
               <div class="phone">
-
                 <div class="phone-screen">
-
                   <div class="phone-notch"></div>
-
                   <div class="phone-ui">
-
                     <div class="phone-top">
-
-                      <div class="mini-brand">
-                        MEVO
-                      </div>
-
-                      <div class="shield-mini">
-                        ✓
-                      </div>
-
+                      <div class="mini-brand">MEVO</div>
+                      <div class="shield-mini">✓</div>
                     </div>
-
-
-                    <div class="balance-label">
-                      TOTAL BALANCE
-                    </div>
-
-                    <div class="balance">
-                      $12,842.65
-                    </div>
-
-                    <div class="balance-usd">
-                      EVM WALLET
-                    </div>
-
-
+                    <div class="balance-label">TOTAL BALANCE</div>
+                    <div class="balance">$12,842.65</div>
+                    <div class="balance-usd">EVM WALLET</div>
                     <div class="protection-active">
-
                       <div class="active-row">
-
                         <span class="active-light"></span>
-
                         PROTECTION ACTIVE
-
                       </div>
-
-                      <div class="active-sub">
-                        MEVO security layer is monitoring wallet actions.
-                      </div>
-
+                      <div class="active-sub">MEVO security layer is monitoring wallet actions.</div>
                     </div>
-
-
                     <div class="inspect-card">
-
                       <div class="inspect-head">
-
-                        <div class="inspect-title">
-                          Transaction Inspection
-                        </div>
-
-                        <div class="safe-badge">
-                          PRE-SIGN
-                        </div>
-
+                        <div class="inspect-title">Transaction Inspection</div>
+                        <div class="safe-badge">PRE-SIGN</div>
                       </div>
-
-
-                      <div class="inspect-line">
-                        <span>Network</span>
-                        <span>EVM</span>
-                      </div>
-
-                      <div class="inspect-line">
-                        <span>Contract</span>
-                        <span>Detected</span>
-                      </div>
-
-                      <div class="inspect-line">
-                        <span>Approval</span>
-                        <span>Checked</span>
-                      </div>
-
-                      <div class="inspect-line">
-                        <span>Signature</span>
-                        <span>Analyzed</span>
-                      </div>
-
+                      <div class="inspect-line"><span>Network</span><span>EVM</span></div>
+                      <div class="inspect-line"><span>Contract</span><span>Detected</span></div>
+                      <div class="inspect-line"><span>Approval</span><span>Checked</span></div>
+                      <div class="inspect-line"><span>Signature</span><span>Analyzed</span></div>
                     </div>
-
-
                     <div class="inspect-card">
-
                       <div class="inspect-head">
-
-                        <div class="inspect-title">
-                          Security Activity
-                        </div>
-
-                        <div class="safe-badge">
-                          ACTIVE
-                        </div>
-
+                        <div class="inspect-title">Security Activity</div>
+                        <div class="safe-badge">ACTIVE</div>
                       </div>
-
-                      <div class="inspect-line">
-                        <span>Wallet protection</span>
-                        <span>On</span>
-                      </div>
-
-                      <div class="inspect-line">
-                        <span>Policy engine</span>
-                        <span>Ready</span>
-                      </div>
-
+                      <div class="inspect-line"><span>Wallet protection</span><span>On</span></div>
+                      <div class="inspect-line"><span>Policy engine</span><span>Ready</span></div>
                     </div>
-
-
                     <div class="coming-box">
-
-                      <small>
-                        PRODUCT STATUS
-                      </small>
-
-                      <strong>
-                        MEVO WALLET • COMING SOON
-                      </strong>
-
+                      <small>PRODUCT STATUS</small>
+                      <strong>MEVO WALLET • COMING SOON</strong>
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
 
           <!-- APP STORE / GOOGLE PLAY -->
-
           <div class="store-row">
-
             <div class="store-badge">
-
               <div class="store-icon">
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-
-                  <path
-                    d="M16.7 12.8c0-2.2 1.8-3.3 1.9-3.4-1-.1-2.1-1.1-3.5-1.1-1.3 0-2.5.8-3.2.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.9-3.5 2.2-1.5 2.5-.4 6.2 1.1 8.2.7 1 1.6 2.1 2.7 2 .9 0 1.4-.6 2.7-.6s1.7.6 2.7.6c1.1 0 1.9-1 2.6-2 .8-1.1 1.2-2.2 1.2-2.3-.1 0-2-.8-2-3.6ZM14.5 6.9c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.2Z"
-                    fill="#D4AF37"
-                  />
-
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.7 12.8c0-2.2 1.8-3.3 1.9-3.4-1-.1-2.1-1.1-3.5-1.1-1.3 0-2.5.8-3.2.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.9-3.5 2.2-1.5 2.5-.4 6.2 1.1 8.2.7 1 1.6 2.1 2.7 2 .9 0 1.4-.6 2.7-.6s1.7.6 2.7.6c1.1 0 1.9-1 2.6-2 .8-1.1 1.2-2.2 1.2-2.3-.1 0-2-.8-2-3.6ZM14.5 6.9c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.2Z" fill="#D4AF37"/>
                 </svg>
-
               </div>
-
               <div>
-
-                <small>
-                  AVAILABLE SOON ON
-                </small>
-
-                <strong>
-                  App Store • Coming Soon
-                </strong>
-
+                <small>AVAILABLE SOON ON</small>
+                <strong>App Store • Coming Soon</strong>
               </div>
-
             </div>
 
-
             <div class="store-badge">
-
               <div class="store-icon">
-
-                <svg
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-
-                  <path
-                    d="M3.3 2.5c-.3.3-.5.8-.5 1.5v16c0 .7.2 1.2.5 1.5L12.1 12 3.3 2.5Z"
-                    fill="#D4AF37"
-                  />
-
-                  <path
-                    d="m15.1 15-3-3 3-3 4.2 2.4c.8.5.8 1.1 0 1.6L15.1 15Z"
-                    fill="#B58C1B"
-                  />
-
-                  <path
-                    d="m3.3 2.5 8.8 9.5 3-3-10.1-5.8c-.7-.4-1.3-.7-1.7-.7Z"
-                    fill="#FCEABB"
-                  />
-
-                  <path
-                    d="m3.3 21.5 8.8-9.5 3 3L5 20.8c-.7.4-1.3.7-1.7.7Z"
-                    fill="#D4AF37"
-                  />
-
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.3 2.5c-.3.3-.5.8-.5 1.5v16c0 .7.2 1.2.5 1.5L12.1 12 3.3 2.5Z" fill="#D4AF37"/>
+                  <path d="m15.1 15-3-3 3-3 4.2 2.4c.8.5.8 1.1 0 1.6L15.1 15Z" fill="#B58C1B"/>
+                  <path d="m3.3 2.5 8.8 9.5 3-3-10.1-5.8c-.7-.4-1.3-.7-1.7-.7Z" fill="#FCEABB"/>
+                  <path d="m3.3 21.5 8.8-9.5 3 3L5 20.8c-.7.4-1.3.7-1.7.7Z" fill="#D4AF37"/>
                 </svg>
-
               </div>
-
               <div>
-
-                <small>
-                  AVAILABLE SOON ON
-                </small>
-
-                <strong>
-                  Google Play • Coming Soon
-                </strong>
-
+                <small>AVAILABLE SOON ON</small>
+                <strong>Google Play • Coming Soon</strong>
               </div>
-
             </div>
-
           </div>
-
         </div>
 
-
-        <!-- =====================================
-             BROWSER EXTENSION (REALISTIC LAPTOP)
-        ====================================== -->
-
-        <div
-          class="reveal"
-          style="margin-top:120px;"
-        >
-
-          <div
-            class="product-stage laptop-stage"
-            id="laptopStage"
-          >
-
-            <div
-              class="device-wrap laptop"
-              id="laptopDevice"
-              data-device="laptop"
-              role="button"
-              tabindex="0"
-              aria-label="MEVO Browser Extension preview"
-            >
-
+        <!-- BROWSER EXTENSION -->
+        <div class="reveal" style="margin-top:120px;">
+          <div class="product-stage laptop-stage" id="laptopStage">
+            <div class="device-wrap laptop" id="laptopDevice" data-device="laptop" role="button" tabindex="0" aria-label="MEVO Browser Extension preview">
               <div class="laptop-screen-shell">
-
                 <div class="laptop-screen">
-
                   <div class="screen-camera"></div>
-
-
                   <div class="browser-bar">
-
                     <span class="browser-dot"></span>
                     <span class="browser-dot"></span>
                     <span class="browser-dot"></span>
-
-                    <div class="address-bar">
-                      example-dapp.com
-                    </div>
-
+                    <div class="address-bar">example-dapp.com</div>
                   </div>
-
-
                   <div class="extension-ui">
-
                     <div class="extension-left">
-
                       <div class="extension-logo">
-
                         <div class="extension-logo-icon">
-
-                          <img
-                            src="logo.png"
-                            alt="MEVO"
-                          />
-
+                          <img src="logo.png" alt="MEVO" />
                         </div>
-
                         <div>
-
-                          <strong>
-                            MEVO SHIELD
-                          </strong>
-
-                          <span>
-                            Browser Security Layer
-                          </span>
-
+                          <strong>MEVO SHIELD</strong>
+                          <span>Browser Security Layer</span>
                         </div>
-
                       </div>
-
-
                       <div class="tx-preview">
-
-                        <div class="tx-preview-title">
-                          TRANSACTION REQUEST
-                        </div>
-
-                        <strong>
-                          Approve Token
-                        </strong>
-
+                        <div class="tx-preview-title">TRANSACTION REQUEST</div>
+                        <strong>Approve Token</strong>
                       </div>
-
-
                       <div class="tx-preview">
-
-                        <div class="tx-preview-title">
-                          CONTRACT
-                        </div>
-
-                        <strong>
-                          0x••••••••••••
-                        </strong>
-
+                        <div class="tx-preview-title">CONTRACT</div>
+                        <strong>0x••••••••••••</strong>
                       </div>
-
-
                       <div class="tx-preview">
-
-                        <div class="tx-preview-title">
-                          MEVO INSPECTION
-                        </div>
-
-                        <strong>
-                          Approval request detected
-                        </strong>
-
+                        <div class="tx-preview-title">MEVO INSPECTION</div>
+                        <strong>Approval request detected</strong>
                       </div>
-
-
-                      <button
-                        class="extension-action"
-                        type="button"
-                      >
-                        INSPECT BEFORE SIGN
-                      </button>
-
+                      <button class="extension-action" type="button">INSPECT BEFORE SIGN</button>
                     </div>
-
-
                     <div class="extension-right">
-
                       <div class="risk-card">
-
-                        <div class="risk-title">
-                          TRANSACTION STATUS
-                        </div>
-
-                        <strong>
-                          Inspection Required
-                        </strong>
-
-                        <div class="risk-status">
-                          PRE-EXECUTION
-                        </div>
-
+                        <div class="risk-title">TRANSACTION STATUS</div>
+                        <strong>Inspection Required</strong>
+                        <div class="risk-status">PRE-EXECUTION</div>
                       </div>
-
-
                       <div class="risk-card">
-
-                        <div class="risk-title">
-                          APPROVAL ANALYSIS
-                        </div>
-
-                        <strong>
-                          Permission Request
-                        </strong>
-
-                        <div class="risk-status">
-                          CHECKED
-                        </div>
-
+                        <div class="risk-title">APPROVAL ANALYSIS</div>
+                        <strong>Permission Request</strong>
+                        <div class="risk-status">CHECKED</div>
                       </div>
-
-
                       <div class="risk-card">
-
-                        <div class="risk-title">
-                          MEVO SECURITY
-                        </div>
-
-                        <strong>
-                          Protection Layer Ready
-                        </strong>
-
-                        <div class="risk-status">
-                          ACTIVE DESIGN
-                        </div>
-
+                        <div class="risk-title">MEVO SECURITY</div>
+                        <strong>Protection Layer Ready</strong>
+                        <div class="risk-status">ACTIVE DESIGN</div>
                       </div>
-
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
-
-
               <div class="laptop-base">
-
                 <div class="keyboard"></div>
                 <div class="trackpad"></div>
-
               </div>
-
             </div>
-
           </div>
-
 
           <!-- CHROME + MICROSOFT STORE -->
-
           <div class="store-row">
-
             <div class="store-badge">
-
               <div class="store-icon">
-
-                <!-- CHROME -->
-
-                <svg
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-
-                  <path
-                    d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"
-                    fill="none"
-                    stroke="#D4AF37"
-                    stroke-width="2"
-                  />
-
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="3.5"
-                    fill="#D4AF37"
-                  />
-
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" fill="none" stroke="#D4AF37" stroke-width="2"/>
+                  <circle cx="12" cy="12" r="3.5" fill="#D4AF37"/>
                 </svg>
-
               </div>
-
               <div>
-
-                <small>
-                  AVAILABLE SOON ON
-                </small>
-
-                <strong>
-                  Chrome Web Store • Coming Soon
-                </strong>
-
+                <small>AVAILABLE SOON ON</small>
+                <strong>Chrome Web Store • Coming Soon</strong>
               </div>
-
             </div>
-
 
             <div class="store-badge">
-
-              <div
-                class="store-icon microsoft-icon"
-                aria-label="Microsoft"
-              >
-
-                <!-- MICROSOFT FOUR-SQUARE LOGO -->
-
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-
+              <div class="store-icon microsoft-icon" aria-label="Microsoft">
+                <span></span><span></span><span></span><span></span>
               </div>
-
               <div>
-
-                <small>
-                  AVAILABLE SOON ON
-                </small>
-
-                <strong>
-                  Microsoft Store • Coming Soon
-                </strong>
-
+                <small>AVAILABLE SOON ON</small>
+                <strong>Microsoft Store • Coming Soon</strong>
               </div>
-
             </div>
-
           </div>
-
         </div>
 
       </div>
-
     </section>
 
 
     <!-- =========================================
-         EVM FIRST (UPGRADED LARGE LOOP)
+         EVM FIRST (ULTA MARQUEE)
     ========================================== -->
 
-    <section
-      id="evm"
-      class="evm-section"
-    >
-
+    <section id="evm" class="evm-section">
       <div class="container">
-
         <div class="section-heading reveal">
-
-          <div class="eyebrow">
-            PHASE 01
-          </div>
-
-          <h2>
-            EVM First.
-          </h2>
-
-          <p>
-            MEVO begins with EVM-compatible networks while the architecture
-            is designed for future multi-chain expansion.
-          </p>
-
+          <div class="eyebrow">PHASE 01</div>
+          <h2>EVM First.</h2>
+          <p>MEVO begins with EVM-compatible networks while the architecture is designed for future multi-chain expansion.</p>
         </div>
-
       </div>
-
 
       <div class="marquee reveal">
-
-        <div
-          class="marquee-track"
-          id="evmTrack"
-        >
-
+        <div class="marquee-track" id="evmTrack">
           <!-- SET 1 -->
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="eth.jpg"
-                alt="Ethereum"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Ethereum
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="base.jpg"
-                alt="Base"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Base
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="arb.jpg"
-                alt="Arbitrum"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Arbitrum
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="poly.jpg"
-                alt="Polygon"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Polygon
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="avax.jpg"
-                alt="Avalanche"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Avalanche
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
-
+          <div class="chain-card"><div class="chain-logo"><img src="eth.jpg" alt="Ethereum" loading="lazy"/></div><div><div class="chain-name">Ethereum</div><div class="chain-type">EVM Network</div></div></div>
+          <div class="chain-card"><div class="chain-logo"><img src="base.jpg" alt="Base" loading="lazy"/></div><div><div class="chain-name">Base</div><div class="chain-type">EVM Network</div></div></div>
+          <div class="chain-card"><div class="chain-logo"><img src="arb.jpg" alt="Arbitrum" loading="lazy"/></div><div><div class="chain-name">Arbitrum</div><div class="chain-type">EVM Network</div></div></div>
+          <div class="chain-card"><div class="chain-logo"><img src="poly.jpg" alt="Polygon" loading="lazy"/></div><div><div class="chain-name">Polygon</div><div class="chain-type">EVM Network</div></div></div>
+          <div class="chain-card"><div class="chain-logo"><img src="avax.jpg" alt="Avalanche" loading="lazy"/></div><div><div class="chain-name">Avalanche</div><div class="chain-type">EVM Network</div></div></div>
           <!-- SET 2 -->
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="eth.jpg"
-                alt="Ethereum"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Ethereum
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="base.jpg"
-                alt="Base"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Base
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="arb.jpg"
-                alt="Arbitrum"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Arbitrum
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="poly.jpg"
-                alt="Polygon"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Polygon
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="chain-card">
-
-            <div class="chain-logo">
-
-              <img
-                src="avax.jpg"
-                alt="Avalanche"
-                loading="lazy"
-              />
-
-            </div>
-
-            <div>
-
-              <div class="chain-name">
-                Avalanche
-              </div>
-
-              <div class="chain-type">
-                EVM Network
-              </div>
-
-            </div>
-
-          </div>
-
+          <div class="chain-card"><div class="chain-logo"><img src="eth.jpg" alt="Ethereum" loading="lazy"/></div><div><div class="chain-name">Ethereum</div><div class="chain-type">EVM Network</div></div></div>
+          <div class="chain-card"><div class="chain-logo"><img src="base.jpg" alt="Base" loading="lazy"/></div><div><div class="chain-name">Base</div><div class="chain-type">EVM Network</div></div></div>
+          <div class="chain-card"><div class="chain-logo"><img src="arb.jpg" alt="Arbitrum" loading="lazy"/></div><div><div class="chain-name">Arbitrum</div><div class="chain-type">EVM Network</div></div></div>
+          <div class="chain-card"><div class="chain-logo"><img src="poly.jpg" alt="Polygon" loading="lazy"/></div><div><div class="chain-name">Polygon</div><div class="chain-type">EVM Network</div></div></div>
+          <div class="chain-card"><div class="chain-logo"><img src="avax.jpg" alt="Avalanche" loading="lazy"/></div><div><div class="chain-name">Avalanche</div><div class="chain-type">EVM Network</div></div></div>
         </div>
-
       </div>
-
 
       <div class="container">
-
-        <p class="evm-note reveal">
-
-          Phase 1 focuses on EVM networks. Non-EVM chains are not part of
-          Phase 1, while the underlying architecture is being designed
-          with future multi-chain expansion in mind.
-
-        </p>
-
+        <p class="evm-note reveal">Phase 1 focuses on EVM networks. Non-EVM chains are not part of Phase 1, while the underlying architecture is being designed with future multi-chain expansion in mind.</p>
       </div>
-
     </section>
 
 
@@ -2683,181 +1868,47 @@
     ========================================== -->
 
     <section id="security">
-
       <div class="container">
-
         <div class="section-heading reveal">
-
-          <div class="eyebrow">
-            MEVO SECURITY CORE
-          </div>
-
-          <h2>
-            Inspect before danger becomes irreversible.
-          </h2>
-
-          <p>
-            The security core is being designed around transaction,
-            authorization and wallet-policy analysis.
-          </p>
-
+          <div class="eyebrow">MEVO SECURITY CORE</div>
+          <h2>Inspect before danger becomes irreversible.</h2>
+          <p>The security core is being designed around transaction, authorization and wallet-policy analysis.</p>
         </div>
-
 
         <div class="security-grid">
-
           <article class="security-card reveal">
-
             <div class="security-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-
-                <path
-                  d="M4 5h16M4 12h16M4 19h10"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-
-              </svg>
-
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
-
-            <h3>
-              Transaction Inspection
-            </h3>
-
-            <p>
-              Analyze transaction payloads and contract interactions
-              before the user authorizes execution.
-            </p>
-
+            <h3>Transaction Inspection</h3>
+            <p>Analyze transaction payloads and contract interactions before the user authorizes execution.</p>
           </article>
 
-
           <article class="security-card reveal">
-
             <div class="security-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-
-                <path
-                  d="M7 11V8a5 5 0 0 1 10 0v3"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-
-                <rect
-                  x="4"
-                  y="11"
-                  width="16"
-                  height="9"
-                  rx="2"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-
-              </svg>
-
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="2"/><rect x="4" y="11" width="16" height="9" rx="2" stroke="currentColor" stroke-width="2"/></svg>
             </div>
-
-            <h3>
-              Approval & Permit Protection
-            </h3>
-
-            <p>
-              Security analysis for dangerous approvals, permit-style
-              signatures and authorization requests.
-            </p>
-
+            <h3>Approval & Permit Protection</h3>
+            <p>Security analysis for dangerous approvals, permit-style signatures and authorization requests.</p>
           </article>
 
-
           <article class="security-card reveal">
-
             <div class="security-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-
-                <path
-                  d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linejoin="round"
-                />
-
-                <path
-                  d="m8.5 12 2.2 2.2 4.8-5"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-
-              </svg>
-
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.5 12 2.2 2.2 4.8-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-
-            <h3>
-              Drainer Detection
-            </h3>
-
-            <p>
-              Designed to identify suspicious contract behavior and
-              dangerous wallet-draining patterns before authorization.
-            </p>
-
+            <h3>Drainer Detection</h3>
+            <p>Designed to identify suspicious contract behavior and dangerous wallet-draining patterns before authorization.</p>
           </article>
 
-
           <article class="security-card reveal">
-
             <div class="security-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-
-                <path
-                  d="M12 3v18M3 12h18"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-
-              </svg>
-
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
-
-            <h3>
-              Policy-Based Protection
-            </h3>
-
-            <p>
-              Future wallet policies can define what actions require
-              stronger authorization and when protective restrictions apply.
-            </p>
-
+            <h3>Policy-Based Protection</h3>
+            <p>Future wallet policies can define what actions require stronger authorization and when protective restrictions apply.</p>
           </article>
-
         </div>
-
       </div>
-
     </section>
 
 
@@ -2866,158 +1917,22 @@
     ========================================== -->
 
     <section id="roadmap">
-
       <div class="container">
-
         <div class="section-heading reveal">
-
-          <div class="eyebrow">
-            DEVELOPMENT ROADMAP
-          </div>
-
-          <h2>
-            From native wallet to broader protection.
-          </h2>
-
-          <p>
-            The implementation can evolve without changing the core
-            MEVO security vision.
-          </p>
-
+          <div class="eyebrow">DEVELOPMENT ROADMAP</div>
+          <h2>From native wallet to broader protection.</h2>
+          <p>The implementation can evolve without changing the core MEVO security vision.</p>
         </div>
-
 
         <div class="roadmap">
-
-          <div class="roadmap-item reveal">
-
-            <div class="roadmap-dot">
-              01
-            </div>
-
-            <div class="roadmap-content">
-
-              <strong>
-                MEVO Wallet — EVM First
-              </strong>
-
-              <span>
-                Build the native MEVO wallet experience around security.
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="roadmap-item reveal">
-
-            <div class="roadmap-dot">
-              02
-            </div>
-
-            <div class="roadmap-content">
-
-              <strong>
-                Security Core
-              </strong>
-
-              <span>
-                Develop transaction, approval, signature and threat inspection.
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="roadmap-item reveal">
-
-            <div class="roadmap-dot">
-              03
-            </div>
-
-            <div class="roadmap-content">
-
-              <strong>
-                Protected Transfers
-              </strong>
-
-              <span>
-                Explore recipient confirmation and protected settlement flows.
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="roadmap-item reveal">
-
-            <div class="roadmap-dot">
-              04
-            </div>
-
-            <div class="roadmap-content">
-
-              <strong>
-                Advanced Protection
-              </strong>
-
-              <span>
-                Expand wallet policies, post-receipt protection and sensitive-operation security.
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="roadmap-item reveal">
-
-            <div class="roadmap-dot">
-              05
-            </div>
-
-            <div class="roadmap-content">
-
-              <strong>
-                Multi-chain
-              </strong>
-
-              <span>
-                Expand beyond EVM through modular chain adapters.
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="roadmap-item reveal">
-
-            <div class="roadmap-dot">
-              06
-            </div>
-
-            <div class="roadmap-content">
-
-              <strong>
-                Existing-wallet Integration
-              </strong>
-
-              <span>
-                Explore adapting MEVO security technology for existing wallets.
-              </span>
-
-            </div>
-
-          </div>
-
+          <div class="roadmap-item reveal"><div class="roadmap-dot">01</div><div class="roadmap-content"><strong>MEVO Wallet — EVM First</strong><span>Build the native MEVO wallet experience around security.</span></div></div>
+          <div class="roadmap-item reveal"><div class="roadmap-dot">02</div><div class="roadmap-content"><strong>Security Core</strong><span>Develop transaction, approval, signature and threat inspection.</span></div></div>
+          <div class="roadmap-item reveal"><div class="roadmap-dot">03</div><div class="roadmap-content"><strong>Protected Transfers</strong><span>Explore recipient confirmation and protected settlement flows.</span></div></div>
+          <div class="roadmap-item reveal"><div class="roadmap-dot">04</div><div class="roadmap-content"><strong>Advanced Protection</strong><span>Expand wallet policies, post-receipt protection and sensitive-operation security.</span></div></div>
+          <div class="roadmap-item reveal"><div class="roadmap-dot">05</div><div class="roadmap-content"><strong>Multi-chain</strong><span>Expand beyond EVM through modular chain adapters.</span></div></div>
+          <div class="roadmap-item reveal"><div class="roadmap-dot">06</div><div class="roadmap-content"><strong>Existing-wallet Integration</strong><span>Explore adapting MEVO security technology for existing wallets.</span></div></div>
         </div>
-
       </div>
-
     </section>
 
 
@@ -3026,99 +1941,36 @@
     ========================================== -->
 
     <section id="founder">
-
       <div class="container">
-
         <div class="section-heading reveal">
-
-          <div class="eyebrow">
-            THE LEADERSHIP
-          </div>
-
-          <h2>
-            Built with a security-first vision.
-          </h2>
-
+          <div class="eyebrow">THE LEADERSHIP</div>
+          <h2>Built with a security-first vision.</h2>
         </div>
 
-
-        <!-- Founder Card (Aman) -->
         <div class="founder-card reveal">
-
           <div class="founder-avatar">
-
-            <img
-              src="founder.png"
-              alt="Mohmmed Aman Nilgar"
-              loading="lazy"
-            />
-
+            <img src="founder.png" alt="Mohmmed Aman Nilgar" loading="lazy"/>
           </div>
-
-
           <div>
-
-            <div class="founder-role">
-              FOUNDER & LEAD ARCHITECT
-            </div>
-
-            <h3>
-              Mohmmed Aman Nilgar
-            </h3>
-
-            <div class="founder-sub">
-              Crypto Native Since 2019
-            </div>
-
-            <p>
-              Building MEVO around a simple principle:
-              security should happen before a dangerous wallet action
-              becomes irreversible.
-            </p>
-
+            <div class="founder-role">FOUNDER & LEAD ARCHITECT</div>
+            <h3>Mohmmed Aman Nilgar</h3>
+            <div class="founder-sub">Crypto Native Since 2019</div>
+            <p>Building MEVO around a simple principle: security should happen before a dangerous wallet action becomes irreversible.</p>
           </div>
-
         </div>
 
-
-        <!-- Co-Founder Card (Faizan Qureshi) -->
         <div class="founder-card reveal">
-
           <div class="founder-avatar">
-
-            <img
-              src="faizan.png"
-              alt="Mohmmed Faizan Qureshi"
-              loading="lazy"
-            />
-
+            <img src="faizan.png" alt="Mohmmed Faizan Qureshi" loading="lazy"/>
           </div>
-
-
           <div>
-
-            <div class="founder-role">
-              CO-FOUNDER & MARKETING / GROWTH
-            </div>
-
-            <h3>
-              Mohmmed Faizan Qureshi
-            </h3>
-
-            <div class="founder-sub">
-              Crypto Native Since 2019
-            </div>
-
-            <p>
-              Driving MEVO's marketing, community expansion, and strategic growth to scale proactive Web3 security worldwide.
-            </p>
-
+            <div class="founder-role">CO-FOUNDER & MARKETING / GROWTH</div>
+            <h3>Mohmmed Faizan Qureshi</h3>
+            <div class="founder-sub">Crypto Native Since 2019</div>
+            <p>Driving MEVO's marketing, community expansion, and strategic growth to scale proactive Web3 security worldwide.</p>
           </div>
-
         </div>
-
       </div>
-
     </section>
 
 
@@ -3127,56 +1979,18 @@
     ========================================== -->
 
     <section id="waitlist">
-
       <div class="container">
-
         <div class="waitlist-box reveal">
-
-          <div class="eyebrow">
-            EARLY ACCESS
-          </div>
-
-          <h2>
-            Be part of MEVO from the beginning.
-          </h2>
-
-          <p style="color:var(--muted); margin-top:12px;">
-            Join the early-access list for product updates and future
-            testnet opportunities.
-          </p>
-
-
-          <form
-            class="waitlist-form"
-            id="waitlistForm"
-          >
-
-            <input
-              type="email"
-              id="emailInput"
-              placeholder="Enter your email"
-              required
-            />
-
-            <button
-              type="submit"
-              class="btn btn-primary"
-            >
-              Join Waitlist
-            </button>
-
+          <div class="eyebrow">EARLY ACCESS</div>
+          <h2>Be part of MEVO from the beginning.</h2>
+          <p style="color:var(--muted); margin-top:12px;">Join the early-access list for product updates and future testnet opportunities.</p>
+          <form class="waitlist-form" id="waitlistForm">
+            <input type="email" id="emailInput" placeholder="Enter your email" required/>
+            <button type="submit" class="btn btn-primary">Join Waitlist</button>
           </form>
-
-
-          <div
-            class="waitlist-message"
-            id="waitlistMessage"
-          ></div>
-
+          <div class="waitlist-message" id="waitlistMessage"></div>
         </div>
-
       </div>
-
     </section>
 
 
@@ -3185,100 +1999,20 @@
     ========================================== -->
 
     <section>
-
       <div class="container">
-
         <div class="section-heading reveal">
-
-          <div class="eyebrow">
-            FAQ
-          </div>
-
-          <h2>
-            About MEVO.
-          </h2>
-
+          <div class="eyebrow">FAQ</div>
+          <h2>About MEVO.</h2>
         </div>
-
 
         <div class="faq">
-
-          <details class="reveal">
-
-            <summary>
-              What is MEVO?
-            </summary>
-
-            <p>
-              MEVO is a security-first crypto wallet architecture focused
-              on proactive protection before users authorize dangerous
-              blockchain actions.
-            </p>
-
-          </details>
-
-
-          <details class="reveal">
-
-            <summary>
-              What is MEVO building first?
-            </summary>
-
-            <p>
-              Phase 1 focuses on a native MEVO Wallet for EVM-compatible
-              networks.
-            </p>
-
-          </details>
-
-
-          <details class="reveal">
-
-            <summary>
-              What can MEVO inspect?
-            </summary>
-
-            <p>
-              The security architecture is being designed to inspect
-              transaction payloads, contract interactions, approvals,
-              permit-style signatures and suspicious authorization requests.
-            </p>
-
-          </details>
-
-
-          <details class="reveal">
-
-            <summary>
-              Is MEVO available now?
-            </summary>
-
-            <p>
-              MEVO is currently in development. The wallet and browser
-              extension shown on this website are presented as future products.
-            </p>
-
-          </details>
-
-
-          <details class="reveal">
-
-            <summary>
-              Which chains are supported?
-            </summary>
-
-            <p>
-              Phase 1 is EVM-first, including networks such as Ethereum,
-              Base, Arbitrum, Polygon and Avalanche. Non-EVM chains are
-              planned for future expansion.
-            </p>
-
-          </details>
-
+          <details class="reveal"><summary>What is MEVO?</summary><p>MEVO is a security-first crypto wallet architecture focused on proactive protection before users authorize dangerous blockchain actions.</p></details>
+          <details class="reveal"><summary>What is MEVO building first?</summary><p>Phase 1 focuses on a native MEVO Wallet for EVM-compatible networks.</p></details>
+          <details class="reveal"><summary>What can MEVO inspect?</summary><p>The security architecture is being designed to inspect transaction payloads, contract interactions, approvals, permit-style signatures and suspicious authorization requests.</p></details>
+          <details class="reveal"><summary>Is MEVO available now?</summary><p>MEVO is currently in development. The wallet and browser extension shown on this website are presented as future products.</p></details>
+          <details class="reveal"><summary>Which chains are supported?</summary><p>Phase 1 is EVM-first, including networks such as Ethereum, Base, Arbitrum, Polygon and Avalanche. Non-EVM chains are planned for future expansion.</p></details>
         </div>
-
       </div>
-
     </section>
 
   </main>
@@ -3289,121 +2023,29 @@
   ========================================== -->
 
   <footer>
-
     <div class="container">
-
       <div class="footer-top">
-
         <div>
-
           <a href="#top" class="brand">
-
-            <div class="brand-mark">
-
-              <img
-                src="logo.png"
-                alt="MEVO SHIELD"
-              />
-
-            </div>
-
-            <span>
-              MEVO SHIELD
-            </span>
-
+            <div class="brand-mark"><img src="logo.png" alt="MEVO SHIELD" /></div>
+            <span>MEVO SHIELD</span>
           </a>
-
-          <div class="footer-copy">
-            Proactive security for crypto wallets.
-          </div>
-
+          <div class="footer-copy">Proactive security for crypto wallets.</div>
         </div>
-
-
         <div class="socials">
-
-          <!-- X -->
-
-          <a
-            id="mevoX"
-            class="social"
-            href="https://x.com/MEVO_SHIELD"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="MEVO on X"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-
-              <path
-                d="M18.9 2H22l-6.77 7.74L23.2 22h-6.25l-4.9-6.4L6.45 22H3.34l7.24-8.28L2.8 2h6.4l4.43 5.86L18.9 2Zm-1.1 17.9h1.73L8.3 3.98H6.45L17.8 19.9Z"
-              />
-
-            </svg>
-
+          <a id="mevoX" class="social" href="https://x.com/MEVO_SHIELD" target="_blank" rel="noopener noreferrer" aria-label="MEVO on X">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.25l-4.9-6.4L6.45 22H3.34l7.24-8.28L2.8 2h6.4l4.43 5.86L18.9 2Zm-1.1 17.9h1.73L8.3 3.98H6.45L17.8 19.9Z"/></svg>
           </a>
-
-
-          <!-- DISCORD -->
-
-          <div
-            class="social"
-            aria-label="Discord — Community coming soon"
-            title="Discord — Community coming soon"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-
-              <path
-                d="M19.5 5.1A16.5 16.5 0 0 0 15.4 3.8l-.5 1a15.1 15.1 0 0 0-5.8 0l-.5-1A16.5 16.5 0 0 0 4.5 5.1C1.9 9 1.2 12.8 1.5 16.5a16.5 16.5 0 0 0 5 2.5l1.2-1.7c-.7-.3-1.4-.7-2-1.1l.5-.4c3.9 1.8 8.1 1.8 12 0l.5.4c-.6.4-1.3.8-2 1.1l1.2 1.7a16.5 16.5 0 0 0 5-2.5c.4-4.3-.7-8.1-3.4-11.4ZM8.5 14.2c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm7 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"
-              />
-
-            </svg>
-
+          <div class="social" aria-label="Discord — Community coming soon" title="Discord — Community coming soon">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.5 5.1A16.5 16.5 0 0 0 15.4 3.8l-.5 1a15.1 15.1 0 0 0-5.8 0l-.5-1A16.5 16.5 0 0 0 4.5 5.1C1.9 9 1.2 12.8 1.5 16.5a16.5 16.5 0 0 0 5 2.5l1.2-1.7c-.7-.3-1.4-.7-2-1.1l.5-.4c3.9 1.8 8.1 1.8 12 0l.5.4c-.6.4-1.3.8-2 1.1l1.2 1.7a16.5 16.5 0 0 0 5-2.5c.4-4.3-.7-8.1-3.4-11.4ZM8.5 14.2c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm7 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>
           </div>
-
-
-          <!-- TELEGRAM -->
-
-          <div
-            class="social"
-            aria-label="Telegram — Community coming soon"
-            title="Telegram — Community coming soon"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-
-              <path
-                d="M21.6 3.2 2.9 10.4c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.4c.2.6.1.8.8.8.5 0 .7-.2 1-.5 1l2.4-2.3 5 3.7c.9.5 1.5.3 1.7-.8l3.2-15.1c.3-1.3-.5-1.9-1.7-1.4ZM8.2 13l10.8-6.8c.5-.3 1-.2.6.1l-8.8 7.9-.3 3.2L9 13.7 8.2 13Z"
-              />
-
-            </svg>
-
+          <div class="social" aria-label="Telegram — Community coming soon" title="Telegram — Community coming soon">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21.6 3.2 2.9 10.4c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.4c.2.6.1.8.8.8.5 0 .7-.2 1-.5 1l2.4-2.3 5 3.7c.9.5 1.5.3 1.7-.8l3.2-15.1c.3-1.3-.5-1.9-1.7-1.4ZM8.2 13l10.8-6.8c.5-.3 1-.2.6.1l-8.8 7.9-.3 3.2L9 13.7 8.2 13Z"/></svg>
           </div>
-
         </div>
-
       </div>
-
-
-      <div class="footer-bottom">
-        © 2026 MEVO SHIELD. MEVO is currently in development.
-      </div>
-
+      <div class="footer-bottom">© 2026 MEVO SHIELD. MEVO is currently in development.</div>
     </div>
-
   </footer>
 
 
@@ -3412,19 +2054,9 @@
   ========================================== -->
 
   <script>
-
-    /*
-      =====================================================
-      MEVO ASSETS
-      =====================================================
-    */
-
     const MEVO_ASSETS = {
-
       logo: "logo.png",
-
       founder: "founder.png",
-
       evm: {
         ethereum: "eth.jpg",
         base: "base.jpg",
@@ -3432,358 +2064,104 @@
         polygon: "poly.jpg",
         avalanche: "avax.jpg"
       }
-
     };
 
+    const MEVO_X_URL = "https://x.com/MEVO_SHIELD";
+    document.getElementById("mevoX").href = MEVO_X_URL;
 
-    const MEVO_X_URL =
-      "https://x.com/MEVO_SHIELD";
+    document.querySelectorAll('img[alt="MEVO SHIELD"], img[alt="MEVO"]').forEach(img => {
+      if (img.alt === "MEVO SHIELD" || img.alt === "MEVO") {
+        img.src = MEVO_ASSETS.logo;
+      }
+    });
 
-
-    document.getElementById("mevoX").href =
-      MEVO_X_URL;
-
-
-    /*
-      =====================================================
-      APPLY MEVO LOGO
-      =====================================================
-    */
-
-    document
-      .querySelectorAll(
-        'img[alt="MEVO SHIELD"], img[alt="MEVO"]'
-      )
-      .forEach(img => {
-
-        if (
-          img.alt === "MEVO SHIELD" ||
-          img.alt === "MEVO"
-        ) {
-
-          img.src = MEVO_ASSETS.logo;
-
-        }
-
-      });
-
-
-    /*
-      =====================================================
-      APPLY FOUNDER IMAGE
-      =====================================================
-    */
-
-    const founderImage =
-      document.querySelector(
-        '.founder-avatar img'
-      );
-
+    const founderImage = document.querySelector('.founder-avatar img');
     if (founderImage) {
-
-      founderImage.src =
-        MEVO_ASSETS.founder;
-
+      founderImage.src = MEVO_ASSETS.founder;
     }
-
-
-    /*
-      =====================================================
-      APPLY EVM LOGOS
-      =====================================================
-    */
 
     const evmImageMap = {
-
-      ethereum:
-        MEVO_ASSETS.evm.ethereum,
-
-      base:
-        MEVO_ASSETS.evm.base,
-
-      arbitrum:
-        MEVO_ASSETS.evm.arbitrum,
-
-      polygon:
-        MEVO_ASSETS.evm.polygon,
-
-      avalanche:
-        MEVO_ASSETS.evm.avalanche
-
+      ethereum: MEVO_ASSETS.evm.ethereum,
+      base: MEVO_ASSETS.evm.base,
+      arbitrum: MEVO_ASSETS.evm.arbitrum,
+      polygon: MEVO_ASSETS.evm.polygon,
+      avalanche: MEVO_ASSETS.evm.avalanche
     };
 
+    document.querySelectorAll(".chain-card").forEach(card => {
+      const name = card.querySelector(".chain-name")?.textContent?.trim()?.toLowerCase();
+      const image = card.querySelector("img");
+      if (image && name && evmImageMap[name]) {
+        image.src = evmImageMap[name];
+      }
+    });
 
-    document
-      .querySelectorAll(".chain-card")
-      .forEach(card => {
+    document.querySelectorAll(".chain-logo img").forEach(img => {
+      img.addEventListener("error", () => {
+        img.style.display = "none";
+        const parent = img.parentElement;
+        parent.style.display = "grid";
+        parent.style.placeItems = "center";
+        parent.innerHTML = '<span style="font-weight:900;color:#D4AF37;font-size:11px;">EVM</span>';
+      });
+    });
 
-        const name =
-          card
-            .querySelector(".chain-name")
-            ?.textContent
-            ?.trim()
-            ?.toLowerCase();
-
-        const image =
-          card.querySelector("img");
-
-        if (
-          image &&
-          name &&
-          evmImageMap[name]
-        ) {
-
-          image.src =
-            evmImageMap[name];
-
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
         }
-
       });
+    }, { threshold: 0.12 });
 
-
-    /*
-      =====================================================
-      IMAGE FALLBACK
-      =====================================================
-    */
-
-    document
-      .querySelectorAll(".chain-logo img")
-      .forEach(img => {
-
-        img.addEventListener(
-          "error",
-          () => {
-
-            img.style.display =
-              "none";
-
-            const parent =
-              img.parentElement;
-
-            parent.style.display =
-              "grid";
-
-            parent.style.placeItems =
-              "center";
-
-            parent.innerHTML =
-              '<span style="font-weight:900;color:#D4AF37;font-size:11px;">EVM</span>';
-
-          }
-        );
-
-      });
-
-
-    /*
-      =====================================================
-      SCROLL REVEAL
-      =====================================================
-    */
-
-    const revealObserver =
-      new IntersectionObserver(
-
-        (entries, observer) => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add(
-                "is-visible"
-              );
-
-              observer.unobserve(
-                entry.target
-              );
-
-            }
-
-          });
-
-        },
-
-        {
-          threshold: 0.12
-        }
-
-      );
-
-
-    document
-      .querySelectorAll(".reveal")
-      .forEach(element => {
-
-        revealObserver.observe(
-          element
-        );
-
-      });
-
-
-    /*
-      =====================================================
-      DEVICE SHAKE ONLY
-      =====================================================
-    */
+    document.querySelectorAll(".reveal").forEach(element => {
+      revealObserver.observe(element);
+    });
 
     function setupShakeDevice(element) {
-
       if (!element) return;
-
-
       function triggerShake() {
-
-        element.classList.remove(
-          "shake"
-        );
-
+        element.classList.remove("shake");
         void element.offsetWidth;
-
-        element.classList.add(
-          "shake"
-        );
-
-        if (
-          "vibrate" in navigator &&
-          typeof navigator.vibrate === "function"
-        ) {
-
-          try {
-
-            navigator.vibrate([
-              25,
-              35,
-              25
-            ]);
-
-          } catch (e) {}
-
+        element.classList.add("shake");
+        if ("vibrate" in navigator && typeof navigator.vibrate === "function") {
+          try { navigator.vibrate([25, 35, 25]); } catch (e) {}
         }
-
       }
-
-
-      element.addEventListener(
-        "click",
-        triggerShake
-      );
-
-
-      element.addEventListener(
-        "keydown",
-        event => {
-
-          if (
-            event.key === "Enter" ||
-            event.key === " "
-          ) {
-
-            event.preventDefault();
-
-            triggerShake();
-
-          }
-
+      element.addEventListener("click", triggerShake);
+      element.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          triggerShake();
         }
-      );
-
-
-      element.addEventListener(
-        "animationend",
-        () => {
-
-          element.classList.remove(
-            "shake"
-          );
-
-        }
-      );
-
+      });
+      element.addEventListener("animationend", () => {
+        element.classList.remove("shake");
+      });
     }
 
+    setupShakeDevice(document.getElementById("phoneDevice"));
+    setupShakeDevice(document.getElementById("laptopDevice"));
 
-    setupShakeDevice(
-      document.getElementById(
-        "phoneDevice"
-      )
-    );
+    const waitlistForm = document.getElementById("waitlistForm");
+    const emailInput = document.getElementById("emailInput");
+    const waitlistMessage = document.getElementById("waitlistMessage");
 
+    waitlistForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const email = emailInput.value.trim();
+      if (!email) return;
+      waitlistMessage.textContent = "You're on the MEVO early-access list.";
+      emailInput.value = "";
+    });
 
-    setupShakeDevice(
-      document.getElementById(
-        "laptopDevice"
-      )
-    );
-
-
-    /*
-      =====================================================
-      WAITLIST
-      =====================================================
-    */
-
-    const waitlistForm =
-      document.getElementById(
-        "waitlistForm"
-      );
-
-    const emailInput =
-      document.getElementById(
-        "emailInput"
-      );
-
-    const waitlistMessage =
-      document.getElementById(
-        "waitlistMessage"
-      );
-
-
-    waitlistForm.addEventListener(
-      "submit",
-      function(event) {
-
-        event.preventDefault();
-
-        const email =
-          emailInput.value.trim();
-
-        if (!email) return;
-
-        waitlistMessage.textContent =
-          "You're on the MEVO early-access list.";
-
-        emailInput.value = "";
-
-      }
-    );
-
-
-    /*
-      =====================================================
-      PREVENT IMAGE DRAGGING
-      =====================================================
-    */
-
-    document
-      .querySelectorAll("img")
-      .forEach(img => {
-
-        img.addEventListener(
-          "dragstart",
-          event =>
-            event.preventDefault()
-        );
-
-      });
-
+    document.querySelectorAll("img").forEach(img => {
+      img.addEventListener("dragstart", event => event.preventDefault());
+    });
   </script>
 
-
   <style>
-
     .microsoft-icon {
       display: grid;
       grid-template-columns: repeat(2, 9px);
@@ -3791,14 +2169,12 @@
       gap: 2px;
       place-content: center;
     }
-
     .microsoft-icon span {
       display: block;
       width: 9px;
       height: 9px;
-      background: #D4AF37; /* Microsoft logo Gold color */
+      background: #D4AF37;
     }
-
   </style>
 
 </body>
