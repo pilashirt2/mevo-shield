@@ -80,14 +80,35 @@
     }
     .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
     .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -0.5px; font-size: 20px; }
-    .brand-mark {
-      width: 42px; height: 42px; border-radius: 50%; position: relative;
-      background: #070c14; border: 1.5px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 0 16px rgba(212, 175, 55, 0.45); overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .brand-mark:hover { box-shadow: 0 0 24px rgba(212, 175, 55, 0.6); border-color: rgba(212, 175, 55, 0.8); transform: rotate(-180deg) scale(1.1); }
-    .brand-mark img { position: absolute; width: 115%; height: 115%; object-fit: contain; top: 47%; left: 50%; transform: translate(-50%, -50%); display: block; }
+ .brand-mark {
+  width: 46px; 
+  height: 46px;
+  border-radius: 14px; /* Circle (50%) ki jagah 14px rounded square */
+  position: relative;
+  background: #070c14;
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.45);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brand-mark:hover {
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.6);
+  border-color: rgba(212, 175, 55, 0.8);
+  transform: rotate(-15deg) scale(1.08);
+}
+
+.brand-mark img {
+  width: 100%; 
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 2px;
+  /* Purana 'position: absolute' aur 'transform' hata diya */
+}
     .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; color: var(--muted); font-weight: 600; }
     .nav-links a:hover { color: var(--blue-dark); }
     .nav-status {
