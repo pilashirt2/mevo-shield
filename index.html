@@ -80,34 +80,39 @@
     }
     .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
     .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -0.5px; font-size: 20px; }
- .brand-mark {
-  width: 46px; 
-  height: 46px;
-  border-radius: 14px; /* Circle (50%) ki jagah 14px rounded square */
+.brand-mark {
+  width: 48px; 
+  height: 48px;
+  border-radius: 14px; /* Rounded square */
   position: relative;
-  background: #070c14;
-  border: 1.5px solid rgba(212, 175, 55, 0.5);
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.45);
-  overflow: hidden;
+  background: #ffffff; /* White background */
+  border: 1.5px solid rgba(212, 175, 55, 0.6); /* Gold border */
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+  overflow: hidden; /* Ye zaroori hai, taaki zoom karne pe extra hissa cut ho jaye */
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s ease;
 }
 
 .brand-mark:hover {
-  box-shadow: 0 0 24px rgba(212, 175, 55, 0.6);
-  border-color: rgba(212, 175, 55, 0.8);
-  transform: rotate(-15deg) scale(1.08);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  border-color: rgba(212, 175, 55, 0.9);
+  transform: scale(1.05);
 }
 
 .brand-mark img {
   width: 100%; 
   height: 100%;
-  object-fit: contain;
+  object-fit: cover; /* Image ko box ke hisaab se fill karega */
   display: block;
-  padding: 2px;
-  /* Purana 'position: absolute' aur 'transform' hata diya */
+  transform: scale(1.5); /* YAHAN ZOOM KIYA HAI (1.5x) */
+  transition: transform 0.4s ease;
+}
+
+/* Optional: Hover pe thoda aur zoom */
+.brand-mark:hover img {
+  transform: scale(1.6);
 }
     .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; color: var(--muted); font-weight: 600; }
     .nav-links a:hover { color: var(--blue-dark); }
